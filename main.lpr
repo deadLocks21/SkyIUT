@@ -2,7 +2,7 @@ program main;
 
 {$codepage utf8}
 
-uses unitEcran, unitAffichage, typesDuJeu;
+uses unitEcran, unitAffichage, typesDuJeu, unitMenuCreationPersonnage;
 
 
 var
@@ -14,10 +14,13 @@ var
 
 
 begin
-  affMenuInitiale(qF);
+  {affMenuInitiale(qF);
 
   if qF = 'exit' then ctn := False;
-  if qF = 'n' then affMenuCreationPersonnage(joueur);
+  if qF = 'n' then affMenuCreationPersonnage(joueur);}
 
+  creerPersonnage(joueur, 'deadLocks21', 1);
+
+  affMenuJeu(joueur);
 end.
 

@@ -14,7 +14,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses unitEcran, unitMenuInitiale, unitMenuCreationPersonnage, typesDuJeu;
+uses unitEcran, unitMenuInitiale, unitMenuCreationPersonnage, unitMenuJeu, typesDuJeu, sysutils;
 
 
 
@@ -84,17 +84,60 @@ end;
 (*Affiche un texte sur plusieurs ligne si nécessaire.*)
 procedure affTexte(t : String);
 var
-  i, len : Integer;
+  i, len, y, e, f, n, c : Integer;
   pos : coordonnees;
+  ch : String;
 
 begin
+  t := t + ' ';
   len := Length(t);
+  i := 0;
+  y := 13;
+  n := 190;
 
-  if len <= 190 then
+  //Write('i=',IntToStr(i), '  len=',IntToStr(len));
+  //Write(i <> len);
+  changerLigneCurseur(13);
+  changerColonneCurseur(4);
+
+  while (i <> len) do
     begin
-      pos.x := 4;
-      pos.y := 13;
-      ecrireEnPosition(pos, t);
+      i := i + 1;
+      f := i + n;
+      c := i;
+      ch := '';
+
+      while ((c <> f) AND (c <> len + 1)) do
+        begin
+          ch := ch + t[c];
+          c := c + 1;
+        end;
+
+       c := c - 1;
+
+      while t[c] <> ' ' do
+        begin
+          c := c - 1;
+        end;
+
+      ch := '';
+
+      for e := i to c do
+        begin
+          Sleep(10);
+          Write(t[e]);
+          //ch := ch + t[e];
+        end;
+
+      i := c;
+
+
+      y := y + 1;
+      changerLigneCurseur(y);
+      changerColonneCurseur(4);
+      //pos.x := 4;
+      //pos.y := y;
+      //ecrireEnPosition(pos, ch);
     end;
 end;
 
@@ -159,7 +202,13 @@ end;
 procedure affMenuJeu(var p : Personnage);
 begin
   initConsole();
+  initCadreHautMJ(p);
+  initCadreBasMJ();
+  //affTexte('abc abc abc');
 
+  affTexte('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque risus eget enim porttitor, quis mattis tellus luctus. Mauris a justo sed sem congue pretium vitae quis elit. Curabitur tincidunt ultricies mattis. Ut lectus dui, accumsan at commodo sed, finibus quis erat. Pellentesque volutpat nibh orci, non ultrices turpis finibus lobortis. Praesent eget justo vel erat finibus maximus et et elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla malesuada fringilla efficitur. ');
+
+  ReadLn()
 end;
 
 end.

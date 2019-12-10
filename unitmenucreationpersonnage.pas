@@ -52,7 +52,7 @@ function confirmationMCP() : Boolean;
 (*Initialise le nom des races dans la liste des races*)
 procedure initRace(var r : TypeRace);
 
-(*Retourne un type personnage en fonction de la race renseigné.*)
+(*modifie la variable de type personnage en fonction de la race et du nom renseigné.*)
 procedure creerPersonnage(var p : Personnage; nom : String; race : Integer);
 
 

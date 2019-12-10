@@ -28,6 +28,8 @@ uses unitEcran;
     (*                                                                 *)
     (*#################################################################*)
 
+(*Affiche les alternatives de choix du menu initiale*)
+procedure affichageTextesMI();
 
 
 implementation
@@ -41,6 +43,14 @@ implementation
 (*   ###  #   #  #     ####  ####  #   #  ####  #  #    #    #  #    #    ###   ##   #  #  *)
 (*                                                                                         *)
 (*#########################################################################################*)
+
+(*Affiche les alternatives de choix du menu initiale*)
+procedure affichageTextesMI();
+begin
+  centrerTexte('1/ Nouvelle partie', 28, 100);
+  centrerTexte('2/ Quitter', 30, 100);
+  centrerTexte('Que voulez-vous faire ?', 48, 100);
+end;
 
 end.
 

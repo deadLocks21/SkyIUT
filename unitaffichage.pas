@@ -14,7 +14,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses unitEcran, unitMenuInitiale, unitMenuCreationPersonnage;
+uses unitEcran, unitMenuInitiale, unitMenuCreationPersonnage, typesDuJeu;
 
 
 
@@ -34,6 +34,9 @@ procedure initConsole();
 (*Attend une réponse de la part de l'utilisateur.*)
 function jeVeuxUneReponse() : String;
 
+(*Affiche un texte sur plusieurs ligne si nécessaire.*)
+procedure affTexte(t : String);
+
 
 
 
@@ -41,7 +44,10 @@ function jeVeuxUneReponse() : String;
 procedure affMenuInitiale(var qF : String);
 
 (*Procedure qui modifie qF en fonction du choix de l'utilisateur, soit il ferme le jeu, soit il démare une nouvelle partie.*)
-procedure affMenuCreationPersonnage(var qF : String);
+procedure affMenuCreationPersonnage(var joueur : Personnage);
+
+(*Procedure qui affiche la fenetre de jeu principale.*)
+procedure affMenuJeu(var p : Personnage);
 
 
 
@@ -75,6 +81,22 @@ begin
   jeVeuxUneReponse:=rep;
 end;
 
+(*Affiche un texte sur plusieurs ligne si nécessaire.*)
+procedure affTexte(t : String);
+var
+  i, len : Integer;
+  pos : coordonnees;
+
+begin
+  len := Length(t);
+
+  if len <= 190 then
+    begin
+      pos.x := 4;
+      pos.y := 13;
+      ecrireEnPosition(pos, t);
+    end;
+end;
 
 
 
@@ -102,7 +124,7 @@ begin
 end;
 
 (*Procedure qui modifie qF en fonction du choix de l'utilisateur, soit il ferme le jeu, soit il démare une nouvelle partie.*)
-procedure affMenuCreationPersonnage(var qF : String);
+procedure affMenuCreationPersonnage(var joueur : Personnage);
 var
   ctn : Boolean;
   nom : String;
@@ -129,6 +151,15 @@ begin
 
       ctn := confirmationMCP();
     end;
+
+  creerPersonnage(joueur, nom, race);
+end;
+
+(*Procedure qui affiche la fenetre de jeu principale.*)
+procedure affMenuJeu(var p : Personnage);
+begin
+  initConsole();
+
 end;
 
 end.

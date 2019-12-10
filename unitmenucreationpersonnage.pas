@@ -13,7 +13,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses unitEcran, sysutils;
+uses unitEcran, sysutils, typesDuJeu;
 
 
 
@@ -46,6 +46,14 @@ function choixRaceMCP() : Integer;
 
 (*Demande au joueur s'il veut lancer et retourne sa réponse (FALSE si oui et vice versa).*)
 function confirmationMCP() : Boolean;
+
+
+
+(*Initialise le nom des races dans la liste des races*)
+procedure initRace(var r : TypeRace);
+
+(*Retourne un type personnage en fonction de la race renseigné.*)
+procedure creerPersonnage(var p : Personnage; nom : String; race : Integer);
 
 
 
@@ -145,6 +153,87 @@ begin
     res := TRUE;
 
   confirmationMCP := res;
+end;
+
+
+
+(*Initialise le nom des races dans la liste des races*)
+procedure initRace(var r : TypeRace);
+begin
+  r[1] := 'Altmer';
+  r[2] := 'Argonien';
+  r[3] :=  'Bosmer';
+  r[4] :=  'Breton';
+  r[5] :=  'Dunmer';
+  r[6] :=  'Imperial';
+  r[7] :=  'Khajit';
+  r[8] :=  'Nordique';
+  r[9] :=  'Orsimer';
+  r[10] :=  'Rougegarde';
+end;
+
+(*Retourne un type personnage en fonction de la race renseigné.*)
+procedure creerPersonnage(var p : Personnage; nom : String; race : Integer);
+var
+  i : Integer;
+  e : TypeNomEquipement;
+  tabInv : Inventaire;
+  tabEquip : Equipement;
+  racesNom : TypeRace;
+
+begin
+  p.nom:=nom;
+  initRace(racesNom);
+
+
+  case race of
+    1: p.race:=racesNom[1];
+    2: p.race:=racesNom[2];
+    3: p.race:=racesNom[3];
+    4: p.race:=racesNom[4];
+    5: p.race:=racesNom[5];
+    6: p.race:=racesNom[6];
+    7: p.race:=racesNom[7];
+    8: p.race:=racesNom[8];
+    9: p.race:=racesNom[9];
+    10: p.race:=racesNom[10];
+  end;
+
+
+  case race of
+    1: p.vie.max:=80;
+    2: p.vie.max:=120;
+    3: p.vie.max:=100;
+    4: p.vie.max:=80;
+    5: p.vie.max:=100;
+    6: p.vie.max:=100;
+    7: p.vie.max:=80;
+    8: p.vie.max:=120;
+    9: p.vie.max:=140;
+    10: p.vie.max:=120;
+  end;
+
+  p.vie.actuelle:=p.vie.max;
+
+
+  p.gold:=500;
+
+
+  for i:=1 to 12 do
+    tabInv[i] := '';
+
+  p.inv := tabInv;
+
+
+
+  for e := arme to plastron do
+    tabEquip[e]:= '';
+
+  p.equip:= tabEquip;
+
+  p.quete:= 1;
+
+  p.lieu:='a';
 end;
 
 end.

@@ -14,6 +14,7 @@ var
 
 
 begin
+  ctn := True;
   {affMenuInitiale(qF);
 
   if qF = 'exit' then ctn := False;
@@ -21,6 +22,16 @@ begin
 
   creerPersonnage(joueur, 'deadLocks21', 1);
 
-  affMenuJeu(joueur);
+  while ctn do
+    begin
+      affMenuJeu(joueur, qF);
+
+      case qF of
+        'exit' : ctn := False;
+        //'Inventaire' := Ouvrir Menu Inventaire;
+        //'Quete' := Ouvrir Menu Quete;
+        //'Magasin' := Ouvrir Menu Magasin;
+      end;
+    end;
 end.
 

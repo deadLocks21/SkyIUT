@@ -34,9 +34,6 @@ procedure initConsole();
 (*Attend une réponse de la part de l'utilisateur.*)
 function jeVeuxUneReponse() : String;
 
-(*Affiche un texte sur plusieurs ligne si nécessaire.*)
-procedure affTexte(t : String);
-
 
 
 
@@ -47,7 +44,7 @@ procedure affMenuInitiale(var qF : String);
 procedure affMenuCreationPersonnage(var joueur : Personnage);
 
 (*Procedure qui affiche la fenetre de jeu principale.*)
-procedure affMenuJeu(var p : Personnage);
+procedure affMenuJeu(var p : Personnage; var rep : String);
 
 
 
@@ -81,65 +78,6 @@ begin
   jeVeuxUneReponse:=rep;
 end;
 
-(*Affiche un texte sur plusieurs ligne si nécessaire.*)
-procedure affTexte(t : String);
-var
-  i, len, y, e, f, n, c : Integer;
-  pos : coordonnees;
-  ch : String;
-
-begin
-  t := t + ' ';
-  len := Length(t);
-  i := 0;
-  y := 13;
-  n := 190;
-
-  //Write('i=',IntToStr(i), '  len=',IntToStr(len));
-  //Write(i <> len);
-  changerLigneCurseur(13);
-  changerColonneCurseur(4);
-
-  while (i <> len) do
-    begin
-      i := i + 1;
-      f := i + n;
-      c := i;
-      ch := '';
-
-      while ((c <> f) AND (c <> len + 1)) do
-        begin
-          ch := ch + t[c];
-          c := c + 1;
-        end;
-
-       c := c - 1;
-
-      while t[c] <> ' ' do
-        begin
-          c := c - 1;
-        end;
-
-      ch := '';
-
-      for e := i to c do
-        begin
-          Sleep(10);
-          Write(t[e]);
-          //ch := ch + t[e];
-        end;
-
-      i := c;
-
-
-      y := y + 1;
-      changerLigneCurseur(y);
-      changerColonneCurseur(4);
-      //pos.x := 4;
-      //pos.y := y;
-      //ecrireEnPosition(pos, ch);
-    end;
-end;
 
 
 
@@ -199,16 +137,42 @@ begin
 end;
 
 (*Procedure qui affiche la fenetre de jeu principale.*)
-procedure affMenuJeu(var p : Personnage);
+procedure affMenuJeu(var p : Personnage; var rep : String);
 begin
   initConsole();
   initCadreHautMJ(p);
   initCadreBasMJ();
   //affTexte('abc abc abc');
 
-  affTexte('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque risus eget enim porttitor, quis mattis tellus luctus. Mauris a justo sed sem congue pretium vitae quis elit. Curabitur tincidunt ultricies mattis. Ut lectus dui, accumsan at commodo sed, finibus quis erat. Pellentesque volutpat nibh orci, non ultrices turpis finibus lobortis. Praesent eget justo vel erat finibus maximus et et elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla malesuada fringilla efficitur. ');
+  if (p.lieu = 'a') AND (p.quete = 1) then scenario1MJ(p, rep);
+  if (p.lieu = 'a') AND (p.quete = 5) then scenario19MJ(p, rep);
+  if (p.lieu = 'a') AND (p.quete <> 1) AND (p.quete <> 5) then scenario26MJ(p, rep);
+  if (p.lieu = 'b') AND (p.quete = 1) then scenario2MJ(p, rep);
+  if (p.lieu = 'b') AND (p.quete <> 1) then scenario25MJ(p, rep);
+  if (p.lieu = 'c') AND (p.quete = 1) then scenario5MJ(p, rep);
+  if (p.lieu = 'c') AND (p.quete = 2) then scenario6MJ(p, rep);
+  if (p.lieu = 'c') AND (p.quete > 2) then scenario9MJ(p, rep);
+  if (p.lieu = 'd') AND (p.quete = 1) then scenario7MJ(p, rep);
+  if (p.lieu = 'd') AND (p.quete = 5) AND (p.gold < 1100) then scenario27MJ(p, rep);
+  if (p.lieu = 'd') AND ((p.quete <> 1) OR ((p.quete = 5) AND ) ) then scenario8MJ(p, rep);
+  if (p.lieu = 'e') then scenario3MJ(p, rep);
+  if (p.lieu = 'f') AND (p.quete < 3) then scenario10MJ(p, rep);
+  if (p.lieu = 'f') AND (p.quete > 2) then scenario11MJ(p, rep);
+  if (p.lieu = 'g') AND (p.quete = 4) then scenario12MJ(p, rep);
+  if (p.lieu = 'h') then scenario13MJ(p, rep);
+  if (p.lieu = 'i') then scenario14MJ(p, rep);
+  if (p.lieu = 'j') AND (p.quete = 7) then scenario21MJ(p, rep);
+  if (p.lieu = 'j') AND (p.quete = 5) AND presenceMasseEbo(p) then scenario20MJ(p, rep);
+  if (p.lieu = 'j') AND (p.quete = 7) then scenario21MJ(p, rep);
+  if (p.lieu = 'k') then scenario16MJ(p, rep);
+  if (p.lieu = 'm') then scenario24MJ(p, rep);
+  if (p.lieu = 'n') then scenario23MJ(p, rep);
+
 
   ReadLn()
+
+  //affTexte('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque risus eget enim porttitor, quis mattis tellus luctus. Mauris a justo sed sem congue pretium vitae quis elit. Curabitur tincidunt ultricies mattis. Ut lectus dui, accumsan at commodo sed, finibus quis erat. Pellentesque volutpat nibh orci, non ultrices turpis finibus lobortis. Praesent eget justo vel erat finibus maximus et et elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla malesuada fringilla efficitur. ');
+
 end;
 
 end.

@@ -104,6 +104,12 @@ procedure ColorierZone(couleur : Byte ;couleurT : Byte; xStart,xEnd,y:Integer);
 // Centre le texte à une ligne et autour d'une colonne donnée.
 procedure centrerTexte(text : String; ligne, col : Integer);
 
+// Affiche un texte sur plusieurs ligne si nécessaire.
+procedure affTexte(t : String; ligneD : Integer);
+
+// Affiche les >>> et vide ce qui a été écrit précedement.
+procedure razConsole();
+
 const
   // Codes des couleurs
   Black        = 0;
@@ -387,6 +393,91 @@ procedure centrerTexte(text : String; ligne, col : Integer);
     changerColonneCurseur(Round(col-(Length(text)/2)));
     Write(text);
     end;
+
+procedure affTexte(t : String; ligneD : Integer);
+var
+  i, len, y, e, f, n, c : Integer;
+  pos : coordonnees;
+  ch : String;
+
+begin
+  t := t + ' ';
+  len := Length(t);
+  i := 0;
+  y := ligneD;
+  n := 189;
+
+  //Write('i=',IntToStr(i), '  len=',IntToStr(len));
+  //Write(i <> len);
+
+  while (i <> len) do
+    begin
+      changerLigneCurseur(y);
+      y := y + 1;
+      changerColonneCurseur(4);
+
+      i := i + 1;
+      f := i + n;
+      c := i;
+      ch := '';
+
+      while ((c <> f) AND (c <> len + 1)) do
+        begin
+          ch := ch + t[c];
+          c := c + 1;
+        end;
+
+       c := c - 1;
+
+      while t[c] <> ' ' do
+        begin
+          c := c - 1;
+        end;
+
+      ch := '';
+
+      for e := i to c do
+        begin
+          Sleep(10);
+          {case t[e] of
+            'é' : Write('é');
+            'è' : Write('è');
+            'ê' : Write('ê');
+            'à' : Write('à');
+            'ô' : Write('ô');
+            'ï' : Write('ï');
+            else Write(t[e]);
+          end;}
+          //Write(t[e]);
+          if t[e] = 'é' then Write('é');
+          if t[e] = 'è' then Write('è');
+          if t[e] = 'ê' then Write('ê');
+          if t[e] = 'à' then Write('à');
+          if t[e] = 'ô' then Write('ô');
+          if t[e] = 'ï' then Write('ï');
+          if t[e] = 'î' then Write('î');
+          if t[e] = 'ç' then Write('ç');
+          if t[e] = 'ù' then Write('ù');
+          if (t[e] <> 'é') AND (t[e] <> 'è') AND (t[e] <> 'ê') AND (t[e] <> 'à') AND (t[e] <> 'ô') AND (t[e] <> 'ï') AND (t[e] <> 'î') AND (t[e] <> 'ç') AND (t[e] <> 'ù') then Write(t[e]);
+          //ch := ch + t[e];
+        end;
+
+      i := c;
+      //pos.x := 4;
+      //pos.y := y;
+      //ecrireEnPosition(pos, ch);
+
+
+    end;
+end;
+
+procedure razConsole();
+begin
+  changerLigneCurseur(56);
+  changerColonneCurseur(10);
+  Write('>>>                                             ');
+  changerColonneCurseur(14);
+end;
 
 end.
 

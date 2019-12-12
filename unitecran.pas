@@ -438,7 +438,7 @@ begin
 
       for e := i to c do
         begin
-          Sleep(10);
+          //Sleep(10);
           {case t[e] of
             'é' : Write('é');
             'è' : Write('è');

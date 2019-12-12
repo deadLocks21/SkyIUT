@@ -34,6 +34,9 @@ procedure initConsole();
 (*Attend une réponse de la part de l'utilisateur.*)
 function jeVeuxUneReponse() : String;
 
+(*Vérifie si la masse d'ébonite est dans l'inventaire. Retourne TRUE si oui.*)
+function presenceMasseEbo(p:personnage):Boolean;
+
 
 
 
@@ -76,6 +79,25 @@ var
 begin
   ReadLn(rep);
   jeVeuxUneReponse:=rep;
+end;
+
+(*Vérifie si la masse d'ébonite est dans l'inventaire. Retourne TRUE si oui.*)
+function presenceMasseEbo(p:personnage):Boolean;
+var
+  i:Integer;
+  rep : Boolean;
+
+begin
+rep:=FALSE;
+
+  for i:=1 to 12 do
+    begin
+      if  p.inv[i]='Masse d''ebonite' then
+        begin
+          rep:=TRUE;
+        end;
+    end;
+  presenceMasseEbo:=rep;
 end;
 
 
@@ -154,16 +176,15 @@ begin
   if (p.lieu = 'c') AND (p.quete > 2) then scenario9MJ(p, rep);
   if (p.lieu = 'd') AND (p.quete = 1) then scenario7MJ(p, rep);
   if (p.lieu = 'd') AND (p.quete = 5) AND (p.gold < 1100) then scenario27MJ(p, rep);
-  if (p.lieu = 'd') AND ((p.quete <> 1) OR ((p.quete = 5) AND ) ) then scenario8MJ(p, rep);
+  if (p.lieu = 'd') AND ((p.quete <> 1) OR ((p.quete = 5) AND TRUE{POSSIBLE SOUCIS ICI}) ) then scenario8MJ(p, rep);
   if (p.lieu = 'e') then scenario3MJ(p, rep);
   if (p.lieu = 'f') AND (p.quete < 3) then scenario10MJ(p, rep);
   if (p.lieu = 'f') AND (p.quete > 2) then scenario11MJ(p, rep);
   if (p.lieu = 'g') AND (p.quete = 4) then scenario12MJ(p, rep);
   if (p.lieu = 'h') then scenario13MJ(p, rep);
   if (p.lieu = 'i') then scenario14MJ(p, rep);
-  if (p.lieu = 'j') AND (p.quete = 7) then scenario21MJ(p, rep);
-  if (p.lieu = 'j') AND (p.quete = 5) AND presenceMasseEbo(p) then scenario20MJ(p, rep);
-  if (p.lieu = 'j') AND (p.quete = 7) then scenario21MJ(p, rep);
+  if (p.lieu = 'j') AND (p.quete = 5) AND presenceMasseEbo(p) then scenario21MJ(p, rep);
+  if (p.lieu = 'j') AND (p.quete = 5) AND not presenceMasseEbo(p) then scenario20MJ(p, rep);
   if (p.lieu = 'k') then scenario16MJ(p, rep);
   if (p.lieu = 'm') then scenario24MJ(p, rep);
   if (p.lieu = 'n') then scenario23MJ(p, rep);

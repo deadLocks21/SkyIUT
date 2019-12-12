@@ -31,6 +31,7 @@ begin
         //'Inventaire' := Ouvrir Menu Inventaire;
         //'Quete' := Ouvrir Menu Quete;
         //'Magasin' := Ouvrir Menu Magasin;
+        //'Mourrir'
       end;
     end;
 end.

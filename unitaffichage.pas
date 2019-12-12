@@ -167,17 +167,17 @@ begin
   //affTexte('abc abc abc');
   rep := '';
 
-  //p.lieu:='b';
-  p.quete:=10;
+  //p.lieu:='c';
+  p.quete:=3;
 
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'a') AND (p.quete = 1) then scenario1MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'a') AND (p.quete = 5) then scenario19MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'a') AND (p.quete <> 1) AND (p.quete <> 5) then scenario26MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'b') AND (p.quete = 1) then scenario2MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'b') AND (p.quete <> 1) then scenario25MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'c') AND (p.quete = 1) then scenario5MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'c') AND (p.quete = 2) then scenario6MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'c') AND (p.quete > 2) then scenario9MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'c') AND (p.quete = 1) then scenario5MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'c') AND (p.quete = 2) then scenario6MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'c') AND (p.quete > 2) then scenario9MJ(p, rep);
   //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'd') AND (p.quete = 1) then scenario7MJ(p, rep);
   //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'd') AND (p.quete = 5) AND (p.gold < 1100) then scenario27MJ(p, rep);
   //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'd') AND ((p.quete <> 1) OR ((p.quete = 5) AND TRUE{POSSIBLE SOUCIS ICI}) ) then scenario8MJ(p, rep);

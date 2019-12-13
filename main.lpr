@@ -2,7 +2,8 @@ program main;
 
 {$codepage utf8}
 
-uses unitEcran, unitAffichage, typesDuJeu, unitMenuCreationPersonnage;
+uses unitEcran, unitAffichage, typesDuJeu, unitMenuCreationPersonnage,
+  unitMenuQuete, unitMenuInventaire;
 
 
 var
@@ -27,12 +28,13 @@ begin
       affMenuJeu(joueur, qF);
 
       case qF of
-        'exit' : ctn := False;
-        //'Inventaire' := Ouvrir Menu Inventaire;
-        //'Quete' := Ouvrir Menu Quete;
+        'Inventaire' : aff
+        'Quete' : affMenuQuete(joueur, qF);
         //'Magasin' := Ouvrir Menu Magasin;
-        //'Mourrir'
+        'Mourrir' : ctn := False;
       end;
+
+      if qF = 'exit' then ctn := False;
     end;
 end.
 

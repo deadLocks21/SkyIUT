@@ -24,6 +24,9 @@ procedure initCadreBasMJ();
 (*Attend une réponse de la part de l'utilisateur.*)
 function jeVeuxUneReponse() : String;
 
+(*Vérifie si la masse d'ébonite est dans l'inventaire. Retourne TRUE si oui.*)
+function presenceMasseEbo(p:personnage):Boolean;
+
 
 
 (*Affiche le scénario de l'évènement 1*)
@@ -32,9 +35,9 @@ procedure scenario1MJ(var p : Personnage; var rep : String);
 (*Affiche le scénario de l'évènement 2*)
 procedure scenario2MJ(var p : Personnage; var rep : String);
 
-//(*Affiche le scénario de l'évènement 3*)
-//procedure scenario3MJ(var p : Personnage; var rep : String);
-//
+(*Affiche le scénario de l'évènement 3*)
+procedure scenario3MJ(var p : Personnage; var rep : String);
+
 //(*Affiche le scénario de l'évènement 4*)
 //procedure scenario4MJ(var p : Personnage; var rep : String);
 
@@ -44,36 +47,36 @@ procedure scenario5MJ(var p : Personnage; var rep : String);
 (*Affiche le scénario de l'évènement 6*)
 procedure scenario6MJ(var p : Personnage; var rep : String);
 
-//(*Affiche le scénario de l'évènement 7*)
-//procedure scenario7MJ(var p : Personnage; var rep : String);
-//
-//(*Affiche le scénario de l'évènement 8*)
-//procedure scenario8MJ(var p : Personnage; var rep : String);
+(*Affiche le scénario de l'évènement 7*)
+procedure scenario7MJ(var p : Personnage; var rep : String);
+
+(*Affiche le scénario de l'évènement 8*)
+procedure scenario8MJ(var p : Personnage; var rep : String);
 
 (*Affiche le scénario de l'évènement 9*)
 procedure scenario9MJ(var p : Personnage; var rep : String);
 
-//(*Affiche le scénario de l'évènement 10*)
-//procedure scenario10MJ(var p : Personnage; var rep : String);
-//
-//(*Affiche le scénario de l'évènement 11*)
-//procedure scenario11MJ(var p : Personnage; var rep : String);
-//
-//(*Affiche le scénario de l'évènement 12*)
-//procedure scenario12MJ(var p : Personnage; var rep : String);
-//
-//(*Affiche le scénario de l'évènement 13*)
-//procedure scenario13MJ(var p : Personnage; var rep : String);
-//
-//(*Affiche le scénario de l'évènement 14*)
-//procedure scenario14MJ(var p : Personnage; var rep : String);
-//
+(*Affiche le scénario de l'évènement 10*)
+procedure scenario10MJ(var p : Personnage; var rep : String);
+
+(*Affiche le scénario de l'évènement 11*)
+procedure scenario11MJ(var p : Personnage; var rep : String);
+
+(*Affiche le scénario de l'évènement 12*)
+procedure scenario12MJ(var p : Personnage; var rep : String);
+
+(*Affiche le scénario de l'évènement 13*)
+procedure scenario13MJ(var p : Personnage; var rep : String);
+
+(*Affiche le scénario de l'évènement 14*)
+procedure scenario14MJ(var p : Personnage; var rep : String);
+
 //(*Affiche le scénario de l'évènement 15*)
 //procedure scenario15MJ(var p : Personnage; var rep : String);
-//
-//(*Affiche le scénario de l'évènement 16*)
-//procedure scenario16MJ(var p : Personnage; var rep : String);
-//
+
+(*Affiche le scénario de l'évènement 16*)
+procedure scenario16MJ(var p : Personnage; var rep : String);
+
 //(*Affiche le scénario de l'évènement 17*)
 //procedure scenario17MJ(var p : Personnage; var rep : String);
 //
@@ -83,20 +86,20 @@ procedure scenario9MJ(var p : Personnage; var rep : String);
 (*Affiche le scénario de l'évènement 19*)
 procedure scenario19MJ(var p : Personnage; var rep : String);
 
-//(*Affiche le scénario de l'évènement 20*)
-//procedure scenario20MJ(var p : Personnage; var rep : String);
-//
-//(*Affiche le scénario de l'évènement 21*)
-//procedure scenario21MJ(var p : Personnage; var rep : String);
-//
+(*Affiche le scénario de l'évènement 20*)
+procedure scenario20MJ(var p : Personnage; var rep : String);
+
+(*Affiche le scénario de l'évènement 21*)
+procedure scenario21MJ(var p : Personnage; var rep : String);
+
 //(*Affiche le scénario de l'évènement 22*)
 ////procedure scenario22MJ(var p : Personnage; var rep : String);
-//
-//(*Affiche le scénario de l'évènement 23*)
-//procedure scenario23MJ(var p : Personnage; var rep : String);
-//
-//(*Affiche le scénario de l'évènement 24*)
-//procedure scenario24MJ(var p : Personnage; var rep : String);
+
+(*Affiche le scénario de l'évènement 23*)
+procedure scenario23MJ(var p : Personnage; var rep : String);
+
+(*Affiche le scénario de l'évènement 24*)
+procedure scenario24MJ(var p : Personnage; var rep : String);
 
 (*Affiche le scénario de l'évènement 25*)
 procedure scenario25MJ(var p : Personnage; var rep : String);
@@ -104,8 +107,8 @@ procedure scenario25MJ(var p : Personnage; var rep : String);
 (*Affiche le scénario de l'évènement 26*)
 procedure scenario26MJ(var p : Personnage; var rep : String);
 
-//(*Affiche le scénario de l'évènement 27*)
-//procedure scenario27MJ(var p : Personnage; var rep : String);
+(*Affiche le scénario de l'évènement 27*)
+procedure scenario27MJ(var p : Personnage; var rep : String);
 
 
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 1.*)
@@ -114,9 +117,9 @@ procedure reponseScenario1(var pe : Personnage; var r : String);
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 2.*)
 procedure reponseScenario2(var pe : Personnage; var r : String);
 
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 3.*)
-//procedure reponseScenario3(var pe : Personnage; var r : String);
-//
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 3.*)
+procedure reponseScenario3(var pe : Personnage; var r : String);
+
 //(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 4.*)
 //procedure reponseScenario4(var pe : Personnage; var r : String);
 
@@ -126,36 +129,36 @@ procedure reponseScenario5(var pe : Personnage; var r : String);
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 6.*)
 procedure reponseScenario6(var pe : Personnage; var r : String);
 
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 7.*)
-//procedure reponseScenario7(var pe : Personnage; var r : String);
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 8.*)
-//procedure reponseScenario8(var pe : Personnage; var r : String);
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 7.*)
+procedure reponseScenario7(var pe : Personnage; var r : String);
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 8.*)
+procedure reponseScenario8(var pe : Personnage; var r : String);
 
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 9.*)
 procedure reponseScenario9(var pe : Personnage; var r : String);
 
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 10.*)
-//procedure reponseScenario10(var pe : Personnage; var r : String);
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 11.*)
-//procedure reponseScenario11(var pe : Personnage; var r : String);
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 12.*)
-//procedure reponseScenario12(var pe : Personnage; var r : String);
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 13.*)
-//procedure reponseScenario13(var pe : Personnage; var r : String);
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 14.*)
-//procedure reponseScenario14(var pe : Personnage; var r : String);
-//
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 10.*)
+procedure reponseScenario10(var pe : Personnage; var r : String);
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 11.*)
+procedure reponseScenario11(var pe : Personnage; var r : String);
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 12.*)
+procedure reponseScenario12(var pe : Personnage; var r : String);
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 13.*)
+procedure reponseScenario13(var pe : Personnage; var r : String);
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 14.*)
+procedure reponseScenario14(var pe : Personnage; var r : String);
+
 //(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 15.*)
-//// procedure reponseScenario15(var pe : Personnage; var r : String);
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 16.*)
-//procedure reponseScenario16(var pe : Personnage; var r : String);
-//
+// procedure reponseScenario15(var pe : Personnage; var r : String);
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 16.*)
+procedure reponseScenario16(var pe : Personnage; var r : String);
+
 //(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 17.*)
 //procedure reponseScenario17(var pe : Personnage; var r : String);
 //
@@ -165,20 +168,20 @@ procedure reponseScenario9(var pe : Personnage; var r : String);
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 19.*)
 procedure reponseScenario19(var pe : Personnage; var r : String);
 
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 20.*)
-//procedure reponseScenario20(var pe : Personnage; var r : String);
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 21.*)
-//procedure reponseScenario21(var pe : Personnage; var r : String);
-//
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 20.*)
+procedure reponseScenario20(var pe : Personnage; var r : String);
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 21.*)
+procedure reponseScenario21(var pe : Personnage; var r : String);
+
 //(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 22.*)
 ////procedure reponseScenario22(var pe : Personnage; var r : String);
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 23.*)
-//procedure reponseScenario23(var pe : Personnage; var r : String);
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 24.*)
-//procedure reponseScenario24(var pe : Personnage; var r : String);
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 23.*)
+procedure reponseScenario23(var pe : Personnage; var r : String);
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 24.*)
+procedure reponseScenario24(var pe : Personnage; var r : String);
 
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 25.*)
 procedure reponseScenario25(var pe : Personnage; var r : String);
@@ -186,8 +189,8 @@ procedure reponseScenario25(var pe : Personnage; var r : String);
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 26.*)
 procedure reponseScenario26(var pe : Personnage; var r : String);
 
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 27.*)
-//procedure reponseScenario27(var pe : Personnage; var r : String);
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 27.*)
+procedure reponseScenario27(var pe : Personnage; var r : String);
 
 
 
@@ -254,6 +257,25 @@ begin
   jeVeuxUneReponse:=rep;
 end;
 
+(*Vérifie si la masse d'ébonite est dans l'inventaire. Retourne TRUE si oui.*)
+function presenceMasseEbo(p:personnage):Boolean;
+var
+  i:Integer;
+  rep : Boolean;
+
+begin
+rep:=FALSE;
+
+  for i:=1 to 12 do
+    begin
+      if  p.inv[i]='Masse d''ebonite' then
+        begin
+          rep:=TRUE;
+        end;
+    end;
+  presenceMasseEbo:=rep;
+end;
+
 
 
 (*Affiche le scénario de l'évènement 1*)
@@ -294,22 +316,22 @@ begin
   reponseScenario2(p, rep);
 end;
 
-//(*Affiche le scénario de l'évènement 3*)
-//procedure scenario3MJ(var p : Personnage; var rep : String);
-//begin
-//  centrerTexte('1/ Pénétrer dans le Fort Dragon', 47, 50);
-//  centrerTexte('2/ Marché', 47, 100);
-//  centrerTexte('3/ Rejoindre la porte principale de Blancherive', 47, 150);
-//
-//  affTexte(#09'Vous vous approchez d''un garde pour vous présenter et expliquer la raison de votre venue. Le garde n''a pas l''air si effrayé, ont-ils l''habitude ?', 13);
-//
-//  changerLigneCurseur(56);
-//  changerColonneCurseur(10);
-//  Write('>>> ');
-//
-//  reponseScenario3(p, rep);
-//end;
-//
+(*Affiche le scénario de l'évènement 3*)
+procedure scenario3MJ(var p : Personnage; var rep : String);
+begin
+  centrerTexte('1/ Pénétrer dans le Fort Dragon', 47, 50);
+  centrerTexte('2/ Marché', 47, 100);
+  centrerTexte('3/ Rejoindre la porte principale de Blancherive', 47, 150);
+
+  affTexte(#09'Vous vous approchez d''un garde pour vous présenter et expliquer la raison de votre venue. Le garde n''a pas l''air si effrayé, ont-ils l''habitude ?', 13);
+
+  changerLigneCurseur(56);
+  changerColonneCurseur(10);
+  Write('>>> ');
+
+  reponseScenario3(p, rep);
+end;
+
 //(*Affiche le scénario de l'évènement 4*)
 //procedure scenario4MJ(var p : Personnage; var rep : String);
 //begin
@@ -326,8 +348,8 @@ end;
 //
 //  reponseScenario4(p, rep);
 //end;
-//
-  (*Affiche le scénario de l'évènement 5*)
+
+(*Affiche le scénario de l'évènement 5*)
 procedure scenario5MJ(var p : Personnage; var rep : String);
 begin
   centrerTexte('1/ Sortir', 47, 100);
@@ -357,38 +379,38 @@ Write('>>> ');
 reponseScenario6(p, rep);
 end;
 
-//(*Affiche le scénario de l'évènement 7*)
-//procedure scenario7MJ(var p : Personnage; var rep : String);
-//begin
-//centrerTexte('1/ Sortir', 47, 100);
-//
-//affTexte(#09'Vous vous approchez du Jarl de Blancherive. Après une brève présentation, vous lui transmettez les informations du Jarl d’Helgen. ', 13);
-//affTexte(#09'Le Jarl estomaqué vous dit : ', 14);
-//affTexte(#09'Je ne sais comment vous remerciez p.nom, je vais prévenir de ce pas mes gardes pour défendre notre ville.', 15);
-//affTexte(#09'Le message est transmis mais ce n''est pas assez pour vous, vous demandez comment vous pourriez aider les gardes au Jarl.', 16);
-//affTexte(#09'Allez voir le Chambellan il vous dira quoi faire, je ne peux m''occuper de ça pour l''instant, ne vous inquiétez pas, la récompense sera au rendez-vous.', 17);
-//
-//changerLigneCurseur(56);
-//changerColonneCurseur(10);
-//Write('>>> ');
-//
-//reponseScenario7(p, rep);
-//end;
-//
-//(*Affiche le scénario de l'évènement 8*)
-//procedure scenario8MJ(var p : Personnage; var rep : String);
-//begin
-//centrerTexte('1/ Sortir', 47, 100);
-//
-//affTexte(#09'Je n''ai vraiment pas le temps, allez voir le Chambellan', 13);
-//
-//changerLigneCurseur(56);
-//changerColonneCurseur(10);
-//Write('>>> ');
-//
-//reponseScenario8(p, rep);
-//end;
-//
+(*Affiche le scénario de l'évènement 7*)
+procedure scenario7MJ(var p : Personnage; var rep : String);
+begin
+centrerTexte('1/ Sortir', 47, 100);
+
+affTexte(#09'Vous vous approchez du Jarl de Blancherive. Après une brève présentation, vous lui transmettez les informations du Jarl d''Helgen. ', 13);
+affTexte('Le Jarl estomaqué vous dit : ', 14);
+affTexte('Je ne sais comment vous remerciez '+p.nom+', je vais prévenir de ce pas mes gardes pour défendre notre ville.', 15);
+affTexte(#09'Le message est transmis mais ce n''est pas assez pour vous, vous demandez comment vous pourriez aider les gardes au Jarl. Allez voir le Chambellan il vous dira quoi faire, je ne peux m''occuper de ça pour l''instant, ne vous inquiétez pas, la récompense sera au rendez-vous.', 16);
+
+
+changerLigneCurseur(56);
+changerColonneCurseur(10);
+Write('>>> ');
+
+reponseScenario7(p, rep);
+end;
+
+(*Affiche le scénario de l'évènement 8*)
+procedure scenario8MJ(var p : Personnage; var rep : String);
+begin
+centrerTexte('1/ Sortir', 47, 100);
+
+affTexte(#09'Je n''ai vraiment pas le temps, allez voir le Chambellan', 13);
+
+changerLigneCurseur(56);
+changerColonneCurseur(10);
+Write('>>> ');
+
+reponseScenario8(p, rep);
+end;
+
 (*Affiche le scénario de l'évènement 9*)
 procedure scenario9MJ(var p : Personnage; var rep : String);
 begin
@@ -404,85 +426,85 @@ Write('>>> ');
 reponseScenario9(p, rep);
 end;
 
-//(*Affiche le scénario de l'évènement 10*)
-//procedure scenario10MJ(var p : Personnage; var rep : String);
-//begin
-//centrerTexte('1/ Rejoindre le centre de Blancherive', 47, 100);
-//
-//affTexte(#09'Pourquoi vous, simple aventurier ? Est-ce le hasard ou le destin ? Peu importe vous avez une promesse à tenir.', 13);
-//
-//changerLigneCurseur(56);
-//changerColonneCurseur(10);
-//Write('>>> ');
-//
-//reponseScenario10(p, rep);
-//end;
-//
-//(*Affiche le scénario de l'évènement 11*)
-//procedure scenario11MJ(var p : Personnage; var rep : String);
-//begin
-//centrerTexte('1/ Aller direction la Tour de Guet', 47, 66);
-//centrerTexte('2/ Rejoindre le centre de Blancherive', 47, 133);
-//
-//affTexte(#09'Le Jarl de Blancherive compte sur vous, un simple vagabond comme vous devient soldat du jour au lendemain, vous ne pouvez le décevoir.', 13);
-//
-//changerLigneCurseur(56);
-//changerColonneCurseur(10);
-//Write('>>> ');
-//
-//reponseScenario11(p, rep);
-//end;
-//
-//(*Affiche le scénario de l'évènement 12*)
-//procedure scenario12MJ(var p : Personnage; var rep : String);
-//begin
-//centrerTexte('1/ Monter avec le Jarl d''Helgen', 47, 66);
-//centrerTexte('2/ Décliner l''invitation', 47, 133);
-//
-//affTexte(#09'Vous marchez jusqu''à la tour, soudain une calèche s''arrêta devant vous, c''est Gorna Tyradon.', 13);
-//affTexte(#09'Vous avez réussi à transmettre le message au Jarl de Blancherive ? Vous demande le Jarl d’Helgen.', 14);
-//affTexte(#09'Vous lui répondis que oui et que vous étiez en route pour aider les gardes à la Tour de Guet au Sud.', 15);
-//affTexte(#09'Venez donc dans ma calèche je vous y emmène, je vous dois bien ça', 16);
-//
-//changerLigneCurseur(56);
-//changerColonneCurseur(10);
-//Write('>>> ');
-//
-//reponseScenario12(p, rep);
-//end;
-//
-//(*Affiche le scénario de l'évènement 13*)
-//procedure scenario13MJ(var p : Personnage; var rep : String);
-//begin
-//centrerTexte('1/ Fuir', 47, 66);
-//centrerTexte('2/ Combattre', 47, 133);
-//
-//affTexte(#09'Vous vous approchez de la Tour de Guet quand soudainement des soldats sombrages vous attaque.', 13);
-//affTexte(#09'Vous regardez autour de vous les possibilités de fuite, c''est la première fois que vous vous faites attaquer.', 14);
-//affTexte(#09'La vie du Jarl d''Helgen est entre vos mains, que faire ?', 15);
-//
-//changerLigneCurseur(56);
-//changerColonneCurseur(10);
-//Write('>>> ');
-//
-//reponseScenario13(p, rep);
-//end;
-//
-//(*Affiche le scénario de l'évènement 14*)
-//procedure scenario14MJ(var p : Personnage; var rep : String);
-//begin
-//centrerTexte('1/ Rejoindre la porte de la Tour de Guet', 47, 100);
-//
-//affTexte(#09'Je ne sais quoi vous dire, vous venez de me sauver la vie et je vous en serai éternellement reconnaissant. Tenez c''est pour vous ! Je n''ai rien de plus sur moi.', 13);
-//affTexte(#09'La calèche est totalement détruite mais il vous reste encore de la route avant la Tour de Guet, vous devez faire vite : nous n''avons pas d''informations sur l''état des gardes présent sur place.', 15);
-//
-//changerLigneCurseur(56);
-//changerColonneCurseur(10);
-//Write('>>> ');
-//
-//reponseScenario14(p, rep);
-//end;
-//
+(*Affiche le scénario de l'évènement 10*)
+procedure scenario10MJ(var p : Personnage; var rep : String);
+begin
+centrerTexte('1/ Rejoindre le centre de Blancherive', 47, 100);
+
+affTexte(#09'Pourquoi vous, simple aventurier ? Est-ce le hasard ou le destin ? Peu importe vous avez une promesse à tenir.', 13);
+
+changerLigneCurseur(56);
+changerColonneCurseur(10);
+Write('>>> ');
+
+reponseScenario10(p, rep);
+end;
+
+(*Affiche le scénario de l'évènement 11*)
+procedure scenario11MJ(var p : Personnage; var rep : String);
+begin
+centrerTexte('1/ Aller direction la Tour de Guet', 47, 66);
+centrerTexte('2/ Rejoindre le centre de Blancherive', 47, 133);
+
+affTexte(#09'Le Jarl de Blancherive compte sur vous, un simple vagabond comme vous devient soldat du jour au lendemain, vous ne pouvez le décevoir.', 13);
+
+changerLigneCurseur(56);
+changerColonneCurseur(10);
+Write('>>> ');
+
+reponseScenario11(p, rep);
+end;
+
+(*Affiche le scénario de l'évènement 12*)
+procedure scenario12MJ(var p : Personnage; var rep : String);
+begin
+centrerTexte('1/ Monter avec le Jarl d''Helgen', 47, 66);
+centrerTexte('2/ Décliner l''invitation', 47, 133);
+
+affTexte(#09'Vous marchez jusqu''à la tour, soudain une calèche s''arrêta devant vous, c''est Gorna Tyradon.', 13);
+affTexte(#09'Vous avez réussi à transmettre le message au Jarl de Blancherive ? Vous demande le Jarl d’Helgen.', 14);
+affTexte(#09'Vous lui répondis que oui et que vous étiez en route pour aider les gardes à la Tour de Guet au Sud.', 15);
+affTexte(#09'Venez donc dans ma calèche je vous y emmène, je vous dois bien ça', 16);
+
+changerLigneCurseur(56);
+changerColonneCurseur(10);
+Write('>>> ');
+
+reponseScenario12(p, rep);
+end;
+
+(*Affiche le scénario de l'évènement 13*)
+procedure scenario13MJ(var p : Personnage; var rep : String);
+begin
+centrerTexte('1/ Fuir', 47, 66);
+centrerTexte('2/ Combattre', 47, 133);
+
+affTexte(#09'Vous vous approchez de la Tour de Guet quand soudainement des soldats sombrages vous attaque.', 13);
+affTexte(#09'Vous regardez autour de vous les possibilités de fuite, c''est la première fois que vous vous faites attaquer.', 14);
+affTexte(#09'La vie du Jarl d''Helgen est entre vos mains, que faire ?', 15);
+
+changerLigneCurseur(56);
+changerColonneCurseur(10);
+Write('>>> ');
+
+reponseScenario13(p, rep);
+end;
+
+(*Affiche le scénario de l'évènement 14*)
+procedure scenario14MJ(var p : Personnage; var rep : String);
+begin
+centrerTexte('1/ Rejoindre la porte de la Tour de Guet', 47, 100);
+
+affTexte(#09'Je ne sais quoi vous dire, vous venez de me sauver la vie et je vous en serai éternellement reconnaissant. Tenez c''est pour vous ! Je n''ai rien de plus sur moi.', 13);
+affTexte('La calèche est totalement détruite mais il vous reste encore de la route avant la Tour de Guet, vous devez faire vite : nous n''avons pas d''informations sur l''état des gardes présent sur place.', 14);
+
+changerLigneCurseur(56);
+changerColonneCurseur(10);
+Write('>>> ');
+
+reponseScenario14(p, rep);
+end;
+
 //(*Affiche le scénario de l'évènement 15*)
 //procedure scenario15MJ(var p : Personnage; var rep : String);
 //begin
@@ -497,22 +519,22 @@ end;
 //
 ////reponseScenario15(p, rep);
 //end;
-//
-//(*Affiche le scénario de l'évènement 16*)
-//procedure scenario16MJ(var p : Personnage; var rep : String);
-//begin
-//centrerTexte('1/ Fuir', 47, 66);
-//centrerTexte('2/ Combattre', 47, 133);
-//
-//affTexte(#09'Vous approchez de la porte principale de Blancherive mais un barrage vous bloque le passage. Fuir et prendre le risque de se faire tirer dessus ou combattre ?', 13);
-//
-//changerLigneCurseur(56);
-//changerColonneCurseur(10);
-//Write('>>> ');
-//
-//reponseScenario16(p, rep);
-//end;
-//
+
+(*Affiche le scénario de l'évènement 16*)
+procedure scenario16MJ(var p : Personnage; var rep : String);
+begin
+centrerTexte('1/ Fuir', 47, 66);
+centrerTexte('2/ Combattre', 47, 133);
+
+affTexte(#09'Vous approchez de la porte principale de Blancherive mais un barrage vous bloque le passage. Fuir et prendre le risque de se faire tirer dessus ou combattre ?', 13);
+
+changerLigneCurseur(56);
+changerColonneCurseur(10);
+Write('>>> ');
+
+reponseScenario16(p, rep);
+end;
+
 //(*Affiche le scénario de l'évènement 17*)
 //procedure scenario17MJ(var p : Personnage; var rep : String);
 //begin
@@ -544,8 +566,9 @@ end;
 (*Affiche le scénario de l'évènement 19*)
 procedure scenario19MJ(var p : Personnage; var rep : String);
 begin
-centrerTexte('1/ Marché', 47, 66);
-centrerTexte('2/ Porte de Blancherive', 47, 133);
+centrerTexte('1/ Marché', 47, 50);
+centrerTexte('2/ Porte de Blancherive', 47, 100);
+centrerTexte('3/ Pénétrer dans le fort dragon', 47, 150);
 
 affTexte(#09'Vous n''oubliez pas votre mission, tuer le dragon avant qu''il n''arrive à Blancherive. Vous êtes essoufflé mais un soldat ne se plaint jamais. Avec la Masse d''Ebonite, le dragon ne devrait pas pouvoir résister. Vous apercevez le marché d''armement au loin et le temps presse, il ne faut pas perdre de temps.', 13);
 
@@ -556,18 +579,15 @@ Write('>>> ');
 reponseScenario19(p, rep);
 end;
 
-{(*Affiche le scénario de l'évènement 20*)
+(*Affiche le scénario de l'évènement 20*)
 procedure scenario20MJ(var p : Personnage; var rep : String);
 begin
-centrerTexte('1/ Centre de Blancherive', 47, 100);
-
+centrerTexte('1/ Portes de Blancherive', 47, 100);
 affTexte(#09'Un garde vous arrête et vous dit :', 13);
 affTexte(#09'Vous n''êtes pas équiper de la Masse d''Ebonite, sans elle vous ne pourrez vaincre le dragon', 14);
-
 changerLigneCurseur(56);
 changerColonneCurseur(10);
 Write('>>> ');
-
 reponseScenario20(p, rep);
 end;
 
@@ -575,14 +595,11 @@ end;
 procedure scenario21MJ(var p : Personnage; var rep : String);
 begin
 centrerTexte('1/ Aller à la Tour de Guet', 47, 100);
-
 affTexte(#09'Vous êtes prêt à partir combattre, un  enfant sans genre disctinct du nom de Thorn vous arrête et vous dit : ', 13);
-affTexte(#09'La sécurité de Blancherive est en danger mais nous avons tous confiance en vous, faites attention.', 14);
-
+affTexte('La sécurité de Blancherive est en danger mais nous avons tous confiance en vous, faites attention.', 14);
 changerLigneCurseur(56);
 changerColonneCurseur(10);
 Write('>>> ');
-
 reponseScenario21(p, rep);
 end;
 
@@ -590,13 +607,10 @@ end;
 procedure scenario23MJ(var p : Personnage; var rep : String);
 begin
 centrerTexte('1/ Affronter le Dragon', 47, 100);
-
 affTexte(#09'Vous êtes arrivé à la Tour de Guet, la moitié des soldats du Jarl de Blancherive sont déjà bien amochés. Le dragon ne vous voit pas. Vous, équipé de votre Masse d''Ebonite, êtes le seul à pouvoir vaincre le dragon avant qu''il ne fasse encore plus de dégâts.', 13);
-
 changerLigneCurseur(56);
 changerColonneCurseur(10);
 Write('>>> ');
-
 reponseScenario23(p, rep);
 end;
 
@@ -604,15 +618,12 @@ end;
 procedure scenario24MJ(var p : Personnage; var rep : String);
 begin
 centrerTexte('1/ Sortir de la Tour de Guet', 47, 100);
-
 affTexte(#09'Vous venez de sauver Blancherive et ses habitants d''une attaque de dragon. Les quelques survivants de la Tour de Guet vous remercient pendant que les blessés se font soigner. Parait-il qu''un autre dragon serait en route vers Bordeciel. Est-ce des rumeurs ? Peu importe il vous faut rejoindre le Jarl de Blancherive pour le prévenir de la mort du dragon et qu''un autre dragon se rapproche.', 13);
-
 changerLigneCurseur(56);
 changerColonneCurseur(10);
 Write('>>> ');
-
 reponseScenario24(p, rep);
-end;}
+end;
 
 (*Affiche le scénario de l'évènement 25*)
 procedure scenario25MJ(var p : Personnage; var rep : String);
@@ -647,19 +658,19 @@ begin
   reponseScenario26(p, rep);
 end;
 
-//(*Affiche le scénario de l'évènement 27*)
-//procedure scenario27MJ(var p : Personnage; var rep : String);
-//begin
-//centrerTexte('1/ Sortir', 47, 100);
-//
-//affTexte(#09'Don lingot du Jarl', 13);
-//
-//changerLigneCurseur(56);
-//changerColonneCurseur(10);
-//Write('>>> ');
-//
-//reponseScenario27(p, rep);
-//end;
+(*Affiche le scénario de l'évènement 27*)
+procedure scenario27MJ(var p : Personnage; var rep : String);
+begin
+centrerTexte('1/ Sortir', 47, 100);
+
+affTexte(#09'Don lingot du Jarl', 13);
+
+changerLigneCurseur(56);
+changerColonneCurseur(10);
+Write('>>> ');
+
+reponseScenario27(p, rep);
+end;
 
 
 
@@ -754,44 +765,44 @@ begin
 end;
 
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 3.*)
-//procedure reponseScenario3(var pe : Personnage; var r : String);
-//var
-//  rep : String;
-//  A, B, C, P, X, Y, Z : Boolean;
-//
-//begin
-//  r := 'OK';
-//
-//  repeat
-//    razConsole;
-//    rep := jeVeuxUneReponse();
-//
-//    P := Length(rep) = 1;
-//    X := rep = 'a';
-//    Y := rep = 'b';
-//    Z := rep = 'exit';
-//
-//    if Length(rep) > 0 then
-//       begin
-//         A := Ord(rep[1]) > Ord('0');
-//         B := Ord(rep[1]) < Ord('5');
-//         C := Ord(rep[1]) < Ord('4');
-//       end;
-//
-//
-//  until X OR Y OR Z OR ( P AND A AND C );
-//
-//  if Z then r := 'exit';
-//  if X then r := 'Inventaire';
-//  if Y then r := 'Quete';
-//
-//  if ( P AND A AND C ) then
-//     case rep of
-//       '1' : pe.lieu:='b';
-//       '2' : r := 'Magasin';
-//       '3' : pe.lieu:='f';
-//     end;
-//end;
+procedure reponseScenario3(var pe : Personnage; var r : String);
+var
+  rep : String;
+  A, B, C, P, X, Y, Z : Boolean;
+
+begin
+  r := 'OK';
+
+  repeat
+    razConsole;
+    rep := jeVeuxUneReponse();
+
+    P := Length(rep) = 1;
+    X := rep = 'a';
+    Y := rep = 'b';
+    Z := rep = 'exit';
+
+    if Length(rep) > 0 then
+       begin
+         A := Ord(rep[1]) > Ord('0');
+         B := Ord(rep[1]) < Ord('5');
+         C := Ord(rep[1]) < Ord('4');
+       end;
+
+
+  until X OR Y OR Z OR ( P AND A AND C );
+
+  if Z then r := 'exit';
+  if X then r := 'Inventaire';
+  if Y then r := 'Quete';
+
+  if ( P AND A AND C ) then
+     case rep of
+       '1' : pe.lieu:='b';
+       '2' : r := 'Magasin';
+       '3' : pe.lieu:='f';
+     end;
+end;
 
 //(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 4.*)
 //procedure reponseScenario4(var pe : Personnage; var r : String);
@@ -834,6 +845,7 @@ end;
 //     end;
 //end;
 //
+
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 5.*)
 procedure reponseScenario5(var pe : Personnage; var r : String);
 var
@@ -912,84 +924,84 @@ begin
      end;
 end;
 
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 7.*)
-//procedure reponseScenario7(var pe : Personnage; var r : String);
-//var
-//  rep : String;
-//  A, B, C, D, P, X, Y, Z : Boolean;
-//
-//begin
-//  r := 'OK';
-//
-//  repeat
-//    razConsole;
-//    rep := jeVeuxUneReponse();
-//
-//    P := Length(rep) = 1;
-//    X := rep = 'a';
-//    Y := rep = 'b';
-//    Z := rep = 'exit';
-//
-//    if Length(rep) > 0 then
-//       begin
-//         A := Ord(rep[1]) > Ord('0');
-//         B := Ord(rep[1]) < Ord('5');
-//         C := Ord(rep[1]) < Ord('4');
-//         D := rep = '1';
-//       end;
-//
-//
-//  until X OR Y OR Z OR ( P AND D );
-//
-//  if Z then r := 'exit';
-//  if X then r := 'Inventaire';
-//  if Y then r := 'Quete';
-//
-//  if ( P AND D ) then
-//     case rep of
-//       '1' : pe.lieu:='b';
-//     end;
-//end;
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 8.*)
-//procedure reponseScenario8(var pe : Personnage; var r : String);
-//var
-//  rep : String;
-//  A, B, C, D, P, X, Y, Z : Boolean;
-//
-//begin
-//  r := 'OK';
-//
-//  repeat
-//    razConsole;
-//    rep := jeVeuxUneReponse();
-//
-//    P := Length(rep) = 1;
-//    X := rep = 'a';
-//    Y := rep = 'b';
-//    Z := rep = 'exit';
-//
-//    if Length(rep) > 0 then
-//       begin
-//         A := Ord(rep[1]) > Ord('0');
-//         B := Ord(rep[1]) < Ord('5');
-//         C := Ord(rep[1]) < Ord('4');
-//         D := rep = '1';
-//       end;
-//
-//
-//  until X OR Y OR Z OR ( P AND D );
-//
-//  if Z then r := 'exit';
-//  if X then r := 'Inventaire';
-//  if Y then r := 'Quete';
-//
-//  if ( P AND D ) then
-//     case rep of
-//       '1' : pe.lieu:='b';
-//     end;
-//end;
-//
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 7.*)
+procedure reponseScenario7(var pe : Personnage; var r : String);
+var
+  rep : String;
+  A, B, C, D, P, X, Y, Z : Boolean;
+
+begin
+  r := 'OK';
+
+  repeat
+    razConsole;
+    rep := jeVeuxUneReponse();
+
+    P := Length(rep) = 1;
+    X := rep = 'a';
+    Y := rep = 'b';
+    Z := rep = 'exit';
+
+    if Length(rep) > 0 then
+       begin
+         A := Ord(rep[1]) > Ord('0');
+         B := Ord(rep[1]) < Ord('5');
+         C := Ord(rep[1]) < Ord('4');
+         D := rep = '1';
+       end;
+
+
+  until X OR Y OR Z OR ( P AND D );
+
+  if Z then r := 'exit';
+  if X then r := 'Inventaire';
+  if Y then r := 'Quete';
+
+  if ( P AND D ) then
+     case rep of
+       '1' : pe.lieu:='b';
+     end;
+end;
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 8.*)
+procedure reponseScenario8(var pe : Personnage; var r : String);
+var
+  rep : String;
+  A, B, C, D, P, X, Y, Z : Boolean;
+
+begin
+  r := 'OK';
+
+  repeat
+    razConsole;
+    rep := jeVeuxUneReponse();
+
+    P := Length(rep) = 1;
+    X := rep = 'a';
+    Y := rep = 'b';
+    Z := rep = 'exit';
+
+    if Length(rep) > 0 then
+       begin
+         A := Ord(rep[1]) > Ord('0');
+         B := Ord(rep[1]) < Ord('5');
+         C := Ord(rep[1]) < Ord('4');
+         D := rep = '1';
+       end;
+
+
+  until X OR Y OR Z OR ( P AND D );
+
+  if Z then r := 'exit';
+  if X then r := 'Inventaire';
+  if Y then r := 'Quete';
+
+  if ( P AND D ) then
+     case rep of
+       '1' : pe.lieu:='b';
+     end;
+end;
+
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 9.*)
 procedure reponseScenario9(var pe : Personnage; var r : String);
 var
@@ -1029,252 +1041,254 @@ begin
      end;
 end;
 
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 10.*)
-//procedure reponseScenario10(var pe : Personnage; var r : String);
-//var
-//  rep : String;
-//  A, B, C, D, P, X, Y, Z : Boolean;
-//
-//begin
-//  r := 'OK';
-//
-//  repeat
-//    razConsole;
-//    rep := jeVeuxUneReponse();
-//
-//    P := Length(rep) = 1;
-//    X := rep = 'a';
-//    Y := rep = 'b';
-//    Z := rep = 'exit';
-//
-//    if Length(rep) > 0 then
-//       begin
-//         A := Ord(rep[1]) > Ord('0');
-//         B := Ord(rep[1]) < Ord('5');
-//         C := Ord(rep[1]) < Ord('4');
-//         D := rep = '1'
-//       end;
-//
-//
-//  until X OR Y OR Z OR ( P AND D );
-//
-//  if Z then r := 'exit';
-//  if X then r := 'Inventaire';
-//  if Y then r := 'Quete';
-//
-//  if ( P AND D ) then
-//     case rep of
-//       '1' : pe.lieu:='a';
-//     end;
-//end;
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 11.*)
-//procedure reponseScenario11(var pe : Personnage; var r : String);
-//var
-//  rep : String;
-//  A, B, C, D, E, P, X, Y, Z : Boolean;
-//
-//begin
-//  r := 'OK';
-//
-//  repeat
-//    razConsole;
-//    rep := jeVeuxUneReponse();
-//
-//    P := Length(rep) = 1;
-//    X := rep = 'a';
-//    Y := rep = 'b';
-//    Z := rep = 'exit';
-//
-//    if Length(rep) > 0 then
-//       begin
-//         A := Ord(rep[1]) > Ord('0');
-//         B := Ord(rep[1]) < Ord('5');
-//         C := Ord(rep[1]) < Ord('4');
-//         D := rep = '1';
-//         E := Ord(rep[1]) < Ord('3');
-//       end;
-//
-//
-//  until X OR Y OR Z OR ( P AND A AND E );
-//
-//  if Z then r := 'exit';
-//  if X then r := 'Inventaire';
-//  if Y then r := 'Quete';
-//
-//  if ( P AND A AND E ) then
-//     begin
-//       case rep of
-//         '2' : pe.lieu:='a';
-//       end;
-//       if (rep = '1') AND (pe.quete=4) then pe.lieu:='g'
-//       else pe.lieu:='j';
-//     end;
-//end;
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 12.*)
-//procedure reponseScenario12(var pe : Personnage; var r : String);
-//var
-//  rep : String;
-//  A, B, C, D, E, P, X, Y, Z : Boolean;
-//
-//begin
-//  r := 'OK';
-//
-//  repeat
-//    razConsole;
-//    rep := jeVeuxUneReponse();
-//
-//    P := Length(rep) = 1;
-//    X := rep = 'a';
-//    Y := rep = 'b';
-//    Z := rep = 'exit';
-//
-//    if Length(rep) > 0 then
-//       begin
-//         A := Ord(rep[1]) > Ord('0');
-//         B := Ord(rep[1]) < Ord('5');
-//         C := Ord(rep[1]) < Ord('4');
-//         D := rep = '1';
-//         E := Ord(rep[1]) < Ord('3');
-//       end;
-//
-//
-//  until X OR Y OR Z OR ( P AND A AND E );
-//
-//  if Z then r := 'exit';
-//  if X then r := 'Inventaire';
-//  if Y then r := 'Quete';
-//
-//  if ( P AND A AND E ) then
-//     case rep of
-//       '1' : pe.lieu:='h';
-//       '2' : pe.lieu:='j';
-//     end;
-//end;
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 13.*)
-//procedure reponseScenario13(var pe : Personnage; var r : String);
-//var
-//  rep : String;
-//  A, B, C, D, E, P, X, Y, Z : Boolean;
-//
-//begin
-//  r := 'OK';
-//
-//  repeat
-//    razConsole;
-//    rep := jeVeuxUneReponse();
-//
-//    P := Length(rep) = 1;
-//    X := rep = 'a';
-//    Y := rep = 'b';
-//    Z := rep = 'exit';
-//
-//    if Length(rep) > 0 then
-//       begin
-//         A := Ord(rep[1]) > Ord('0');
-//         B := Ord(rep[1]) < Ord('5');
-//         C := Ord(rep[1]) < Ord('4');
-//         D := rep = '1';
-//         E := Ord(rep[1]) < Ord('3');
-//       end;
-//
-//
-//  until X OR Y OR Z OR ( P AND A AND E );
-//
-//  if Z then r := 'exit';
-//  if X then r := 'Inventaire';
-//  if Y then r := 'Quete';
-//
-//  if ( P AND A AND E ) then
-//     case rep of
-//       '1' : r := 'Mourrir';
-//       '2' : pe.lieu:='o';
-//     end;
-//end;
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 14.*)
-//procedure reponseScenario14(var pe : Personnage; var r : String);
-//var
-//  rep : String;
-//  A, B, C, D, E, P, X, Y, Z : Boolean;
-//
-//begin
-//  r := 'OK';
-//
-//  repeat
-//    razConsole;
-//    rep := jeVeuxUneReponse();
-//
-//    P := Length(rep) = 1;
-//    X := rep = 'a';
-//    Y := rep = 'b';
-//    Z := rep = 'exit';
-//
-//    if Length(rep) > 0 then
-//       begin
-//         A := Ord(rep[1]) > Ord('0');
-//         B := Ord(rep[1]) < Ord('5');
-//         C := Ord(rep[1]) < Ord('4');
-//         D := rep = '1';
-//         E := Ord(rep[1]) < Ord('3');
-//       end;
-//
-//
-//  until X OR Y OR Z OR ( P AND D );
-//
-//  if Z then r := 'exit';
-//  if X then r := 'Inventaire';
-//  if Y then r := 'Quete';
-//
-//  if ( P AND D ) then
-//     case rep of
-//       '1' : pe.lieu:='j';
-//     end;
-//end;
-//
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 16.*)
-//procedure reponseScenario16(var pe : Personnage; var r : String);
-//var
-//  rep : String;
-//  A, B, C, D, E, P, X, Y, Z : Boolean;
-//
-//begin
-//  r := 'OK';
-//
-//  repeat
-//    razConsole;
-//    rep := jeVeuxUneReponse();
-//
-//    P := Length(rep) = 1;
-//    X := rep = 'a';
-//    Y := rep = 'b';
-//    Z := rep = 'exit';
-//
-//    if Length(rep) > 0 then
-//       begin
-//         A := Ord(rep[1]) > Ord('0');
-//         B := Ord(rep[1]) < Ord('5');
-//         C := Ord(rep[1]) < Ord('4');
-//         D := rep = '1';
-//         E := Ord(rep[1]) < Ord('3');
-//       end;
-//
-//
-//  until X OR Y OR Z OR ( P AND A AND E );
-//
-//  if Z then r := 'exit';
-//  if X then r := 'Inventaire';
-//  if Y then r := 'Quete';
-//
-//  if ( P AND A AND E ) then
-//     case rep of
-//       '1' : r := 'Mourrir';
-//       '2' : pe.lieu:='p';
-//     end;
-//end;
-//
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 10.*)
+procedure reponseScenario10(var pe : Personnage; var r : String);
+var
+  rep : String;
+  A, B, C, D, P, X, Y, Z : Boolean;
+
+begin
+  r := 'OK';
+
+  repeat
+    razConsole;
+    rep := jeVeuxUneReponse();
+
+    P := Length(rep) = 1;
+    X := rep = 'a';
+    Y := rep = 'b';
+    Z := rep = 'exit';
+
+    if Length(rep) > 0 then
+       begin
+         A := Ord(rep[1]) > Ord('0');
+         B := Ord(rep[1]) < Ord('5');
+         C := Ord(rep[1]) < Ord('4');
+         D := rep = '1'
+       end;
+
+
+  until X OR Y OR Z OR ( P AND D );
+
+  if Z then r := 'exit';
+  if X then r := 'Inventaire';
+  if Y then r := 'Quete';
+
+  if ( P AND D ) then
+     case rep of
+       '1' : pe.lieu:='a';
+     end;
+end;
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 11.*)
+procedure reponseScenario11(var pe : Personnage; var r : String);
+var
+  rep : String;
+  A, B, C, D, E, P, X, Y, Z : Boolean;
+
+begin
+  r := 'OK';
+
+  repeat
+    razConsole;
+    rep := jeVeuxUneReponse();
+
+    P := Length(rep) = 1;
+    X := rep = 'a';
+    Y := rep = 'b';
+    Z := rep = 'exit';
+
+    if Length(rep) > 0 then
+       begin
+         A := Ord(rep[1]) > Ord('0');
+         B := Ord(rep[1]) < Ord('5');
+         C := Ord(rep[1]) < Ord('4');
+         D := rep = '1';
+         E := Ord(rep[1]) < Ord('3');
+       end;
+
+
+  until X OR Y OR Z OR ( P AND A AND E );
+
+  if Z then r := 'exit';
+  if X then r := 'Inventaire';
+  if Y then r := 'Quete';
+
+  if ( P AND A AND E ) then
+     begin
+
+       if (rep = '1') AND (pe.quete=4) then pe.lieu:='g'
+       else pe.lieu:='j';
+
+       case rep of
+         '2' : pe.lieu:='a';
+       end;
+     end;
+end;
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 12.*)
+procedure reponseScenario12(var pe : Personnage; var r : String);
+var
+  rep : String;
+  A, B, C, D, E, P, X, Y, Z : Boolean;
+
+begin
+  r := 'OK';
+
+  repeat
+    razConsole;
+    rep := jeVeuxUneReponse();
+
+    P := Length(rep) = 1;
+    X := rep = 'a';
+    Y := rep = 'b';
+    Z := rep = 'exit';
+
+    if Length(rep) > 0 then
+       begin
+         A := Ord(rep[1]) > Ord('0');
+         B := Ord(rep[1]) < Ord('5');
+         C := Ord(rep[1]) < Ord('4');
+         D := rep = '1';
+         E := Ord(rep[1]) < Ord('3');
+       end;
+
+
+  until X OR Y OR Z OR ( P AND A AND E );
+
+  if Z then r := 'exit';
+  if X then r := 'Inventaire';
+  if Y then r := 'Quete';
+
+  if ( P AND A AND E ) then
+     case rep of
+       '1' : pe.lieu:='h';
+       '2' : pe.lieu:='j';
+     end;
+end;
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 13.*)
+procedure reponseScenario13(var pe : Personnage; var r : String);
+var
+  rep : String;
+  A, B, C, D, E, P, X, Y, Z : Boolean;
+
+begin
+  r := 'OK';
+
+  repeat
+    razConsole;
+    rep := jeVeuxUneReponse();
+
+    P := Length(rep) = 1;
+    X := rep = 'a';
+    Y := rep = 'b';
+    Z := rep = 'exit';
+
+    if Length(rep) > 0 then
+       begin
+         A := Ord(rep[1]) > Ord('0');
+         B := Ord(rep[1]) < Ord('5');
+         C := Ord(rep[1]) < Ord('4');
+         D := rep = '1';
+         E := Ord(rep[1]) < Ord('3');
+       end;
+
+
+  until X OR Y OR Z OR ( P AND A AND E );
+
+  if Z then r := 'exit';
+  if X then r := 'Inventaire';
+  if Y then r := 'Quete';
+
+  if ( P AND A AND E ) then
+     case rep of
+       '1' : r := 'Mourrir';
+       '2' : pe.lieu:='o';
+     end;
+end;
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 14.*)
+procedure reponseScenario14(var pe : Personnage; var r : String);
+var
+  rep : String;
+  A, B, C, D, E, P, X, Y, Z : Boolean;
+
+begin
+  r := 'OK';
+
+  repeat
+    razConsole;
+    rep := jeVeuxUneReponse();
+
+    P := Length(rep) = 1;
+    X := rep = 'a';
+    Y := rep = 'b';
+    Z := rep = 'exit';
+
+    if Length(rep) > 0 then
+       begin
+         A := Ord(rep[1]) > Ord('0');
+         B := Ord(rep[1]) < Ord('5');
+         C := Ord(rep[1]) < Ord('4');
+         D := rep = '1';
+         E := Ord(rep[1]) < Ord('3');
+       end;
+
+
+  until X OR Y OR Z OR ( P AND D );
+
+  if Z then r := 'exit';
+  if X then r := 'Inventaire';
+  if Y then r := 'Quete';
+
+  if ( P AND D ) then
+     case rep of
+       '1' : pe.lieu:='j';
+     end;
+end;
+
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 16.*)
+procedure reponseScenario16(var pe : Personnage; var r : String);
+var
+  rep : String;
+  A, B, C, D, E, P, X, Y, Z : Boolean;
+
+begin
+  r := 'OK';
+
+  repeat
+    razConsole;
+    rep := jeVeuxUneReponse();
+
+    P := Length(rep) = 1;
+    X := rep = 'a';
+    Y := rep = 'b';
+    Z := rep = 'exit';
+
+    if Length(rep) > 0 then
+       begin
+         A := Ord(rep[1]) > Ord('0');
+         B := Ord(rep[1]) < Ord('5');
+         C := Ord(rep[1]) < Ord('4');
+         D := rep = '1';
+         E := Ord(rep[1]) < Ord('3');
+       end;
+
+
+  until X OR Y OR Z OR ( P AND A AND E );
+
+  if Z then r := 'exit';
+  if X then r := 'Inventaire';
+  if Y then r := 'Quete';
+
+  if ( P AND A AND E ) then
+     case rep of
+       '1' : r := 'Mourrir';
+       '2' : pe.lieu:='p';
+     end;
+end;
+
 //(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 17.*)
 //procedure reponseScenario17(var pe : Personnage; var r : String);
 //var
@@ -1383,37 +1397,34 @@ begin
        end;
 
 
-  until X OR Y OR Z OR ( P AND A AND E );
+  until X OR Y OR Z OR ( P AND A AND C );
 
   if Z then r := 'exit';
   if X then r := 'Inventaire';
   if Y then r := 'Quete';
 
-  if ( P AND A AND E ) then
+  if ( P AND A AND C ) then
      case rep of
        '1' : r := 'Magasin';
        '2' : pe.lieu:='f';
+       '3' : pe.lieu:='b';
      end;
 end;
 
-{(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 20.*)
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 20.*)
 procedure reponseScenario20(var pe : Personnage; var r : String);
 var
   rep : String;
   A, B, C, D, E, P, X, Y, Z : Boolean;
-
 begin
   r := 'OK';
-
   repeat
     razConsole;
     rep := jeVeuxUneReponse();
-
     P := Length(rep) = 1;
     X := rep = 'a';
     Y := rep = 'b';
     Z := rep = 'exit';
-
     if Length(rep) > 0 then
        begin
          A := Ord(rep[1]) > Ord('0');
@@ -1422,17 +1433,13 @@ begin
          D := rep = '1';
          E := Ord(rep[1]) < Ord('3');
        end;
-
-
   until X OR Y OR Z OR ( P AND D );
-
   if Z then r := 'exit';
   if X then r := 'Inventaire';
   if Y then r := 'Quete';
-
   if ( P AND D ) then
      case rep of
-       '1' : pe.lieu:='a';
+       '1' : pe.lieu:='k';
      end;
 end;
 
@@ -1441,19 +1448,15 @@ procedure reponseScenario21(var pe : Personnage; var r : String);
 var
   rep : String;
   A, B, C, D, E, P, X, Y, Z : Boolean;
-
 begin
   r := 'OK';
-
   repeat
     razConsole;
     rep := jeVeuxUneReponse();
-
     P := Length(rep) = 1;
     X := rep = 'a';
     Y := rep = 'b';
     Z := rep = 'exit';
-
     if Length(rep) > 0 then
        begin
          A := Ord(rep[1]) > Ord('0');
@@ -1462,14 +1465,10 @@ begin
          D := rep = '1';
          E := Ord(rep[1]) < Ord('3');
        end;
-
-
   until X OR Y OR Z OR ( P AND D );
-
   if Z then r := 'exit';
   if X then r := 'Inventaire';
   if Y then r := 'Quete';
-
   if ( P AND D ) then
      case rep of
        '1' : pe.lieu:='n';
@@ -1481,19 +1480,15 @@ procedure reponseScenario23(var pe : Personnage; var r : String);
 var
   rep : String;
   A, B, C, D, E, P, X, Y, Z : Boolean;
-
 begin
   r := 'OK';
-
   repeat
     razConsole;
     rep := jeVeuxUneReponse();
-
     P := Length(rep) = 1;
     X := rep = 'a';
     Y := rep = 'b';
     Z := rep = 'exit';
-
     if Length(rep) > 0 then
        begin
          A := Ord(rep[1]) > Ord('0');
@@ -1502,14 +1497,10 @@ begin
          D := rep = '1';
          E := Ord(rep[1]) < Ord('3');
        end;
-
-
   until X OR Y OR Z OR ( P AND D );
-
   if Z then r := 'exit';
   if X then r := 'Inventaire';
   if Y then r := 'Quete';
-
   if ( P AND D ) then
      case rep of
        '1' : pe.lieu:='q';
@@ -1521,10 +1512,11 @@ procedure reponseScenario24(var pe : Personnage; var r : String);
 var
   rep : String;
   A, B, C, D, E, P, X, Y, Z : Boolean;
-
 begin
-  // Lancer cinématique de fin
-end;}
+  effacerEcran;
+  centrerTexte('Cinématique du turfu achète le DLC', 30, 100);
+  r := 'exit';
+end;
 
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 25.*)
 procedure reponseScenario25(var pe : Personnage; var r : String);
@@ -1611,41 +1603,41 @@ begin
 end;
 
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 27.*)
-//procedure reponseScenario27(var pe : Personnage; var r : String);
-//var
-//  rep : String;
-//  A, B, C, D, P, X, Y, Z : Boolean;
-//
-//begin
-//  r := 'OK';
-//
-//  repeat
-//    razConsole;
-//    rep := jeVeuxUneReponse();
-//
-//    P := Length(rep) = 1;
-//    X := rep = 'a';
-//    Y := rep = 'b';
-//    Z := rep = 'exit';
-//
-//    if Length(rep) > 0 then
-//       begin
-//         A := Ord(rep[1]) > Ord('0');
-//         B := Ord(rep[1]) < Ord('5');
-//         C := Ord(rep[1]) < Ord('4');
-//         D := rep = '1';
-//       end;
-//
-//
-//  until X OR Y OR Z OR ( P AND D );
-//
-//  if Z then r := 'exit';
-//  if X then r := 'Inventaire';
-//  if Y then r := 'Quete';
-//
-//  if ( P AND D ) then
-//     case rep of
-//       '1' : pe.lieu:='b';
-//     end;
-//end;
+procedure reponseScenario27(var pe : Personnage; var r : String);
+var
+  rep : String;
+  A, B, C, D, P, X, Y, Z : Boolean;
+
+begin
+  r := 'OK';
+
+  repeat
+    razConsole;
+    rep := jeVeuxUneReponse();
+
+    P := Length(rep) = 1;
+    X := rep = 'a';
+    Y := rep = 'b';
+    Z := rep = 'exit';
+
+    if Length(rep) > 0 then
+       begin
+         A := Ord(rep[1]) > Ord('0');
+         B := Ord(rep[1]) < Ord('5');
+         C := Ord(rep[1]) < Ord('4');
+         D := rep = '1';
+       end;
+
+
+  until X OR Y OR Z OR ( P AND D );
+
+  if Z then r := 'exit';
+  if X then r := 'Inventaire';
+  if Y then r := 'Quete';
+
+  if ( P AND D ) then
+     case rep of
+       '1' : pe.lieu:='b';
+     end;
+end;
 end.

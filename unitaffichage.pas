@@ -14,7 +14,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses unitEcran, unitMenuInitiale, unitMenuCreationPersonnage, unitMenuJeu, typesDuJeu, sysutils;
+uses unitEcran, unitMenuInitiale, unitMenuCreationPersonnage, unitMenuJeu, unitMenuQuete, typesDuJeu, sysutils;
 
 
 
@@ -48,6 +48,12 @@ procedure affMenuCreationPersonnage(var joueur : Personnage);
 
 (*Procedure qui affiche la fenetre de jeu principale.*)
 procedure affMenuJeu(var p : Personnage; var rep : String);
+
+(*Procedure qui affiche la quête actuelle*)
+procedure affMenuQuete(var p : Personnage; var rep : String);
+
+(*Procedure qui affiche le menu de inventaire.*)
+function affMenuInv(var p : Personnage; var rep) : String;
 
 
 
@@ -167,8 +173,10 @@ begin
   //affTexte('abc abc abc');
   rep := '';
 
-  //p.lieu:='c';
-  p.quete:=3;
+  //p.lieu:='m';
+  //p.quete:=5;
+  //p.gold:=1100;
+  p.inv[1] := 'Masse d''ebonite';
 
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'a') AND (p.quete = 1) then scenario1MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'a') AND (p.quete = 5) then scenario19MJ(p, rep);
@@ -178,20 +186,20 @@ begin
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'c') AND (p.quete = 1) then scenario5MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'c') AND (p.quete = 2) then scenario6MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'c') AND (p.quete > 2) then scenario9MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'd') AND (p.quete = 1) then scenario7MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'd') AND (p.quete = 5) AND (p.gold < 1100) then scenario27MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'd') AND ((p.quete <> 1) OR ((p.quete = 5) AND TRUE{POSSIBLE SOUCIS ICI}) ) then scenario8MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'e') then scenario3MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'f') AND (p.quete < 3) then scenario10MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'f') AND (p.quete > 2) then scenario11MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'g') AND (p.quete = 4) then scenario12MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'h') then scenario13MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'i') then scenario14MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'j') AND (p.quete = 5) AND presenceMasseEbo(p) then scenario21MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'j') AND (p.quete = 5) AND not presenceMasseEbo(p) then scenario20MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'k') then scenario16MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'm') then scenario24MJ(p, rep);
-  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'n') then scenario23MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'd') AND (p.quete = 1) then scenario7MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'd') AND (p.quete = 5) AND (p.gold < 1100) then scenario27MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'd') AND (((p.quete <> 1) AND ((p.quete = 5) AND (p.gold >= 1100)) OR ((p.quete <> 1) AND ((p.quete <> 5))))) then scenario8MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'e') then scenario3MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'f') AND (p.quete < 3) then scenario10MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'f') AND (p.quete > 2) then scenario11MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'g') then scenario12MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'h') then scenario13MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'i') then scenario14MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'j') AND (p.quete = 5) AND presenceMasseEbo(p) then scenario21MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'j') AND (p.quete = 5) AND not presenceMasseEbo(p) then scenario20MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'k') then scenario16MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'm') then scenario24MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'n') then scenario23MJ(p, rep);
 
 
   ReadLn;
@@ -200,5 +208,112 @@ begin
 
 end;
 
-end.
+(*Procedure qui affiche la quête actuelle*)
+procedure affMenuQuete(var p : Personnage; var rep : String);
+var
+  pos : coordonnees;
+  //rep : String;
+begin
+  initConsole();
 
+  initCadreHautMQ(p);
+
+  if p.quete = 1 then centrerTexte('Retrouver le Jarl de Blancherive dans le Fort Dragon', 30, 100);
+  if p.quete = 2 then centrerTexte('Retrouver le Chambellan : Cavovius Dargogne', 30, 100);
+  if p.quete = 3 then centrerTexte('Rejoindre la porte principale de Blancherive', 30, 100);
+  if p.quete = 4 then centrerTexte('Retrouver les soldats à la Tour de Guet', 30, 100);
+  if p.quete = 5 then centrerTexte('Aller a l’armurerie de Blancherive pour s’équiper de la Masse d’Ebonite', 30, 100);
+  if p.quete = 6 then centrerTexte('Retourner à la Tour de Guet combattre le Dragon', 30, 100);
+  if p.quete = 7 then centrerTexte('Vaincre le Dragon', 30, 100);
+
+
+  initCadreBasMQ();
+
+  repeat
+    changerLigneCurseur(56);
+    changerColonneCurseur(10);
+    Write('>>>                                             ');
+    changerColonneCurseur(14);
+
+    rep := jeVeuxUneReponse();
+
+  until (rep = 'a') OR (rep = 'exit');
+
+  if rep = 'a' then rep := 'OK';
+end;
+
+(*Procedure qui affiche le menu de inventaire.*)
+function affMenuInv(var p : Personnage; var rep) : String;
+var
+  pos : coordonnees;
+  //rep : String;
+begin
+  initConsole();
+  initCadreHautMInv(p);
+
+
+
+  dessinerCadreXY(5,20,62,46,simple,15,0);
+  dessinerCadreXY(85,15,115,17,simple,0,15);
+  dessinerCadreXY(136,20,193,46,simple,15,0);
+  couleurs(0,15);
+  centrerTexte('Inventaire du heros',16);
+  couleurs(15,0);
+
+  pos.x:=8;
+  pos.y:=20;
+  ecrireEnPosition(pos,' Liste de l''inventaire ');
+  pos.x:=139;
+  pos.y:=20;
+  ecrireEnPosition(pos,' Equipement equiper ');
+
+  affLInventaire(p);
+  affLEquipement(p);
+
+
+  initCadreBasMInv();
+
+
+  repeat
+
+    repeat
+      changerLigneCurseur(56);
+      changerColonneCurseur(10);
+      Write('>>>                                             ');
+      changerColonneCurseur(14);
+
+      rep := jeVeuxUneReponse();
+
+    until ((rep >= 'a') AND (rep <= 'c')) OR (rep = 'exit');
+
+    if rep = 'a' then rep := 'equip';  // Menu Equuiper
+    if rep = 'c' then rep := 'OK';
+
+    if rep = 'b' then
+      begin
+        if presencePotion(p) = False then
+          centrerTexte('           Tu n''as pas de potion dans ton inventaire ... Tu as essayé de ma la faire à l''envers ?!           ', 48)
+        else
+          begin
+            if p.vie.actuelle = p.vie.max then
+              centrerTexte('                               Que veut tu faire de cette potion tu as toute ta vie !!                               ', 48)
+            else
+              begin
+                p.vie.actuelle := p.vie.actuelle + 20;
+                enleverObjet(p, 'Potion');
+
+                if p.vie.actuelle > p.vie.max then p.vie.actuelle := p.vie.max;
+              end;
+          end;
+      end;
+
+    rep := 'Inventaire'
+
+  until (rep='equip') OR (rep='OK') OR (rep='exit');
+
+
+
+  affMenuInv := rep;
+end;
+
+end.

@@ -55,6 +55,9 @@ procedure affMenuQuete(var p : Personnage; var rep : String);
 (*Procedure qui affiche le menu de inventaire.*)
 procedure affMenuInv(var pe : Personnage; var rep : String);
 
+(*Procedure qui affiche le magasin du jeu.*)
+procedure affMenuMag(var p : Personnage; rep : String);
+
 
 
 
@@ -174,9 +177,8 @@ begin
   rep := '';
 
   //p.lieu:='m';
-  p.quete:=5;
-  //p.gold:=1100;
-  p.inv[1] := 'Masse d''ebonite';
+  //p.quete:=5;
+  //p.inv[1] := 'Masse d''ebonite';
 
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'a') AND (p.quete = 1) then scenario1MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'a') AND (p.quete = 5) then scenario19MJ(p, rep);
@@ -292,31 +294,84 @@ begin
   until A OR C;
 
   if rep = 'b' then rep := 'OK';
+end;
+
+(*Procedure qui affiche le magasin du jeu.*)
+procedure affMenuMag(var p : Personnage; rep : String);
+var
+  pos : coordonnees;
+  //rep : String;
+  armur : Armurerie;
+  len, cb : Integer;
+begin
+  initAffMag(p);
+  initArmurerie(armur);
+
+    repeat
+      rep:='';
+
+      repeat
+        changerLigneCurseur(56);
+        changerColonneCurseur(10);
+        Write('>>>                                             ');
+        changerColonneCurseur(14);
+
+        rep := jeVeuxUneReponse();
+        centrerTexte('                                                                                                                                      ', 48, 100);
+
+          // R AND ( ( A AND B AND ( S OR T ) ) OR ( C AND D AND ( (S AND E) OR ( T AND F ) ) ) )
+
+      until (rep='a') OR ( rep='exit' ) OR ( ( rep[2] = '-' ) AND ( ( (Length(rep) = 3) AND ( Ord(rep[3]) < 58 ) AND ( Ord(rep[3]) > 48 ) AND ( ( rep[1] = 'a' ) OR ( rep[1] = 'v' ) ) ) OR ( (Length(rep) = 4) AND ( rep[3] = '1' ) AND ( Ord(rep[4]) > 47 ) AND ( ( ( rep[1] = 'a' ) AND ( Ord(rep[4]) < 58 ) ) OR ( ( rep[1] = 'v' ) AND ( Ord(rep[4]) < 51 ) ) ) ) ) );
 
 
-  //repeat
-  //
-  //  repeat
-  //    changerLigneCurseur(56);
-  //    changerColonneCurseur(10);
-  //    Write('>>>                                             ');
-  //    changerColonneCurseur(14);
-  //
-  //    rep := jeVeuxUneReponse();
-  //
-  //  until ((rep >= 'a') AND (rep <= 'c')) OR (rep = 'exit');
-  //
-  //  if rep = 'a' then rep := 'equip';  // Menu Equuiper
-  //  if rep = 'c' then rep := 'OK';
-  //
-  //  if rep = 'b' then
-  //    begin
-        // OK
-  //    end;
-  //
-  //  rep := 'Inventaire'
-  //
-  //until (rep='equip') OR (rep='OK') OR (rep='exit');
+      if (rep <> 'a') AND (rep <> 'exit') then
+      begin
+        len := Length(rep);
+
+        case len of
+          3: cb:=StrToInt(rep[3]);
+          4: cb:=StrToInt(rep[4])+10;
+        end;
+
+        if (rep[1] = 'a') then
+          begin
+            if p.gold >= armur[cb-1].prix then
+              begin
+                if placeInventaire(p) then
+                  begin
+                    p.gold := p.gold - armur[cb-1].prix;
+                    ajouterObjet(p, armur[cb-1].nom);
+                    initAffMag(p);
+
+                    centrerTexte('                                            Tu viens d''acheter un nouvel item, bravo !!                                            ', 48, 100);
+                  end
+                else
+                  centrerTexte('                                            T''as plus de place, je peux rien faire pour toi ...                                            ', 48, 100);
+              end
+            else
+              centrerTexte('                                                   T''es pauvre déso ...                                                   ', 48, 100);
+          end
+        else
+          begin
+            if p.inv[cb] <> '' then
+              begin
+                p.gold := p.gold + Round(trouverPrixObj(p, cb)*0.5);
+
+                enleverObjet(p, p.inv[cb]);
+                enleverEquipement(p);
+
+                initAffMag(p);
+
+                centrerTexte('                                            Tu viens de vendre un item, bravo !!                                            ', 48, 100);
+              end
+            else
+              centrerTexte('                                              Heuuu tu peux vendre le vide toi ?!                                              ', 48, 100);
+          end;
+      end;
+
+    until (rep='a') OR (rep='exit');
+
+  if rep = 'a' then rep := 'OK';
 end;
 
 end.

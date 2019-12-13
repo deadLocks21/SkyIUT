@@ -69,6 +69,29 @@ procedure initAffMInv(pe : Personnage);
 (*Tente d'équiper une armure ou une arme sur un joueur.*)
 procedure tenterDEquiperLeJoueur(var p : Personnage;rep : String);
 
+(*Affiche équipement manière centrée*)
+procedure affInvCentre(p : Personnage);
+
+(*Affiche les armes et leurs prix*)
+procedure affArmes(arm : Armurerie);
+
+(*Affiche les armures et leurs prix*)
+procedure affArmures(arm : Armurerie);
+
+(*Affiche la potion et son prix*)
+procedure affPrixPotion();
+
+(*Initialise la partie en bas du menu magasin*)
+procedure initCadreBasMMag();
+
+(*Initialise les graphiques du magasin.*)
+procedure initAffMag(p : Personnage);
+
+(*Retourne le prix d'un objet de l'inventaire du joueur*)
+function trouverPrixObj(p : Personnage; cb : Integer) : Integer;
+
+
+
 
 
 
@@ -469,6 +492,134 @@ begin
     end
   else
     centrerTexte('                                         T''es serieux ? Tu veux vraiment t''equiper du vide ?                                         ', 48, 100);
+end;
+
+(*Affiche équipement manière centrée*)
+procedure affInvCentre(p : Personnage);
+begin
+
+  if p.inv[1] <> '' then centrerTexte('1/ ' + p.inv[1], 22, 100);
+  if p.inv[2] <> '' then centrerTexte('2/ ' + p.inv[2], 24, 100);
+  if p.inv[3] <> '' then centrerTexte('3/ ' + p.inv[3], 26, 100);
+  if p.inv[4] <> '' then centrerTexte('4/ ' + p.inv[4], 28, 100);
+  if p.inv[5] <> '' then centrerTexte('5/ ' + p.inv[5], 30, 100);
+  if p.inv[6] <> '' then centrerTexte('6/ ' + p.inv[6], 32, 100);
+  if p.inv[7] <> '' then centrerTexte('7/ ' + p.inv[7], 34, 100);
+  if p.inv[8] <> '' then centrerTexte('8/ ' + p.inv[8], 36, 100);
+  if p.inv[9] <> '' then centrerTexte('9/ ' + p.inv[9], 38, 100);
+  if p.inv[10] <> '' then centrerTexte('10/ ' + p.inv[10], 40, 100);
+  if p.inv[11] <> '' then centrerTexte('11/ ' + p.inv[11], 42, 100);
+  if p.inv[12] <> '' then centrerTexte('12/ ' + p.inv[12], 44, 100);
+
+end;
+
+(*Affiche les armes et leurs prix*)
+procedure affArmes(arm : Armurerie);
+begin
+  centrerTexte('1/ '+arm[0].nom +' ('+IntToStr(arm[0].prix)+')', 22, 35);
+  centrerTexte('2/ '+arm[1].nom +' ('+IntToStr(arm[1].prix)+')', 24, 35);
+  centrerTexte('3/ '+arm[2].nom +' ('+IntToStr(arm[2].prix)+')', 26, 35);
+  centrerTexte('4/ '+arm[3].nom +' ('+IntToStr(arm[3].prix)+')', 28, 35);
+  centrerTexte('5/ '+arm[4].nom +' ('+IntToStr(arm[4].prix)+')', 30, 35);
+  centrerTexte('6/ '+arm[5].nom +' ('+IntToStr(arm[5].prix)+')', 32, 35);
+  centrerTexte('7/ '+arm[6].nom +' ('+IntToStr(arm[6].prix)+')', 34, 35);
+  centrerTexte('8/ '+arm[7].nom +' ('+IntToStr(arm[7].prix)+')', 36, 35);
+  centrerTexte('9/ '+arm[8].nom +' ('+IntToStr(arm[8].prix)+')', 38, 35);
+  centrerTexte('10/ '+arm[9].nom +' ('+IntToStr(arm[9].prix)+')', 40, 35);
+  centrerTexte('11/ '+arm[10].nom +' ('+IntToStr(arm[10].prix)+')', 42, 35);
+  centrerTexte('12/ '+arm[11].nom +' ('+IntToStr(arm[11].prix)+')', 44, 35);
+end;
+
+(*Affiche les armures et leurs prix*)
+procedure affArmures(arm : Armurerie);
+begin
+  centrerTexte('13/ '+arm[12].nom +' ('+IntToStr(arm[12].prix)+')', 22, 165);
+  centrerTexte('14/ '+arm[13].nom +' ('+IntToStr(arm[13].prix)+')', 24, 165);
+  centrerTexte('15/ '+arm[14].nom +' ('+IntToStr(arm[14].prix)+')', 26, 165);
+  centrerTexte('16/ '+arm[15].nom +' ('+IntToStr(arm[15].prix)+')', 28, 165);
+  centrerTexte('17/ '+arm[16].nom +' ('+IntToStr(arm[16].prix)+')', 30, 165);
+  centrerTexte('18/ '+arm[17].nom +' ('+IntToStr(arm[17].prix)+')', 32, 165);
+end;
+
+(*Affiche la et son prix*)
+procedure affPrixPotion();
+begin
+  dessinerCadreXY(136,34,193,46,simple,15,0);
+
+  changerColonneCurseur(139);
+  changerLigneCurseur(34);
+  Write(' Prix d''une potion ');
+
+  centrerTexte('19/ Potion (50)', 36, 165);
+end;
+
+(*Initialise la partie en bas du menu magasin*)
+procedure initCadreBasMMag();
+begin
+  dessinerCadreXY(2, 49, 196, 58, double,15,0);
+  dessinerCadreXY(2, 53, 196, 58, double,15,0);
+
+  changerLigneCurseur(55);
+  changerColonneCurseur(10);
+  Write('>>> Saisissez une commande de la forme x-99 ou x-9 avec x vaut a pour acheter et v pour vendre. Les 9 corresponde au numéro de l''item.');
+  centrerTexte('a/ Sortir', 51, 100);
+
+end;
+
+(*Initialise les graphiques du magasin.*)
+procedure initAffMag(p : Personnage);
+var
+  armur : Armurerie;
+  pos : coordonnees;
+
+begin
+  changerTailleConsole(200, 60);
+  effacerEcran;
+  dessinerCadreXY(2,1,196,58,double,15,0);
+
+  initCadreHautMInv(p);
+
+  initArmurerie(armur);
+
+  dessinerCadreXY(5,20,62,46,simple,15,0);
+  dessinerCadreXY(85,15,115,17,simple,0,15);
+  dessinerCadreXY(136,20,193,46,simple,15,0);
+  dessinerCadreXY(70,20,127,46,simple,15,0);
+  couleurs(0,15);
+  centrerTexte('Magasin',16, 100);
+  couleurs(15,0);
+  pos.x:=8;
+  pos.y:=20;
+  ecrireEnPosition(pos,' Acheter des armes ');
+  pos.x:=139;
+  pos.y:=20;
+  ecrireEnPosition(pos,' Acheter des armures ');
+  pos.x:=73;
+  pos.y:=20;
+  ecrireEnPosition(pos,' Liste de l''equipements ');
+
+  affArmes(armur);
+  affArmures(armur);
+  affPrixPotion();
+
+  affInvCentre(p);
+
+  initCadreBasMMag();
+end;
+
+(*Retourne le prix d'un objet de l'inventaire du joueur*)
+function trouverPrixObj(p : Personnage; cb : Integer) : Integer;
+var
+  arm : Armurerie;
+  i : Integer;
+begin
+  initArmurerie(arm);
+
+  for i:= 0 to 18 do
+    begin
+      if p.inv[cb] = arm[i].nom then
+        trouverPrixObj := arm[i].prix;
+    end;
 end;
 
 end.

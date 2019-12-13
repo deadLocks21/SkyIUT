@@ -206,7 +206,7 @@ begin
 
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'o')) then p.lieu:='i';
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'p') ) then p.lieu:='l';
-   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'q') ) then p.lieu:='m';
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'q') ) then p.lieu:='m';
 
   // ReadLn;
 

@@ -23,6 +23,9 @@ begin
 
   creerPersonnage(joueur, 'deadLocks21', 1);
 
+  joueur.vie.actuelle:=1;
+  joueur.inv[2] := 'Potion';
+
   while ctn do
     begin
       affMenuJeu(joueur, qF);

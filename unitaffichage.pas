@@ -249,30 +249,7 @@ var
   //rep : String;
   A, B, C, D, E, F, G, H, I, J, K, P, Q : Boolean;
 begin
-  initConsole();
-  initCadreHautMInv(pe);
-
-
-
-  dessinerCadreXY(5,20,62,46,simple,15,0);
-  dessinerCadreXY(85,15,115,17,simple,0,15);
-  dessinerCadreXY(136,20,193,46,simple,15,0);
-  couleurs(0,15);
-  centrerTexte('Inventaire du heros',16, 100);
-  couleurs(15,0);
-
-  pos.x:=8;
-  pos.y:=20;
-  ecrireEnPosition(pos,' Liste de l''inventaire ');
-  pos.x:=139;
-  pos.y:=20;
-  ecrireEnPosition(pos,' Equipement equiper ');
-
-  affLInventaire(pe);
-  affLEquipement(pe);
-
-
-  initCadreBasMInv();
+  initAffMInv(pe);
 
   repeat
     repeat
@@ -282,6 +259,7 @@ begin
       changerColonneCurseur(14);
 
       rep := jeVeuxUneReponse();
+      centrerTexte('                                                                                                                                      ', 48, 100);
 
       P := Length(rep)=3;
       Q := Length(rep)=4;
@@ -303,6 +281,10 @@ begin
     until A OR B OR C OR ( E AND F AND ( (P AND G AND H) OR (Q AND I AND J AND K) ) );
 
 
+
+    if rep='a' then utiliserUnePotion(pe);
+
+    if ( E AND F AND ( (P AND G AND H) OR (Q AND I AND J AND K) ) ) then tenterDEquiperLeJoueur(pe, rep);
 
 
 

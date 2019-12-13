@@ -63,6 +63,12 @@ procedure enleverEquipement(var p : Personnage);
 (*Initialiser les armureries*)
 procedure initArmurerie(var armur : Armurerie);
 
+(*Initialisation graphique entière de cette scène.*)
+procedure initAffMInv(pe : Personnage);
+
+(*Tente d'équiper une armure ou une arme sur un joueur.*)
+procedure tenterDEquiperLeJoueur(var p : Personnage;rep : String);
+
 
 
 
@@ -170,6 +176,10 @@ begin
           enleverObjet(p, 'Potion');
 
           if p.vie.actuelle > p.vie.max then p.vie.actuelle := p.vie.max;
+
+          initAffMInv(p);
+
+          centrerTexte('                               GG, tu viens d''utiliser une potion !!                               ', 48, 100)
         end;
     end;
 end;
@@ -182,6 +192,7 @@ var
   nom : String;
 begin
   initArmurerie(Armur);
+
   nom := p.inv[StrToInt(r)];
 
   centrerTexte('                    ' + nom + ' est equipe.                    ', 48, 100);
@@ -400,6 +411,64 @@ begin
   arm[18] := obj;
 
   armur := arm;
+end;
+
+(*Initialisation graphique entière de cette scène.*)
+procedure initAffMInv(pe : Personnage);
+var
+  pos : coordonnees;
+begin
+  changerTailleConsole(200, 60);
+  effacerEcran;
+  dessinerCadreXY(2,1,196,58,double,15,0);
+
+  initCadreHautMInv(pe);
+
+
+
+  dessinerCadreXY(5,20,62,46,simple,15,0);
+  dessinerCadreXY(85,15,115,17,simple,0,15);
+  dessinerCadreXY(136,20,193,46,simple,15,0);
+  couleurs(0,15);
+  centrerTexte('Inventaire du heros',16, 100);
+  couleurs(15,0);
+
+  pos.x:=8;
+  pos.y:=20;
+  ecrireEnPosition(pos,' Liste de l''inventaire ');
+  pos.x:=139;
+  pos.y:=20;
+  ecrireEnPosition(pos,' Equipement equiper ');
+
+  affLInventaire(pe);
+  affLEquipement(pe);
+
+
+  initCadreBasMInv();
+end;
+
+(*Tente d'équiper une armure ou une arme sur un joueur.*)
+procedure tenterDEquiperLeJoueur(var p : Personnage;rep : String);
+begin
+  if Length(rep)=3 then rep:=rep[3];
+  if Length(rep)=4 then rep:=rep[3] + rep[4];
+
+  if (p.inv[StrToInt(rep)] <> '') then
+    begin
+      if p.inv[StrToInt(rep)] <> 'Potion' then
+        begin
+          equiper(p, rep);
+          affLEquipement(p);
+
+          initAffMInv(p);
+          centrerTexte('                    Tu viens de t''équiper, bien joué.                    ', 48, 100);
+
+        end
+      else
+        centrerTexte('                    Equiper une potion c''est pas ouf ...                    ', 48, 100);
+    end
+  else
+    centrerTexte('                                         T''es serieux ? Tu veux vraiment t''equiper du vide ?                                         ', 48, 100);
 end;
 
 end.

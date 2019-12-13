@@ -594,7 +594,7 @@ end;
 (*Affiche le scénario de l'évènement 21*)
 procedure scenario21MJ(var p : Personnage; var rep : String);
 begin
-centrerTexte('1/ Aller à la Tour de Guet', 47, 100);
+centrerTexte('1/ Rentrer dans la Tour de Guet', 47, 100);
 affTexte(#09'Vous êtes prêt à partir combattre, un  enfant sans genre disctinct du nom de Thorn vous arrête et vous dit : ', 13);
 affTexte('La sécurité de Blancherive est en danger mais nous avons tous confiance en vous, faites attention.', 14);
 changerLigneCurseur(56);

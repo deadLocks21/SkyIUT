@@ -14,7 +14,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses unitEcran, unitMenuInitiale, unitMenuCreationPersonnage, unitMenuJeu, unitMenuQuete, typesDuJeu, sysutils;
+uses unitEcran, unitMenuInitiale, unitMenuCreationPersonnage, unitMenuJeu, unitMenuQuete, unitMenuInventaire, typesDuJeu, sysutils;
 
 
 
@@ -53,7 +53,7 @@ procedure affMenuJeu(var p : Personnage; var rep : String);
 procedure affMenuQuete(var p : Personnage; var rep : String);
 
 (*Procedure qui affiche le menu de inventaire.*)
-function affMenuInv(var p : Personnage; var rep) : String;
+procedure affMenuInv(var pe : Personnage; var rep : String);
 
 
 
@@ -174,7 +174,7 @@ begin
   rep := '';
 
   //p.lieu:='m';
-  //p.quete:=5;
+  p.quete:=5;
   //p.gold:=1100;
   p.inv[1] := 'Masse d''ebonite';
 
@@ -202,7 +202,7 @@ begin
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'n') then scenario23MJ(p, rep);
 
 
-  ReadLn;
+  // ReadLn;
 
   //affTexte('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque risus eget enim porttitor, quis mattis tellus luctus. Mauris a justo sed sem congue pretium vitae quis elit. Curabitur tincidunt ultricies mattis. Ut lectus dui, accumsan at commodo sed, finibus quis erat. Pellentesque volutpat nibh orci, non ultrices turpis finibus lobortis. Praesent eget justo vel erat finibus maximus et et elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nulla malesuada fringilla efficitur. ');
 
@@ -243,13 +243,14 @@ begin
 end;
 
 (*Procedure qui affiche le menu de inventaire.*)
-function affMenuInv(var p : Personnage; var rep) : String;
+procedure affMenuInv(var pe : Personnage; var rep : String);
 var
   pos : coordonnees;
   //rep : String;
+  A, B, C, D, E, F, G, H, I, J, K, P, Q : Boolean;
 begin
   initConsole();
-  initCadreHautMInv(p);
+  initCadreHautMInv(pe);
 
 
 
@@ -257,7 +258,7 @@ begin
   dessinerCadreXY(85,15,115,17,simple,0,15);
   dessinerCadreXY(136,20,193,46,simple,15,0);
   couleurs(0,15);
-  centrerTexte('Inventaire du heros',16);
+  centrerTexte('Inventaire du heros',16, 100);
   couleurs(15,0);
 
   pos.x:=8;
@@ -267,15 +268,13 @@ begin
   pos.y:=20;
   ecrireEnPosition(pos,' Equipement equiper ');
 
-  affLInventaire(p);
-  affLEquipement(p);
+  affLInventaire(pe);
+  affLEquipement(pe);
 
 
   initCadreBasMInv();
 
-
   repeat
-
     repeat
       changerLigneCurseur(56);
       changerColonneCurseur(10);
@@ -284,36 +283,58 @@ begin
 
       rep := jeVeuxUneReponse();
 
-    until ((rep >= 'a') AND (rep <= 'c')) OR (rep = 'exit');
+      P := Length(rep)=3;
+      Q := Length(rep)=4;
+      A := rep = 'exit';
+      B := rep = 'a';
+      C := rep = 'b';
 
-    if rep = 'a' then rep := 'equip';  // Menu Equuiper
-    if rep = 'c' then rep := 'OK';
+      if rep <> '' then
+        begin
+          E := rep[1] = 'e';
+          F := rep[2] = '-';
+          G := Ord(rep[3]) <= Ord('9');
+          H := Ord(rep[3]) > Ord('0');
+          I := Ord(rep[3]) = Ord('1');
+          J := Ord(rep[4]) >= Ord('0');
+          K := Ord(rep[4]) < Ord('3');
+        end;
 
-    if rep = 'b' then
-      begin
-        if presencePotion(p) = False then
-          centrerTexte('           Tu n''as pas de potion dans ton inventaire ... Tu as essayé de ma la faire à l''envers ?!           ', 48)
-        else
-          begin
-            if p.vie.actuelle = p.vie.max then
-              centrerTexte('                               Que veut tu faire de cette potion tu as toute ta vie !!                               ', 48)
-            else
-              begin
-                p.vie.actuelle := p.vie.actuelle + 20;
-                enleverObjet(p, 'Potion');
-
-                if p.vie.actuelle > p.vie.max then p.vie.actuelle := p.vie.max;
-              end;
-          end;
-      end;
-
-    rep := 'Inventaire'
-
-  until (rep='equip') OR (rep='OK') OR (rep='exit');
+    until A OR B OR C OR ( E AND F AND ( (P AND G AND H) OR (Q AND I AND J AND K) ) );
 
 
 
-  affMenuInv := rep;
+
+
+
+  until A OR C;
+
+  if rep = 'b' then rep := 'OK';
+
+
+  //repeat
+  //
+  //  repeat
+  //    changerLigneCurseur(56);
+  //    changerColonneCurseur(10);
+  //    Write('>>>                                             ');
+  //    changerColonneCurseur(14);
+  //
+  //    rep := jeVeuxUneReponse();
+  //
+  //  until ((rep >= 'a') AND (rep <= 'c')) OR (rep = 'exit');
+  //
+  //  if rep = 'a' then rep := 'equip';  // Menu Equuiper
+  //  if rep = 'c' then rep := 'OK';
+  //
+  //  if rep = 'b' then
+  //    begin
+        // OK
+  //    end;
+  //
+  //  rep := 'Inventaire'
+  //
+  //until (rep='equip') OR (rep='OK') OR (rep='exit');
 end;
 
 end.

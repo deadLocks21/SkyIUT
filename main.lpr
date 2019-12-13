@@ -28,7 +28,7 @@ begin
       affMenuJeu(joueur, qF);
 
       case qF of
-        'Inventaire' : aff
+        'Inventaire' : affMenuInv(joueur, qF);
         'Quete' : affMenuQuete(joueur, qF);
         //'Magasin' := Ouvrir Menu Magasin;
         'Mourrir' : ctn := False;

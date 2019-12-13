@@ -197,12 +197,16 @@ begin
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'g') then scenario12MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'h') then scenario13MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'i') then scenario14MJ(p, rep);
-  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'j') AND (p.quete = 5) AND presenceMasseEbo(p) then scenario21MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'j') AND ( (p.quete = 5) OR (p.quete = 6) ) AND presenceMasseEbo(p) then scenario21MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'j') AND (p.quete = 5) AND not presenceMasseEbo(p) then scenario20MJ(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'j') AND (p.quete <> 5) then scenario20MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'k') then scenario16MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'm') then scenario24MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'n') then scenario23MJ(p, rep);
 
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'o')) then p.lieu:='i';
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'p') ) then p.lieu:='l';
+   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'q') ) then p.lieu:='m';
 
   // ReadLn;
 
@@ -341,6 +345,10 @@ begin
                   begin
                     p.gold := p.gold - armur[cb-1].prix;
                     ajouterObjet(p, armur[cb-1].nom);
+
+                    if (cb = 10) AND (p.quete=5) then p.quete:=6;
+
+
                     initAffMag(p);
 
                     centrerTexte('                                            Tu viens d''acheter un nouvel item, bravo !!                                            ', 48, 100);

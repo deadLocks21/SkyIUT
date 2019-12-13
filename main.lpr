@@ -23,6 +23,10 @@ begin
 
   creerPersonnage(joueur, 'deadLocks21', 1);
 
+  joueur.quete:=4;
+  joueur.lieu:='g';
+  joueur.inv[1] := 'Masse d''ebonite';
+
   while ctn do
     begin
       affMenuJeu(joueur, qF);

@@ -922,6 +922,8 @@ begin
      case rep of
        '1' : pe.lieu:='b';
      end;
+
+  pe.quete:=3;
 end;
 
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 7.*)
@@ -961,6 +963,8 @@ begin
      case rep of
        '1' : pe.lieu:='b';
      end;
+
+  pe.quete:=2;
 end;
 
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 8.*)
@@ -1114,11 +1118,13 @@ begin
   if X then r := 'Inventaire';
   if Y then r := 'Quete';
 
+  pe.quete:=4;
+
   if ( P AND A AND E ) then
      begin
 
-       if (rep = '1') AND (pe.quete=4) then pe.lieu:='g'
-       else pe.lieu:='j';
+       if (rep = '1') AND (pe.quete=4) then pe.lieu:='g';
+       if (rep = '1') AND (pe.quete<>4) then pe.lieu:='j';
 
        case rep of
          '2' : pe.lieu:='a';
@@ -1441,6 +1447,8 @@ begin
      case rep of
        '1' : pe.lieu:='k';
      end;
+
+  pe.quete:=5;
 end;
 
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 21.*)
@@ -1473,6 +1481,8 @@ begin
      case rep of
        '1' : pe.lieu:='n';
      end;
+
+  pe.quete:=7;
 end;
 
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 23.*)
@@ -1639,5 +1649,7 @@ begin
      case rep of
        '1' : pe.lieu:='b';
      end;
+
+  pe.gold:=pe.gold + (1100-pe.gold);
 end;
 end.

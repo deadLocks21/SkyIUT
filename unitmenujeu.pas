@@ -77,9 +77,9 @@ procedure scenario14MJ(var p : Personnage; var rep : String);
 (*Affiche le scénario de l'évènement 16*)
 procedure scenario16MJ(var p : Personnage; var rep : String);
 
-//(*Affiche le scénario de l'évènement 17*)
-//procedure scenario17MJ(var p : Personnage; var rep : String);
-//
+(*Affiche le scénario de l'évènement 17*)
+procedure scenario17MJ(var p : Personnage; var rep : String);
+
 //(*Affiche le scénario de l'évènement 18*)
 //procedure scenario18MJ(var p : Personnage; var rep : String);
 
@@ -159,9 +159,9 @@ procedure reponseScenario14(var pe : Personnage; var r : String);
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 16.*)
 procedure reponseScenario16(var pe : Personnage; var r : String);
 
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 17.*)
-//procedure reponseScenario17(var pe : Personnage; var r : String);
-//
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 17.*)
+procedure reponseScenario17(var pe : Personnage; var r : String);
+
 //(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 18.*)
 //procedure reponseScenario18(var pe : Personnage; var r : String);
 
@@ -535,20 +535,20 @@ Write('>>> ');
 reponseScenario16(p, rep);
 end;
 
-//(*Affiche le scénario de l'évènement 17*)
-//procedure scenario17MJ(var p : Personnage; var rep : String);
-//begin
-//centrerTexte('1/ Rejoindre Blancherive', 47, 100);
-//
-//affTexte(#09'Vous venez de vaincre les soldats Sombrages mais le dragon est toujours à la Tour de Guet, il vous faut trouver la Masse d''Ebonite au Marché de Blancherive au plus vite.', 13);
-//
-//changerLigneCurseur(56);
-//changerColonneCurseur(10);
-//Write('>>> ');
-//
-//reponseScenario17(p, rep);
-//end;
-//
+(*Affiche le scénario de l'évènement 17*)
+procedure scenario17MJ(var p : Personnage; var rep : String);
+begin
+centrerTexte('1/ Rejoindre Blancherive', 47, 100);
+
+affTexte(#09'Vous venez de vaincre les soldats Sombrages mais le dragon est toujours à la Tour de Guet, il vous faut trouver la Masse d''Ebonite au Marché de Blancherive au plus vite.', 13);
+
+changerLigneCurseur(56);
+changerColonneCurseur(10);
+Write('>>> ');
+
+reponseScenario17(p, rep);
+end;
+
 //(*Affiche le scénario de l'évènement 18*)
 //procedure scenario18MJ(var p : Personnage; var rep : String);
 //begin
@@ -1118,7 +1118,7 @@ begin
   if X then r := 'Inventaire';
   if Y then r := 'Quete';
 
-  pe.quete:=4;
+  if pe.quete=3 then pe.quete:=4;
 
   if ( P AND A AND E ) then
      begin
@@ -1295,46 +1295,46 @@ begin
      end;
 end;
 
-//(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 17.*)
-//procedure reponseScenario17(var pe : Personnage; var r : String);
-//var
-//  rep : String;
-//  A, B, C, D, E, P, X, Y, Z : Boolean;
-//
-//begin
-//  r := 'OK';
-//
-//  repeat
-//    razConsole;
-//    rep := jeVeuxUneReponse();
-//
-//    P := Length(rep) = 1;
-//    X := rep = 'a';
-//    Y := rep = 'b';
-//    Z := rep = 'exit';
-//
-//    if Length(rep) > 0 then
-//       begin
-//         A := Ord(rep[1]) > Ord('0');
-//         B := Ord(rep[1]) < Ord('5');
-//         C := Ord(rep[1]) < Ord('4');
-//         D := rep = '1';
-//         E := Ord(rep[1]) < Ord('3');
-//       end;
-//
-//
-//  until X OR Y OR Z OR ( P AND D );
-//
-//  if Z then r := 'exit';
-//  if X then r := 'Inventaire';
-//  if Y then r := 'Quete';
-//
-//  if ( P AND D ) then
-//     case rep of
-//       '1' : pe.lieu:='f';
-//     end;
-//end;
-//
+(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 17.*)
+procedure reponseScenario17(var pe : Personnage; var r : String);
+var
+  rep : String;
+  A, B, C, D, E, P, X, Y, Z : Boolean;
+
+begin
+  r := 'OK';
+
+  repeat
+    razConsole;
+    rep := jeVeuxUneReponse();
+
+    P := Length(rep) = 1;
+    X := rep = 'a';
+    Y := rep = 'b';
+    Z := rep = 'exit';
+
+    if Length(rep) > 0 then
+       begin
+         A := Ord(rep[1]) > Ord('0');
+         B := Ord(rep[1]) < Ord('5');
+         C := Ord(rep[1]) < Ord('4');
+         D := rep = '1';
+         E := Ord(rep[1]) < Ord('3');
+       end;
+
+
+  until X OR Y OR Z OR ( P AND D );
+
+  if Z then r := 'exit';
+  if X then r := 'Inventaire';
+  if Y then r := 'Quete';
+
+  if ( P AND D ) then
+     case rep of
+       '1' : pe.lieu:='f';
+     end;
+end;
+
 //(*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 18.*)
 //procedure reponseScenario18(var pe : Personnage; var r : String);
 //var

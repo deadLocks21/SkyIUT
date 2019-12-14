@@ -15,7 +15,7 @@ var
 
 
 begin
-  ctn := True;
+  hamadi := True;
   {affMenuInitiale(qF);
 
   if qF = 'exit' then ctn := False;
@@ -23,11 +23,11 @@ begin
 
   creerPersonnage(joueur, 'deadLocks21', 1);
 
-  //joueur.quete:=4;
-  //joueur.lieu:='g';
-  //joueur.inv[1] := 'Masse d''ebonite';
+  // joueur.quete:=4;
+  // joueur.lieu:='g';
+  // joueur.inv[1] := 'Masse d''ebonite';
 
-  while ctn do
+  while hamadi do
     begin
       affMenuJeu(joueur, qF);
 
@@ -35,10 +35,11 @@ begin
         'Inventaire' : affMenuInv(joueur, qF);
         'Quete' : affMenuQuete(joueur, qF);
         'Magasin' : affMenuMag(joueur, qF);
-        'Mourrir' : ctn := False;
+        'Mourrir' : hamadi := False;
+        //'LancerCombat !!' : leCombat ;
       end;
 
-      if qF = 'exit' then ctn := False;
+      if qF = 'exit' then hamadi := False;
     end;
 end.
 

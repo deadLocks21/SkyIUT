@@ -110,6 +110,9 @@ procedure affTexte(t : String; ligneD : Integer);
 // Affiche les >>> et vide ce qui a été écrit précedement.
 procedure razConsole();
 
+// Dessine un texte a partir du fichier contenu dans ressources.
+procedure dessinerTexte(nF : String);
+
 const
   // Codes des couleurs
   Black        = 0;
@@ -477,6 +480,31 @@ begin
   changerColonneCurseur(10);
   Write('>>>                                             ');
   changerColonneCurseur(14);
+end;
+
+procedure dessinerTexte(nF : String);
+var
+  y : Integer;
+  ligne, path : String;
+  fC : text;
+
+begin
+  path := 'ressources/'+nF;
+
+  Assign(fC, path);
+  Reset(fC);
+
+  y := 25;
+
+  while not eof(fC) do
+    begin
+      ReadLn(fC, ligne);
+      centrerTexte(ligne, y, 100);
+      y := y + 1;
+    end;
+
+  close(fC);
+
 end;
 
 end.

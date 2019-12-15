@@ -582,11 +582,11 @@ begin
   initArmurerie(armur);
 
   dessinerCadreXY(5,20,62,46,simple,15,0);
-  dessinerCadreXY(85,15,115,17,simple,0,15);
+  dessinerCadreXY(85,15,112,17,simple,0,15);
   dessinerCadreXY(136,20,193,46,simple,15,0);
   dessinerCadreXY(70,20,127,46,simple,15,0);
   couleurs(0,15);
-  centrerTexte('Magasin',16, 100);
+  centrerTexte('Marché',16, 100);
   couleurs(15,0);
   pos.x:=8;
   pos.y:=20;

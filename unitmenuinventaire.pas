@@ -579,32 +579,48 @@ begin
 
   initCadreHautMInv(p);
 
-  initArmurerie(armur);
+  if (p.dateAjh.heure < 18) AND (p.dateAjh.heure > 7) then
+    begin
+      initArmurerie(armur);
 
-  dessinerCadreXY(5,20,62,46,simple,15,0);
-  dessinerCadreXY(85,15,112,17,simple,0,15);
-  dessinerCadreXY(136,20,193,46,simple,15,0);
-  dessinerCadreXY(70,20,127,46,simple,15,0);
-  couleurs(0,15);
-  centrerTexte('Marché',16, 100);
-  couleurs(15,0);
-  pos.x:=8;
-  pos.y:=20;
-  ecrireEnPosition(pos,' Acheter des armes ');
-  pos.x:=139;
-  pos.y:=20;
-  ecrireEnPosition(pos,' Acheter des armures ');
-  pos.x:=73;
-  pos.y:=20;
-  ecrireEnPosition(pos,' Liste de l''equipements ');
+      dessinerCadreXY(5,20,62,46,simple,15,0);
+      dessinerCadreXY(85,15,112,17,simple,0,15);
+      dessinerCadreXY(136,20,193,46,simple,15,0);
+      dessinerCadreXY(70,20,127,46,simple,15,0);
+      couleurs(0,15);
+      centrerTexte('Marché',16, 100);
+      couleurs(15,0);
+      pos.x:=8;
+      pos.y:=20;
+      ecrireEnPosition(pos,' Acheter des armes ');
+      pos.x:=139;
+      pos.y:=20;
+      ecrireEnPosition(pos,' Acheter des armures ');
+      pos.x:=73;
+      pos.y:=20;
+      ecrireEnPosition(pos,' Liste de l''equipements ');
 
-  affArmes(armur);
-  affArmures(armur);
-  affPrixPotion();
+      affArmes(armur);
+      affArmures(armur);
+      affPrixPotion();
 
-  affInvCentre(p);
+      affInvCentre(p);
 
-  initCadreBasMMag();
+      initCadreBasMMag();
+    end
+  else
+    begin
+
+      dessinerCadreXY(2, 49, 196, 58, double,15,0);
+      dessinerCadreXY(2, 53, 196, 58, double,15,0);
+
+      changerLigneCurseur(55);
+      changerColonneCurseur(10);
+      Write('>>> Saisissez une commande.');
+      centrerTexte('a/ Sortir', 51, 100);
+
+      centrerTexte('Le magasin ouvre de 08h à 18h, merci de repasser dans ce créneau horaire !!', 15, 100);
+    end;
 end;
 
 (*Retourne le prix d'un objet de l'inventaire du joueur*)

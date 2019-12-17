@@ -25,8 +25,9 @@ begin
   initDate(joueur);
 
   //joueur.quete:=4;
-  //joueur.lieu:='g';
+  joueur.lieu:='g';
   //joueur.inv[1] := 'Masse d''ebonite';
+  joueur.dateAjh.heure:=19;
 
   // Test du temps !!
   //while 1=1 do

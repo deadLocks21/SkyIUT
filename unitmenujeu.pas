@@ -13,7 +13,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses sysutils,unitEcran, unitDate, typesDuJeu;
+uses sysutils,unitEcran, unitDate, typesDuJeu, unitSauvegardeTools;
 
 (*Affiche l'en-tête du menu.*)
 procedure initCadreHautMJ(p : Personnage);
@@ -831,6 +831,8 @@ begin
          B := Ord(rep[1]) < Ord('5');
        end;
 
+    if rep = 'save' then saveJ(pe);
+
 
   until X OR Y OR Z OR ( P AND A AND B );
 
@@ -878,6 +880,8 @@ begin
          C := Ord(rep[1]) < Ord('4');
        end;
 
+    if rep = 'save' then saveJ(pe);
+
 
   until X OR Y OR Z OR ( P AND A AND C );
 
@@ -917,6 +921,8 @@ begin
          B := Ord(rep[1]) < Ord('5');
          C := Ord(rep[1]) < Ord('4');
        end;
+
+    if rep = 'save' then saveJ(pe);
 
 
   until X OR Y OR Z OR ( P AND A AND C );
@@ -1001,6 +1007,8 @@ begin
          D := rep = '1';
        end;
 
+    if rep = 'save' then saveJ(pe);
+
 
   until X OR Y OR Z OR ( P AND D );
 
@@ -1040,6 +1048,8 @@ begin
          D := rep = '1';
        end;
 
+    if rep = 'save' then saveJ(pe);
+
 
   until X OR Y OR Z OR ( P AND D );
 
@@ -1078,6 +1088,8 @@ begin
          C := Ord(rep[1]) < Ord('4');
          D := rep = '1';
        end;
+
+    if rep = 'save' then saveJ(pe);
 
 
   until X OR Y OR Z OR ( P AND D );
@@ -1120,6 +1132,8 @@ begin
          D := rep = '1';
        end;
 
+    if rep = 'save' then saveJ(pe);
+
 
   until X OR Y OR Z OR ( P AND D );
 
@@ -1158,6 +1172,8 @@ begin
          C := Ord(rep[1]) < Ord('4');
          D := rep = '1';
        end;
+
+    if rep = 'save' then saveJ(pe);
 
 
   until X OR Y OR Z OR ( P AND D );
@@ -1200,6 +1216,8 @@ begin
          D := rep = '1'
        end;
 
+    if rep = 'save' then saveJ(pe);
+
 
   until X OR Y OR Z OR ( P AND D );
 
@@ -1239,6 +1257,8 @@ begin
          D := rep = '1';
          E := Ord(rep[1]) < Ord('3');
        end;
+
+    if rep = 'save' then saveJ(pe);
 
 
   until X OR Y OR Z OR ( P AND A AND E );
@@ -1288,6 +1308,8 @@ begin
          E := Ord(rep[1]) < Ord('3');
        end;
 
+    if rep = 'save' then saveJ(pe);
+
 
   until X OR Y OR Z OR ( P AND A AND E );
 
@@ -1329,6 +1351,8 @@ begin
          D := rep = '1';
          E := Ord(rep[1]) < Ord('3');
        end;
+
+    if rep = 'save' then saveJ(pe);
 
 
   until X OR Y OR Z OR ( P AND A AND E );
@@ -1393,6 +1417,8 @@ begin
          E := Ord(rep[1]) < Ord('3');
        end;
 
+    if rep = 'save' then saveJ(pe);
+
 
   until X OR Y OR Z OR ( P AND D );
 
@@ -1433,6 +1459,8 @@ begin
          D := rep = '1';
          E := Ord(rep[1]) < Ord('3');
        end;
+
+    if rep = 'save' then saveJ(pe);
 
 
   until X OR Y OR Z OR ( P AND A AND E );
@@ -1497,6 +1525,8 @@ begin
          E := Ord(rep[1]) < Ord('3');
        end;
 
+    if rep = 'save' then saveJ(pe);
+
 
   until X OR Y OR Z OR ( P AND D );
 
@@ -1536,6 +1566,8 @@ begin
          D := rep = '1';
          E := Ord(rep[1]) < Ord('3');
        end;
+
+    if rep = 'save' then saveJ(pe);
 
 
   until X OR Y OR Z OR ( P AND D );
@@ -1577,6 +1609,8 @@ begin
          E := Ord(rep[1]) < Ord('3');
        end;
 
+    if rep = 'save' then saveJ(pe);
+
 
   until X OR Y OR Z OR ( P AND A AND C );
 
@@ -1614,6 +1648,9 @@ begin
          D := rep = '1';
          E := Ord(rep[1]) < Ord('3');
        end;
+
+    if rep = 'save' then saveJ(pe);
+
   until X OR Y OR Z OR ( P AND D );
   if Z then r := 'exit';
   if X then r := 'Inventaire';
@@ -1648,6 +1685,9 @@ begin
          D := rep = '1';
          E := Ord(rep[1]) < Ord('3');
        end;
+
+    if rep = 'save' then saveJ(pe);
+
   until X OR Y OR Z OR ( P AND D );
   if Z then r := 'exit';
   if X then r := 'Inventaire';
@@ -1682,6 +1722,9 @@ begin
          D := rep = '1';
          E := Ord(rep[1]) < Ord('3');
        end;
+
+    if rep = 'save' then saveJ(pe);
+
   until X OR Y OR Z OR ( P AND D );
   if Z then r := 'exit';
   if X then r := 'Inventaire';
@@ -1700,6 +1743,7 @@ var
 begin
   effacerEcran;
   centrerTexte('Cinématique du turfu achète le DLC', 30, 100);
+  ReadLn();
   r := 'exit';
 end;
 
@@ -1729,6 +1773,8 @@ begin
          B := Ord(rep[1]) < Ord('5');
          C := Ord(rep[1]) < Ord('4');
        end;
+
+    if rep = 'save' then saveJ(pe);
 
 
   until X OR Y OR Z OR ( P AND A AND C );
@@ -1771,6 +1817,8 @@ begin
          B := Ord(rep[1]) < Ord('5');
        end;
 
+    if rep = 'save' then saveJ(pe);
+
 
   until X OR Y OR Z OR ( P AND A AND B );
 
@@ -1812,6 +1860,8 @@ begin
          C := Ord(rep[1]) < Ord('4');
          D := rep = '1';
        end;
+
+    if rep = 'save' then saveJ(pe);
 
 
   until X OR Y OR Z OR ( P AND D );

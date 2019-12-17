@@ -14,7 +14,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses unitEcran, unitMenuInitiale, unitMenuCreationPersonnage, unitMenuJeu, unitMenuQuete, unitMenuInventaire, typesDuJeu, sysutils;
+uses unitEcran, unitMenuInitiale, unitMenuCreationPersonnage, unitMenuJeu, unitMenuQuete, unitMenuInventaire, typesDuJeu, sysutils, unitSauvegardeTools;
 
 
 
@@ -247,6 +247,8 @@ begin
 
     rep := jeVeuxUneReponse();
 
+    if rep = 'save' then saveJ(p);
+
   until (rep = 'a') OR (rep = 'exit');
 
   if rep = 'a' then rep := 'OK';
@@ -288,6 +290,8 @@ begin
           K := Ord(rep[4]) < Ord('3');
         end;
 
+      if rep = 'save' then saveJ(pe);
+
     until A OR B OR C OR ( E AND F AND ( (P AND G AND H) OR (Q AND I AND J AND K) ) );
 
 
@@ -328,6 +332,8 @@ begin
         centrerTexte('                                                                                                                                      ', 48, 100);
 
           // R AND ( ( A AND B AND ( S OR T ) ) OR ( C AND D AND ( (S AND E) OR ( T AND F ) ) ) )
+
+        if rep = 'save' then saveJ(p);
 
       until (rep='a') OR ( rep='exit' ) OR ( ( rep[2] = '-' ) AND ( ( (Length(rep) = 3) AND ( Ord(rep[3]) < 58 ) AND ( Ord(rep[3]) > 48 ) AND ( ( rep[1] = 'a' ) OR ( rep[1] = 'v' ) ) ) OR ( (Length(rep) = 4) AND ( rep[3] = '1' ) AND ( Ord(rep[4]) > 47 ) AND ( ( ( rep[1] = 'a' ) AND ( Ord(rep[4]) < 58 ) ) OR ( ( rep[1] = 'v' ) AND ( Ord(rep[4]) < 51 ) ) ) ) ) );
 

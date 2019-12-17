@@ -3,7 +3,7 @@ program main;
 {$codepage utf8}
 
 uses unitEcran, unitAffichage, typesDuJeu, unitMenuCreationPersonnage,
-  unitMenuQuete, unitMenuInventaire, unitDate, sysutils;
+  unitMenuQuete, unitMenuInventaire, unitDate, sysutils, unitSauvegardeTools;
 
 
 var
@@ -35,6 +35,8 @@ begin
   //    avancerMinutes(joueur, 10);
   //    WriteLn(IntToStr(joueur.dateAjh.heure) + ':' + IntToStr(joueur.dateAjh.minute) + ' ' + IntToStr(joueur.dateAjh.jour) + '/' + IntToStr(joueur.dateAjh.mois) + '/' + IntToStr(joueur.dateAjh.annee));
   //  end;
+
+  saveJ(joueur);
 
   while ctn do
     begin

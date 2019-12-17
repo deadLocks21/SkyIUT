@@ -32,6 +32,16 @@ type
   (*Correspond à ce que le joueur a d'équipé sur lui.*)
   Equipement = Array[arme..plastron] of String;
 
+  (*Contient la date du moment ou le joueur joue.*)
+  Date = record
+    ere : String;
+    annee : Integer;
+    mois : Integer;
+    jour : Integer;
+    heure : Integer;
+    minute: Integer;
+  end;
+
   (*Type qui reprend toutes les caractéristiques d'un personnage.*)
   Personnage = record
     nom : String;
@@ -42,7 +52,10 @@ type
     equip : Equipement;
     quete : Integer;
     lieu : String;
+    dateAjh : Date;
   end;
+
+
 
 
 implementation

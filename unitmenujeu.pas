@@ -13,7 +13,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses sysutils,unitEcran, typesDuJeu;
+uses sysutils,unitEcran, unitDate, typesDuJeu;
 
 (*Affiche l'en-tête du menu.*)
 procedure initCadreHautMJ(p : Personnage);
@@ -222,6 +222,8 @@ implementation
 
 (*Affiche l'en-tête du menu.*)
 procedure initCadreHautMJ(p : Personnage);
+var
+  date : String;
 begin
   dessinerCadreXY(2, 1, 196, 11, double,15,0);
   changerColonneCurseur(95);
@@ -230,6 +232,38 @@ begin
   centrerTexte('race : ' + p.race, 5, 100);
   centrerTexte('PV : ' + IntToStr(p.vie.actuelle) + '/' + IntToStr(p.vie.max), 7, 100);
   centrerTexte('Gold : ' + IntToStr(p.gold), 9, 100);
+
+  //date := IntToStr(p.dateAjh.heure) + ':' + IntToStr(p.dateAjh.heure) + '   ' + IntToStr(p.dateAjh.jour) + ' ';
+
+  date := p.dateAjh.ere + ' ' + IntToStr(p.dateAjh.annee) + ', ';
+
+  case p.dateAjh.mois of
+    1 : date := date + 'Primétoile';
+    2 : date := date + 'Clairciel';
+    3 : date := date + 'Semailles';
+    4 : date := date + 'Ondepluie';
+    5 : date := date + 'Plantaisons';
+    6 : date := date + 'Mi-l''an';
+    7 : date := date + 'Hautzénith';
+    8 : date := date + 'Vifazur';
+    9 : date := date + 'Âtrefeu';
+    10 : date := date + 'Soufflegivre';
+    11 : date := date + 'Sombreciel';
+    12 : date := date + 'Soirétoile';
+  end;
+
+  date := date + ' le ' + IntToStr(p.dateAjh.jour) + ' à ';
+
+  if p.dateAjh.heure < 10 then date := date + '0' + IntToStr(p.dateAjh.heure)
+  else date := date + IntToStr(p.dateAjh.heure);
+
+  date := date + ':';
+
+  if p.dateAjh.minute < 10 then date := date + '0' + IntToStr(p.dateAjh.minute)
+  else date := date + IntToStr(p.dateAjh.minute);
+
+  centrerTexte(date, 43, 100);
+
 end;
 
 (*Procédure qui affiche le cadre du bas du menu de Jeu.*)
@@ -298,6 +332,8 @@ begin
   Write('>>> ');
 
   reponseScenario1(p, rep);
+
+  avancerMinutes(p, 30);
 end;
 
 (*Affiche le scénario de l'évènement 2*)
@@ -318,6 +354,8 @@ begin
   Write('>>> ');
 
   reponseScenario2(p, rep);
+
+  avancerMinutes(p, 10);
 end;
 
 (*Affiche le scénario de l'évènement 3*)
@@ -336,6 +374,8 @@ begin
   Write('>>> ');
 
   reponseScenario3(p, rep);
+
+  avancerMinutes(p, 10);
 end;
 
 //(*Affiche le scénario de l'évènement 4*)
@@ -371,6 +411,8 @@ begin
   Write('>>> ');
 
   reponseScenario5(p, rep);
+
+  avancerMinutes(p, 30);
 end;
 
 (*Affiche le scénario de l'évènement 6*)
@@ -387,6 +429,8 @@ begin
   Write('>>> ');
 
   reponseScenario6(p, rep);
+
+  avancerMinutes(p, 10);
 end;
 
 (*Affiche le scénario de l'évènement 7*)
@@ -407,6 +451,8 @@ begin
   Write('>>> ');
 
   reponseScenario7(p, rep);
+
+  avancerMinutes(p, 30);
 end;
 
 (*Affiche le scénario de l'évènement 8*)
@@ -423,6 +469,8 @@ begin
   Write('>>> ');
 
   reponseScenario8(p, rep);
+
+  avancerMinutes(p, 10);
 end;
 
 (*Affiche le scénario de l'évènement 9*)
@@ -440,6 +488,8 @@ begin
   Write('>>> ');
 
   reponseScenario9(p, rep);
+
+  avancerMinutes(p, 20);
 end;
 
 (*Affiche le scénario de l'évènement 10*)
@@ -456,6 +506,8 @@ begin
   Write('>>> ');
 
   reponseScenario10(p, rep);
+
+  avancerMinutes(p, 10);
 end;
 
 (*Affiche le scénario de l'évènement 11*)
@@ -473,6 +525,8 @@ begin
   Write('>>> ');
 
   reponseScenario11(p, rep);
+
+  avancerMinutes(p, 10);
 end;
 
 (*Affiche le scénario de l'évènement 12*)
@@ -493,6 +547,8 @@ begin
   Write('>>> ');
 
   reponseScenario12(p, rep);
+
+  avancerMinutes(p, 60);
 end;
 
 (*Affiche le scénario de l'évènement 13*)
@@ -512,6 +568,8 @@ begin
   Write('>>> ');
 
   reponseScenario13(p, rep);
+
+  avancerMinutes(p, 0);
 end;
 
 (*Affiche le scénario de l'évènement 14*)
@@ -529,6 +587,8 @@ begin
   Write('>>> ');
 
   reponseScenario14(p, rep);
+
+  avancerMinutes(p, 90);
 end;
 
 //(*Affiche le scénario de l'évènement 15*)
@@ -561,6 +621,8 @@ begin
   Write('>>> ');
 
   reponseScenario16(p, rep);
+
+  avancerMinutes(p, 90);
 end;
 
 (*Affiche le scénario de l'évènement 17*)
@@ -577,6 +639,8 @@ begin
   Write('>>> ');
 
   reponseScenario17(p, rep);
+
+  avancerMinutes(p, 60);
 end;
 
 //(*Affiche le scénario de l'évènement 18*)
@@ -611,6 +675,8 @@ begin
   Write('>>> ');
 
   reponseScenario19(p, rep);
+
+  avancerMinutes(p, 10);
 end;
 
 (*Affiche le scénario de l'évènement 20*)
@@ -641,6 +707,8 @@ begin
   changerColonneCurseur(10);
   Write('>>> ');
   reponseScenario21(p, rep);
+
+  avancerMinutes(p, 10);
 end;
 
 (*Affiche le scénario de l'évènement 23*)
@@ -655,6 +723,8 @@ begin
   changerColonneCurseur(10);
   Write('>>> ');
   reponseScenario23(p, rep);
+
+  avancerMinutes(p, 10);
 end;
 
 (*Affiche le scénario de l'évènement 24*)
@@ -669,6 +739,8 @@ begin
   changerColonneCurseur(10);
   Write('>>> ');
   reponseScenario24(p, rep);
+
+  avancerMinutes(p, 10);
 end;
 
 (*Affiche le scénario de l'évènement 25*)
@@ -687,6 +759,8 @@ begin
   Write('>>> ');
 
   reponseScenario25(p, rep);
+
+  avancerMinutes(p, 60);
 end;
 
 (*Affiche le scénario de l'évènement 26*)
@@ -706,6 +780,8 @@ begin
   Write('>>> ');
 
   reponseScenario26(p, rep);
+
+  avancerMinutes(p, 90);
 end;
 
 (*Affiche le scénario de l'évènement 27*)
@@ -722,6 +798,8 @@ begin
   Write('>>> ');
 
   reponseScenario27(p, rep);
+
+  avancerMinutes(p, 10);
 end;
 
 

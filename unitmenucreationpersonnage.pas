@@ -13,7 +13,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses unitEcran, sysutils, typesDuJeu;
+uses unitEcran, sysutils, typesDuJeu, unitDate;
 
 
 
@@ -234,6 +234,8 @@ begin
   p.quete:= 1;
 
   p.lieu:='a';
+
+  initDate(p);
 end;
 
 end.

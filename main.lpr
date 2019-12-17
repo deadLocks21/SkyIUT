@@ -3,7 +3,7 @@ program main;
 {$codepage utf8}
 
 uses unitEcran, unitAffichage, typesDuJeu, unitMenuCreationPersonnage,
-  unitMenuQuete, unitMenuInventaire;
+  unitMenuQuete, unitMenuInventaire, unitDate, sysutils;
 
 
 var
@@ -22,10 +22,18 @@ begin
   if qF = 'n' then affMenuCreationPersonnage(joueur);}
 
   creerPersonnage(joueur, 'deadLocks21', 1);
+  initDate(joueur);
 
   //joueur.quete:=4;
   //joueur.lieu:='g';
   //joueur.inv[1] := 'Masse d''ebonite';
+
+  // Test du temps !!
+  //while 1=1 do
+  //  begin
+  //    avancerMinutes(joueur, 10);
+  //    WriteLn(IntToStr(joueur.dateAjh.heure) + ':' + IntToStr(joueur.dateAjh.minute) + ' ' + IntToStr(joueur.dateAjh.jour) + '/' + IntToStr(joueur.dateAjh.mois) + '/' + IntToStr(joueur.dateAjh.annee));
+  //  end;
 
   while ctn do
     begin

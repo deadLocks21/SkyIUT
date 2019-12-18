@@ -127,7 +127,7 @@ begin
     centrerTexte('                  ', 49, 100);
     centrerTexte('', 49, 100);
     rep := jeVeuxUneReponse();
-  until (rep = '1') OR (rep = '2');
+  until (rep = '1') OR (rep = '2') OR (rep = '3');
 
   if rep = '1' then rep := 'n';
   if rep = '2' then rep := 'r';

@@ -15,6 +15,14 @@ var
 
 
 begin
+  changerTailleConsole(200, 60);
+  effacerEcran;
+  dessinerTexte('logo_EDT.txt', 6);
+  dessinerTexte('dessin_EDT.txt', 28);
+
+
+  ReadLn;
+
   ctn := True;
   affMenuInitiale(qF);
 

@@ -1,0 +1,16 @@
+   SSSSSSSSSSSSSSS KKKKKKKKK    KKKKKKKYYYYYYY       YYYYYYY          IIIIIIIIIIUUUUUUUU     UUUUUUUUTTTTTTTTTTTTTTTTTTTTTTT
+ SS:::::::::::::::SK:::::::K    K:::::KY:::::Y       Y:::::Y          I::::::::IU::::::U     U::::::UT:::::::::::::::::::::T
+S:::::SSSSSS::::::SK:::::::K    K:::::KY:::::Y       Y:::::Y          I::::::::IU::::::U     U::::::UT:::::::::::::::::::::T
+S:::::S     SSSSSSSK:::::::K   K::::::KY::::::Y     Y::::::Y          II::::::IIUU:::::U     U:::::UUT:::::TT:::::::TT:::::T
+S:::::S            KK::::::K  K:::::KKKYYY:::::Y   Y:::::YYY            I::::I   U:::::U     U:::::U TTTTTT  T:::::T  TTTTTT
+S:::::S              K:::::K K:::::K      Y:::::Y Y:::::Y               I::::I   U:::::D     D:::::U         T:::::T        
+ S::::SSSS           K::::::K:::::K        Y:::::Y:::::Y                I::::I   U:::::D     D:::::U         T:::::T        
+  SS::::::SSSSS      K:::::::::::K          Y:::::::::Y                 I::::I   U:::::D     D:::::U         T:::::T        
+    SSS::::::::SS    K:::::::::::K           Y:::::::Y                  I::::I   U:::::D     D:::::U         T:::::T        
+       SSSSSS::::S   K::::::K:::::K           Y:::::Y                   I::::I   U:::::D     D:::::U         T:::::T        
+            S:::::S  K:::::K K:::::K          Y:::::Y                   I::::I   U:::::D     D:::::U         T:::::T        
+            S:::::SKK::::::K  K:::::KKK       Y:::::Y                   I::::I   U::::::U   U::::::U         T:::::T        
+SSSSSSS     S:::::SK:::::::K   K::::::K       Y:::::Y                 II::::::II U:::::::UUU:::::::U       TT:::::::TT      
+S::::::SSSSSS:::::SK:::::::K    K:::::K    YYYY:::::YYYY              I::::::::I  UU:::::::::::::UU        T:::::::::T      
+S:::::::::::::::SS K:::::::K    K:::::K    Y:::::::::::Y              I::::::::I    UU:::::::::UU          T:::::::::T      
+ SSSSSSSSSSSSSSS   KKKKKKKKK    KKKKKKK    YYYYYYYYYYYYY              IIIIIIIIII      UUUUUUUUU            TTTTTTTTTTT      

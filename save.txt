@@ -1,0 +1,26 @@
+Pseudo : deadLocks21
+Race : Altmer
+Vie : 000/000
+Gold : 150
+Quete : 5
+Lieu : a
+Date : 12:30 24/05/201
+
+Inventaire
+#1 Epee du turfu 
+#2 Tu sais meme pas que cest cool
+#3 Epee en fer
+#4 Epee a deux mains en fer
+#5 
+#6 
+#7 
+#8 
+#9 
+#10 
+#11 
+#12 
+
+Equipement
+Arme : Epee a deux mains en fer
+Casque : 
+Plastron : 

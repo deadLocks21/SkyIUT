@@ -468,6 +468,8 @@ begin
 
 
   initCadreBasMInv();
+
+  dessinerTexte('artInv.txt', 20);
 end;
 
 (*Tente d'équiper une armure ou une arme sur un joueur.*)

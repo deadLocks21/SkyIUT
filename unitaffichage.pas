@@ -130,7 +130,8 @@ begin
   until (rep = '1') OR (rep = '2');
 
   if rep = '1' then rep := 'n';
-  if rep = '2' then rep := 'exit';
+  if rep = '2' then rep := 'r';
+  if rep = '3' then rep := 'exit';
 
   qF := rep;
 end;

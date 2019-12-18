@@ -16,18 +16,19 @@ var
 
 begin
   ctn := True;
-  {affMenuInitiale(qF);
+  affMenuInitiale(qF);
 
   if qF = 'exit' then ctn := False;
-  if qF = 'n' then affMenuCreationPersonnage(joueur);}
+  if qF = 'n' then affMenuCreationPersonnage(joueur);
+  if qF = 'r' then lireSaveJ(joueur);
 
-  creerPersonnage(joueur, 'deadLocks21', 1);
-  initDate(joueur);
+  //creerPersonnage(joueur, 'deadLocks21', 1);
+  //initDate(joueur);
 
   //joueur.quete:=4;
-  joueur.lieu:='g';
+  //joueur.lieu:='g';
   //joueur.inv[1] := 'Masse d''ebonite';
-  joueur.dateAjh.heure:=19;
+  //joueur.dateAjh.heure:=19;
 
   // Test du temps !!
   //while 1=1 do
@@ -36,7 +37,7 @@ begin
   //    WriteLn(IntToStr(joueur.dateAjh.heure) + ':' + IntToStr(joueur.dateAjh.minute) + ' ' + IntToStr(joueur.dateAjh.jour) + '/' + IntToStr(joueur.dateAjh.mois) + '/' + IntToStr(joueur.dateAjh.annee));
   //  end;
 
-  saveJ(joueur);
+  //saveJ(joueur);
 
   while ctn do
     begin

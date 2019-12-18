@@ -111,7 +111,7 @@ procedure affTexte(t : String; ligneD : Integer);
 procedure razConsole();
 
 // Dessine un texte a partir du fichier contenu dans ressources.
-procedure dessinerTexte(nF : String);
+procedure dessinerTexte(nF : String; yB : Integer);
 
 const
   // Codes des couleurs
@@ -482,7 +482,7 @@ begin
   changerColonneCurseur(14);
 end;
 
-procedure dessinerTexte(nF : String);
+procedure dessinerTexte(nF : String; yB : Integer);
 var
   y : Integer;
   ligne, path : String;
@@ -494,7 +494,7 @@ begin
   Assign(fC, path);
   Reset(fC);
 
-  y := 25;
+  y := yB;
 
   while not eof(fC) do
     begin

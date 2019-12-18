@@ -113,9 +113,6 @@ procedure razConsole();
 // Dessine un texte a partir du fichier contenu dans ressources.
 procedure dessinerTexte(nF : String; yB : Integer);
 
-// Comme dessinner texte, mais rajoute un timer pour faire un petit effet.
-procedure dessinerImageMenuDem(nF : String; yB : Integer);
-
 const
   // Codes des couleurs
   Black        = 0;
@@ -444,7 +441,7 @@ begin
 
       for e := i to c do
         begin
-          Sleep(10);
+          //Sleep(10);
           {case t[e] of
             'é' : Write('é');
             'è' : Write('è');

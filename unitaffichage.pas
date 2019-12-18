@@ -28,6 +28,9 @@ uses unitEcran, unitMenuInitiale, unitMenuCreationPersonnage, unitMenuJeu, unitM
     (*                                                                 *)
     (*#################################################################*)
 
+(*Récupère le texte pour ce fichier.*)
+function recupTUAff(l : Integer) : String;
+
 {Initialise la taille et le cadre de la console}
 procedure initConsole();
 
@@ -72,6 +75,12 @@ implementation
 (*   ###  #   #  #     ####  ####  #   #  ####  #  #    #    #  #    #    ###   ##   #  #  *)
 (*                                                                                         *)
 (*#########################################################################################*)
+
+(*Récupère le texte pour ce fichier.*)
+function recupTUAff(l : Integer) : String;
+begin
+  recupTUAff := ligneDUnFichierTexte('unitAffichage.txt', l);
+end;
 
 {Initialise la taille et le cadre de la console}
 procedure initConsole();
@@ -179,7 +188,7 @@ begin
 
   //p.lieu:='m';
   //p.quete:=5;
-  //p.inv[1] := 'Masse d''ebonite';
+  //p.inv[1] := 'Masse d'ebonite';
 
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'a') AND (p.quete = 1) then scenario1MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'a') AND (p.quete = 5) then scenario19MJ(p, rep);
@@ -229,13 +238,13 @@ begin
 
   initCadreHautMQ(p);
 
-  if p.quete = 1 then centrerTexte('Retrouver le Jarl de Blancherive dans le Fort Dragon', 30, 100);
-  if p.quete = 2 then centrerTexte('Retrouver le Chambellan : Cavovius Dargogne', 30, 100);
-  if p.quete = 3 then centrerTexte('Rejoindre la porte principale de Blancherive', 30, 100);
-  if p.quete = 4 then centrerTexte('Retrouver les soldats à la Tour de Guet', 30, 100);
-  if p.quete = 5 then centrerTexte('Aller a l’armurerie de Blancherive pour s’équiper de la Masse d’Ebonite', 30, 100);
-  if p.quete = 6 then centrerTexte('Retourner à la Tour de Guet combattre le Dragon', 30, 100);
-  if p.quete = 7 then centrerTexte('Vaincre le Dragon', 30, 100);
+  if p.quete = 1 then centrerTexte(recupTUAff(1), 30, 100);
+  if p.quete = 2 then centrerTexte(recupTUAff(2), 30, 100);
+  if p.quete = 3 then centrerTexte(recupTUAff(3), 30, 100);
+  if p.quete = 4 then centrerTexte(recupTUAff(4), 30, 100);
+  if p.quete = 5 then centrerTexte(recupTUAff(5), 30, 100);
+  if p.quete = 6 then centrerTexte(recupTUAff(6), 30, 100);
+  if p.quete = 7 then centrerTexte(recupTUAff(7), 30, 100);
 
 
   initCadreBasMQ();
@@ -362,13 +371,13 @@ begin
 
                     initAffMag(p);
 
-                    centrerTexte('                                            Tu viens d''acheter un nouvel item, bravo !!                                            ', 48, 100);
+                    centrerTexte(recupTUAff(8), 48, 100);
                   end
                 else
-                  centrerTexte('                                            T''as plus de place, je peux rien faire pour toi ...                                            ', 48, 100);
+                  centrerTexte(recupTUAff(9), 48, 100);
               end
             else
-              centrerTexte('                                                   T''es pauvre déso ...                                                   ', 48, 100);
+              centrerTexte(recupTUAff(10), 48, 100);
           end
         else
           begin
@@ -381,10 +390,10 @@ begin
 
                 initAffMag(p);
 
-                centrerTexte('                                            Tu viens de vendre un item, bravo !!                                            ', 48, 100);
+                centrerTexte(recupTUAff(11), 48, 100);
               end
             else
-              centrerTexte('                                              Heuuu tu peux vendre le vide toi ?!                                              ', 48, 100);
+              centrerTexte(recupTUAff(12), 48, 100);
           end;
       end;
 

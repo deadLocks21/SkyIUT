@@ -27,6 +27,9 @@ uses unitEcran, typesDuJeu, sysutils;
     (*                                                                 *)
     (*#################################################################*)
 
+(*Récupère le texte pour ce fichier.*)
+function recupTUMInv(l : Integer) : String;
+
 (*Procédure qui affiche le cadre du haut du menu de quête.*)
 procedure initCadreHautMInv(p : Personnage);
 
@@ -106,6 +109,12 @@ implementation
 (*                                                                                         *)
 (*#########################################################################################*)
 
+(*Récupère le texte pour ce fichier.*)
+function recupTUMInv(l : Integer) : String;
+begin
+  recupTUMInv := ligneDUnFichierTexte('unitMenuInventaire.txt', l);
+end;
+
 (*Procédure qui affiche le cadre du haut du menu de quête.*)
 procedure initCadreHautMInv(p : Personnage);
 begin
@@ -113,9 +122,9 @@ begin
   changerColonneCurseur(95);
   changerLigneCurseur(3);
   centrerTexte(p.nom, 3, 100);
-  centrerTexte('race : ' + p.race, 5, 100);
-  centrerTexte('PV : ' + IntToStr(p.vie.actuelle) + '/' + IntToStr(p.vie.max), 7, 100);
-  centrerTexte('Gold : ' + IntToStr(p.gold), 9, 100);
+  centrerTexte(recupTUMInv(1) + p.race, 5, 100);
+  centrerTexte(recupTUMInv(2) + IntToStr(p.vie.actuelle) + '/' + IntToStr(p.vie.max), 7, 100);
+  centrerTexte(recupTUMInv(3) + IntToStr(p.gold), 9, 100);
 end;
 
 (*Procedure qui affiche le cadre du bas du menu Quête*)
@@ -127,10 +136,10 @@ begin
 
   changerLigneCurseur(55);
   changerColonneCurseur(10);
-  Write('>>> Choississez quoi faire. Pour t''équiper, utilise la commande e-x ou e-xx pour choissir le numero de ton équipement.');
+  Write('>>> ', recupTUMInv(4));
 
-  centrerTexte('a/ Utiliser potion ', 51, 66);
-  centrerTexte('b/ Sortir', 51, 133);
+  centrerTexte(recupTUMInv(5), 51, 66);
+  centrerTexte(recupTUMInv(6), 51, 133);
 end;
 
 (*Affiche les items de l'inventaire du joueur.*)
@@ -169,40 +178,40 @@ end;
 procedure affLEquipement(p : Personnage);
 begin
   if p.equip[arme] = '' then
-    centrerTexte('Arme: null' , 30, 165)
+    centrerTexte(recupTUMInv(7) , 30, 165)
   else
-    centrerTexte('Arme: ' + p.equip[arme] , 30, 165);
+    centrerTexte(recupTUMInv(8) + p.equip[arme] , 30, 165);
 
   if p.equip[casque] = '' then
-    centrerTexte('Casque: null' , 33, 165)
+    centrerTexte(recupTUMInv(9) , 33, 165)
   else
-    centrerTexte('Casque: ' + p.equip[casque] , 33, 165);
+    centrerTexte(recupTUMInv(10) + p.equip[casque] , 33, 165);
 
   if p.equip[plastron] = '' then
-    centrerTexte('Plastron: null' , 36, 165)
+    centrerTexte(recupTUMInv(11) , 36, 165)
   else
-    centrerTexte('Plastron: ' + p.equip[plastron] , 36, 165);
+    centrerTexte(recupTUMInv(12) + p.equip[plastron] , 36, 165);
 end;
 
 (*Permet d'utiliser une potion ou d'afficher un message le cas échénant.*)
 procedure utiliserUnePotion(var p : Personnage);
 begin
   if presencePotion(p) = False then
-    centrerTexte('           Tu n''as pas de potion dans ton inventaire ... Tu as essayé de ma la faire à l''envers ?!           ', 48, 100)
+    centrerTexte(recupTUMInv(13), 48, 100)
   else
     begin
       if p.vie.actuelle = p.vie.max then
-        centrerTexte('                               Que veut tu faire de cette potion tu as toute ta vie !!                               ', 48, 100)
+        centrerTexte(recupTUMInv(14), 48, 100)
       else
         begin
           p.vie.actuelle := p.vie.actuelle + 20;
-          enleverObjet(p, 'Potion');
+          enleverObjet(p, recupTUMInv(15));
 
           if p.vie.actuelle > p.vie.max then p.vie.actuelle := p.vie.max;
 
           initAffMInv(p);
 
-          centrerTexte('                               GG, tu viens d''utiliser une potion !!                               ', 48, 100)
+          centrerTexte(recupTUMInv(16), 48, 100)
         end;
     end;
 end;
@@ -218,7 +227,7 @@ begin
 
   nom := p.inv[StrToInt(r)];
 
-  centrerTexte('                    ' + nom + ' est equipe.                    ', 48, 100);
+  centrerTexte('                    ' + nom + recupTUMInv(17), 48, 100);
 
   for i:=0 to (length(Armur)-1) do
     begin
@@ -257,7 +266,7 @@ begin
   rep := False;
 
   for i:=1 to 12 do
-      if p.inv[i] = 'Potion' then rep := True;
+      if p.inv[i] = recupTUMInv(15) then rep := True;
 
   presencePotion := rep;
 end;
@@ -319,115 +328,115 @@ var
 begin
   //SetLength(arm, 18);
 
-  obj.nom := 'Epee en fer';
+  obj.nom := recupTUMInv(18);
   obj.typeE := arme;
   obj.effet:=10;
   obj.prix:=150;
   arm[0] := obj;
 
-  obj.nom := 'Epee a deux mains en fer';
+  obj.nom := recupTUMInv(19);
   obj.typeE := arme;
   obj.effet:=12;
   obj.prix:=200;
   arm[1] := obj;
 
-  obj.nom := 'Masse en fer';
+  obj.nom := recupTUMInv(20);
   obj.typeE := arme;
   obj.effet:=13;
   obj.prix:=220;
   arm[2] := obj;
 
-  obj.nom := 'Hache en fer';
+  obj.nom := recupTUMInv(21);
   obj.typeE := arme;
   obj.effet:=11;
   obj.prix:=170;
   arm[3] := obj;
 
-  obj.nom := 'Epee elfique';
+  obj.nom := recupTUMInv(22);
   obj.typeE := arme;
   obj.effet:=22;
   obj.prix:=450;
   arm[4] := obj;
 
-  obj.nom := 'Epee a deux mains elfique';
+  obj.nom := recupTUMInv(23);
   obj.typeE := arme;
   obj.effet:=25;
   obj.prix:=500;
   arm[5] := obj;
 
-  obj.nom := 'Masse elfique';
+  obj.nom := recupTUMInv(24);
   obj.typeE := arme;
   obj.effet:=26;
   obj.prix:=520;
   arm[6] := obj;
 
-  obj.nom := 'Hache elfique';
+  obj.nom := recupTUMInv(25);
   obj.typeE := arme;
   obj.effet:=23;
   obj.prix:=470;
   arm[7] := obj;
 
-  obj.nom := 'Epee d''ebonite';
+  obj.nom := recupTUMInv(26);
   obj.typeE := arme;
   obj.effet:=40;
   obj.prix:=900;
   arm[8] := obj;
 
-  obj.nom := 'Epee a deux mains d''ebonite';
+  obj.nom := recupTUMInv(27);
   obj.typeE := arme;
   obj.effet:=45;
   obj.prix:=1000;
   arm[9] := obj;
 
-  obj.nom := 'Masse d''ebonite';
+  obj.nom := recupTUMInv(28);
   obj.typeE := arme;
   obj.effet:=46;
   obj.prix:=1100;
   arm[10] := obj;
 
-  obj.nom := 'Hache d''ebonite';
+  obj.nom := recupTUMInv(29);
   obj.typeE := arme;
   obj.effet:=43;
   obj.prix:=950;
   arm[11] := obj;
 
-  obj.nom :='Casque de fer';
+  obj.nom :=recupTUMInv(30);
   obj.typeE := casque;
   obj.effet:= 2;
   obj.prix:=100;
   arm[12] := obj;
 
-  obj.nom :='Plastron en fer';
+  obj.nom :=recupTUMInv(31);
   obj.typeE := plastron;
   obj.effet:= 2;
   obj.prix:=100;
   arm[13] := obj;
 
-  obj.nom :='Casque elfique';
+  obj.nom :=recupTUMInv(32);
   obj.typeE := casque;
   obj.effet:= 5;
   obj.prix:=200;
   arm[14] := obj;
 
-  obj.nom :='Plastron elfique';
+  obj.nom :=recupTUMInv(33);
   obj.typeE := plastron;
   obj.effet:= 5;
   obj.prix:=200;
   arm[15] := obj;
 
-  obj.nom :='Casque d''ebonite';
+  obj.nom :=recupTUMInv(34);
   obj.typeE := casque;
   obj.effet:= 10;
   obj.prix:=375;
   arm[16] := obj;
 
-  obj.nom :='Plastron d''ebonite';
+  obj.nom :=recupTUMInv(35);
   obj.typeE := plastron;
   obj.effet:= 10;
   obj.prix:=375;
   arm[17] := obj;
 
-  obj.nom :='Potion';
+  obj.nom :=recupTUMInv(15);
   obj.typeE := potion;
   obj.effet:= 20;
   obj.prix:=50;
@@ -453,15 +462,15 @@ begin
   dessinerCadreXY(85,15,115,17,simple,0,15);
   dessinerCadreXY(136,20,193,46,simple,15,0);
   couleurs(0,15);
-  centrerTexte('Inventaire du heros',16, 100);
+  centrerTexte(recupTUMInv(36),16, 100);
   couleurs(15,0);
 
   pos.x:=8;
   pos.y:=20;
-  ecrireEnPosition(pos,' Liste de l''inventaire ');
+  ecrireEnPosition(pos,recupTUMInv(37));
   pos.x:=139;
   pos.y:=20;
-  ecrireEnPosition(pos,' Equipement equiper ');
+  ecrireEnPosition(pos,recupTUMInv(38));
 
   affLInventaire(pe);
   affLEquipement(pe);
@@ -480,20 +489,20 @@ begin
 
   if (p.inv[StrToInt(rep)] <> '') then
     begin
-      if p.inv[StrToInt(rep)] <> 'Potion' then
+      if p.inv[StrToInt(rep)] <> recupTUMInv(15) then
         begin
           equiper(p, rep);
           affLEquipement(p);
 
           initAffMInv(p);
-          centrerTexte('                    Tu viens de t''équiper, bien joué.                    ', 48, 100);
+          centrerTexte(recupTUMInv(39), 48, 100);
 
         end
       else
-        centrerTexte('                    Equiper une potion c''est pas ouf ...                    ', 48, 100);
+        centrerTexte(recupTUMInv(40), 48, 100);
     end
   else
-    centrerTexte('                                         T''es serieux ? Tu veux vraiment t''equiper du vide ?                                         ', 48, 100);
+    centrerTexte(recupTUMInv(41), 48, 100);
 end;
 
 (*Affiche équipement manière centrée*)
@@ -550,9 +559,9 @@ begin
 
   changerColonneCurseur(139);
   changerLigneCurseur(34);
-  Write(' Prix d''une potion ');
+  Write(recupTUMInv(42));
 
-  centrerTexte('19/ Potion (50)', 36, 165);
+  centrerTexte(recupTUMInv(43), 36, 165);
 end;
 
 (*Initialise la partie en bas du menu magasin*)
@@ -563,8 +572,8 @@ begin
 
   changerLigneCurseur(55);
   changerColonneCurseur(10);
-  Write('>>> Saisissez une commande de la forme x-99 ou x-9 avec x vaut a pour acheter et v pour vendre. Les 9 corresponde au numéro de l''item.');
-  centrerTexte('a/ Sortir', 51, 100);
+  Write('>>> ', recupTUMInv(44));
+  centrerTexte(recupTUMInv(45), 51, 100);
 
 end;
 
@@ -590,17 +599,17 @@ begin
       dessinerCadreXY(136,20,193,46,simple,15,0);
       dessinerCadreXY(70,20,127,46,simple,15,0);
       couleurs(0,15);
-      centrerTexte('Marché',16, 100);
+      centrerTexte(recupTUMInv(46),16, 100);
       couleurs(15,0);
       pos.x:=8;
       pos.y:=20;
-      ecrireEnPosition(pos,' Acheter des armes ');
+      ecrireEnPosition(pos,recupTUMInv(47));
       pos.x:=139;
       pos.y:=20;
-      ecrireEnPosition(pos,' Acheter des armures ');
+      ecrireEnPosition(pos,recupTUMInv(48));
       pos.x:=73;
       pos.y:=20;
-      ecrireEnPosition(pos,' Liste de l''equipements ');
+      ecrireEnPosition(pos,recupTUMInv(49));
 
       affArmes(armur);
       affArmures(armur);
@@ -618,10 +627,10 @@ begin
 
       changerLigneCurseur(55);
       changerColonneCurseur(10);
-      Write('>>> Saisissez une commande.');
-      centrerTexte('a/ Sortir', 51, 100);
+      Write('>>> ', recupTUMInv(50));
+      centrerTexte(recupTUMInv(45), 51, 100);
 
-      centrerTexte('Le magasin ouvre de 08h à 18h, merci de repasser dans ce créneau horaire !!', 15, 100);
+      centrerTexte(recupTUMInv(51), 15, 100);
     end;
 end;
 

@@ -26,6 +26,9 @@ uses unitEcran, typesDuJeu, sysutils;
     (*                                                                 *)
     (*#################################################################*)
 
+(*Récupère le texte pour ce fichier.*)
+function recupTUQuete(l : Integer) : String;
+
 (*Procédure qui affiche le cadre du haut du menu de quête.*)
 procedure initCadreHautMQ(p : Personnage);
 
@@ -44,6 +47,12 @@ implementation
 (*                                                                                         *)
 (*#########################################################################################*)
 
+(*Récupère le texte pour ce fichier.*)
+function recupTUQuete(l : Integer) : String;
+begin
+  recupTUQuete := ligneDUnFichierTexte('unitMenuQuete.txt', l);
+end;
+
 (*Procédure qui affiche le cadre du haut du menu de quête.*)
 procedure initCadreHautMQ(p : Personnage);
 begin
@@ -51,9 +60,9 @@ begin
   changerColonneCurseur(95);
   changerLigneCurseur(3);
   centrerTexte(p.nom, 3, 100);
-  centrerTexte('race : ' + p.race, 5, 100);
-  centrerTexte('PV : ' + IntToStr(p.vie.actuelle) + '/' + IntToStr(p.vie.max), 7, 100);
-  centrerTexte('Gold : ' + IntToStr(p.gold), 9, 100);
+  centrerTexte(recupTUQuete(1) + p.race, 5, 100);
+  centrerTexte(recupTUQuete(2) + IntToStr(p.vie.actuelle) + '/' + IntToStr(p.vie.max), 7, 100);
+  centrerTexte(recupTUQuete(3) + IntToStr(p.gold), 9, 100);
 end;
 
 (*Procedure qui affiche le cadre du bas du menu Quête*)
@@ -65,9 +74,9 @@ begin
 
   changerLigneCurseur(55);
   changerColonneCurseur(10);
-  Write('>>> Choississez quoi faire');
+  Write('>>> ', recupTUQuete(4));
 
-  centrerTexte('a/ Quitter', 51, 100);
+  centrerTexte(recupTUQuete(5), 51, 100);
 end;
 
 end.

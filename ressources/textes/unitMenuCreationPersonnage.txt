@@ -1,0 +1,25 @@
+Comment veux-tu qu'on t'appelle ?
+1/ Altmer
+2/ Argonien
+3/ Bosmer
+4/ Breton
+5/ Dunmer
+6/ Imperial
+7/ Khajit
+8/ Nordique
+9/ Orsimer
+10/ Rougegarde
+De quelle race est-tu ?
+Es-tu prêt à commencer la partie ? (oui/non)
+oui
+non
+Altmer
+Argonien
+Bosmer
+Breton
+Dunmer
+Imperial
+Khajit
+Nordique
+Orsimer
+Rougegarde

@@ -116,6 +116,9 @@ procedure dessinerTexte(nF : String; yB : Integer);
 // Comme dessinner texte, mais rajoute un timer pour faire un petit effet.
 procedure dessinerImageMenuDem(nF : String; yB : Integer);
 
+// Retourne une ligne d'un fichier texte.
+function ligneDUnFichierTexte(fichier : String; l : Integer) : String;
+
 const
   // Codes des couleurs
   Black        = 0;
@@ -394,11 +397,26 @@ procedure couleurFond(couleur : Byte);
     end;
 
 procedure centrerTexte(text : String; ligne, col : Integer);
-    begin
+var
+  e : Integer;
+begin
     changerLigneCurseur(ligne);
     changerColonneCurseur(Round(col-(Length(text)/2)));
-    Write(text);
-    end;
+    for e:=1 to Length(text) do
+      begin
+        if Ord(text[e]) = 233 then Write('é');
+        if Ord(text[e]) = 232 then Write('è');
+        if Ord(text[e]) = 234 then Write('ê');
+        if Ord(text[e]) = 224 then Write('à');
+        if Ord(text[e]) = 244 then Write('ô');
+        if Ord(text[e]) = 239 then Write('ï');
+        if Ord(text[e]) = 238 then Write('î');
+        if Ord(text[e]) = 231 then Write('ç');
+        if Ord(text[e]) = 249 then Write('ù');
+        if Ord(text[e]) = 39 then Write(#39);
+        if (Ord(text[e]) <> 233) AND (Ord(text[e]) <> 232) AND (Ord(text[e]) <> 234) AND (Ord(text[e]) <> 224) AND (Ord(text[e]) <> 244) AND (Ord(text[e]) <> 239) AND (Ord(text[e]) <> 238) AND (Ord(text[e]) <> 231) AND (Ord(text[e]) <> 249) AND (Ord(text[e]) <> 39) then Write(text[e]);
+      end;
+end;
 
 procedure affTexte(t : String; ligneD : Integer);
 var
@@ -444,7 +462,7 @@ begin
 
       for e := i to c do
         begin
-          Sleep(10);
+          //Sleep(10);
           {case t[e] of
             'é' : Write('é');
             'è' : Write('è');
@@ -455,16 +473,17 @@ begin
             else Write(t[e]);
           end;}
           //Write(t[e]);
-          if t[e] = 'é' then Write('é');
-          if t[e] = 'è' then Write('è');
-          if t[e] = 'ê' then Write('ê');
-          if t[e] = 'à' then Write('à');
-          if t[e] = 'ô' then Write('ô');
-          if t[e] = 'ï' then Write('ï');
-          if t[e] = 'î' then Write('î');
-          if t[e] = 'ç' then Write('ç');
-          if t[e] = 'ù' then Write('ù');
-          if (t[e] <> 'é') AND (t[e] <> 'è') AND (t[e] <> 'ê') AND (t[e] <> 'à') AND (t[e] <> 'ô') AND (t[e] <> 'ï') AND (t[e] <> 'î') AND (t[e] <> 'ç') AND (t[e] <> 'ù') then Write(t[e]);
+          if Ord(t[e]) = 233 then Write('é');
+          if Ord(t[e]) = 232 then Write('è');
+          if Ord(t[e]) = 234 then Write('ê');
+          if Ord(t[e]) = 224 then Write('à');
+          if Ord(t[e]) = 244 then Write('ô');
+          if Ord(t[e]) = 239 then Write('ï');
+          if Ord(t[e]) = 238 then Write('î');
+          if Ord(t[e]) = 231 then Write('ç');
+          if Ord(t[e]) = 249 then Write('ù');
+          if Ord(t[e]) = 39 then Write(#39);
+          if (Ord(t[e]) <> 233) AND (Ord(t[e]) <> 232) AND (Ord(t[e]) <> 234) AND (Ord(t[e]) <> 224) AND (Ord(t[e]) <> 244) AND (Ord(t[e]) <> 239) AND (Ord(t[e]) <> 238) AND (Ord(t[e]) <> 231) AND (Ord(t[e]) <> 249) AND (Ord(t[e]) <> 39) then Write(t[e]);
           //ch := ch + t[e];
         end;
 
@@ -492,7 +511,7 @@ var
   fC : text;
 
 begin
-  path := 'ressources/'+nF;
+  path := 'ressources/dessins/'+nF;
 
   Assign(fC, path);
   Reset(fC);
@@ -517,7 +536,7 @@ var
   fC : text;
 
 begin
-  path := 'ressources/'+nF;
+  path := 'ressources/dessins/'+nF;
 
   Assign(fC, path);
   Reset(fC);
@@ -534,6 +553,23 @@ begin
 
   close(fC);
 
+end;
+
+function ligneDUnFichierTexte(fichier : String; l : Integer) : String;
+var
+  path : String;
+  t : text;
+  i : Integer;
+
+begin
+  path := 'ressources/textes/'+fichier;
+
+  Assign(t, path);
+  Reset(t);
+
+  for i := 1 to l-1 do ReadLn(t);
+
+  ReadLn(t, ligneDUnFichierTexte)
 end;
 
 end.

@@ -26,6 +26,10 @@ uses unitEcran, sysutils, typesDuJeu, unitDate;
     (*  #      ##   #  #   ##     #    #      #     #  #   ##     ##   *)
     (*                                                                 *)
     (*#################################################################*)
+
+(*Récupère le texte pour ce fichier.*)
+function recupTUCP(l : Integer) : String;
+
 (*Attend une réponse de la part de l'utilisateur.*)
 function jeVeuxUneReponse() : String;
 
@@ -69,6 +73,12 @@ implementation
 (*                                                                                         *)
 (*#########################################################################################*)
 
+(*Récupère le texte pour ce fichier.*)
+function recupTUCP(l : Integer) : String;
+begin
+  recupTUCP := ligneDUnFichierTexte('unitMenuCreationPersonnage.txt', l);
+end;
+
 (*Attend une réponse de la part de l'utilisateur.*)
 function jeVeuxUneReponse() : String;
 var
@@ -83,7 +93,7 @@ end;
 (*Affiche le texte de demande du pseudo du personnage.*)
 procedure affTexteDemandeNomPersMCP();
 begin
-  centrerTexte('Comment veux-tu qu''on t''appelle ?', 15, 100);
+  centrerTexte(recupTUCP(1), 15, 100);
   centrerTexte('', 16, 100);
 end;
 
@@ -97,16 +107,16 @@ end;
 (*Affiche le texte des différentes races.*)
 procedure affRacesMCP();
 begin
-  centrerTexte('1/ Altmer', 25, 100);
-  centrerTexte('2/ Argonien', 26, 100);
-  centrerTexte('3/ Bosmer', 27, 100);
-  centrerTexte('4/ Breton', 28, 100);
-  centrerTexte('5/ Dunmer', 29, 100);
-  centrerTexte('6/ Imperial', 30, 100);
-  centrerTexte('7/ Khajit', 31, 100);
-  centrerTexte('8/ Nordique', 32, 100);
-  centrerTexte('9/ Orsimer', 33, 100);
-  centrerTexte('10/ Rougegarde', 34, 100);
+  centrerTexte(recupTUCP(2), 25, 100);
+  centrerTexte(recupTUCP(3), 26, 100);
+  centrerTexte(recupTUCP(4), 27, 100);
+  centrerTexte(recupTUCP(5), 28, 100);
+  centrerTexte(recupTUCP(6), 29, 100);
+  centrerTexte(recupTUCP(7), 30, 100);
+  centrerTexte(recupTUCP(8), 31, 100);
+  centrerTexte(recupTUCP(9), 32, 100);
+  centrerTexte(recupTUCP(10), 33, 100);
+  centrerTexte(recupTUCP(11), 34, 100);
 end;
 
 (*Retourne la race que le joueur désire utiliser.*)
@@ -117,7 +127,7 @@ var
 
 begin
   repeat
-    centrerTexte('De quelle race est-tu ?', 36, 100);
+    centrerTexte(recupTUCP(12), 36, 100);
     centrerTexte('              ', 37, 100);
     centrerTexte('', 37, 100);
     rep := jeVeuxUneReponse();
@@ -142,12 +152,12 @@ var
 
 begin
   repeat
-    centrerTexte('Es-tu prêt à commencer la partie ? (oui/non)', 45, 100);
+    centrerTexte(recupTUCP(13), 45, 100);
     centrerTexte('', 46, 100);
     rep := jeVeuxUneReponse();
-  until (rep <> 'oui') OR (rep <> 'non');
+  until (rep <> recupTUCP(14)) OR (rep <> recupTUCP(15));
 
-  if rep = 'oui' then
+  if rep = recupTUCP(14) then
     res := FALSE
   else
     res := TRUE;
@@ -160,16 +170,16 @@ end;
 (*Initialise le nom des races dans la liste des races*)
 procedure initRace(var r : TypeRace);
 begin
-  r[1] := 'Altmer';
-  r[2] := 'Argonien';
-  r[3] :=  'Bosmer';
-  r[4] :=  'Breton';
-  r[5] :=  'Dunmer';
-  r[6] :=  'Imperial';
-  r[7] :=  'Khajit';
-  r[8] :=  'Nordique';
-  r[9] :=  'Orsimer';
-  r[10] :=  'Rougegarde';
+  r[1] := recupTUCP(16);
+  r[2] := recupTUCP(17);
+  r[3] := recupTUCP(18);
+  r[4] := recupTUCP(19);
+  r[5] := recupTUCP(20);
+  r[6] := recupTUCP(21);
+  r[7] := recupTUCP(22);
+  r[8] := recupTUCP(23);
+  r[9] := recupTUCP(24);
+  r[10] :=  recupTUCP(25);
 end;
 
 (*Retourne un type personnage en fonction de la race renseigné.*)

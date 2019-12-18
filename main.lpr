@@ -17,6 +17,8 @@ var
 begin
   changerTailleConsole(200, 60);
   effacerEcran;
+  //Write(Ord('é') , ' ' , Ord('è') , ' ' , Ord('ê') , ' ' , Ord('à') , ' ' , Ord('ô') , ' ' , Ord('ï') , ' ' , Ord('î') , ' ' , Ord('ç') , ' ' , Ord('ù') , ' ');
+
   dessinerImageMenuDem('logo_EDT.txt', 6);
   dessinerImageMenuDem('dessin_EDT.txt', 28);
 

@@ -15,6 +15,9 @@ interface
 
 uses sysutils,unitEcran, unitDate, typesDuJeu, unitSauvegardeTools;
 
+(*Récupère le texte pour ce fichier.*)
+function recupTUJeu(l : Integer) : String;
+
 (*Affiche l'en-tête du menu.*)
 procedure initCadreHautMJ(p : Personnage);
 
@@ -220,6 +223,12 @@ implementation
 (*                                                                                         *)
 (*#########################################################################################*)
 
+(*Récupère le texte pour ce fichier.*)
+function recupTUJeu(l : Integer) : String;
+begin
+  recupTUJeu := ligneDUnFichierTexte('unitMenuJeu.txt', l);
+end;
+
 (*Affiche l'en-tête du menu.*)
 procedure initCadreHautMJ(p : Personnage);
 var
@@ -229,9 +238,9 @@ begin
   changerColonneCurseur(95);
   changerLigneCurseur(3);
   centrerTexte(p.nom, 3, 100);
-  centrerTexte('race : ' + p.race, 5, 100);
-  centrerTexte('PV : ' + IntToStr(p.vie.actuelle) + '/' + IntToStr(p.vie.max), 7, 100);
-  centrerTexte('Gold : ' + IntToStr(p.gold), 9, 100);
+  centrerTexte(recupTUJeu(1) + p.race, 5, 100);
+  centrerTexte(recupTUJeu(2) + IntToStr(p.vie.actuelle) + '/' + IntToStr(p.vie.max), 7, 100);
+  centrerTexte(recupTUJeu(3) + IntToStr(p.gold), 9, 100);
 
   //date := IntToStr(p.dateAjh.heure) + ':' + IntToStr(p.dateAjh.heure) + '   ' + IntToStr(p.dateAjh.jour) + ' ';
 
@@ -276,10 +285,10 @@ begin
 
   changerLigneCurseur(55);
   changerColonneCurseur(10);
-  Write('>>> Choississez quoi faire');
+  Write('>>> ', recupTUJeu(4));
 
-  centrerTexte('a/ Inventaire', 51, 67);
-  centrerTexte('b/ Quête', 51, 133);
+  centrerTexte(recupTUJeu(5), 51, 67);
+  centrerTexte(recupTUJeu(6), 51, 133);
 end;
 
 (*Attend une réponse de la part de l'utilisateur.*)
@@ -302,7 +311,7 @@ begin
 
   for i:=1 to 12 do
     begin
-      if  p.inv[i]='Masse d''ebonite' then
+      if  p.inv[i]=recupTUJeu(7) then
         begin
           rep:=TRUE;
         end;
@@ -315,15 +324,15 @@ end;
 (*Affiche le scénario de l'évènement 1*)
 procedure scenario1MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Pénétrer dans le fort dragon', 47, 40);
-  centrerTexte('2/ Parler aux gardes', 47, 80);
-  centrerTexte('3/ Marché', 47, 120);
-  centrerTexte('4/ Rejoindre la porte principale de Blancherive', 47, 160);
+  centrerTexte(recupTUJeu(10), 47, 40);
+  centrerTexte(recupTUJeu(11), 47, 80);
+  centrerTexte(recupTUJeu(12), 47, 120);
+  centrerTexte(recupTUJeu(13), 47, 160);
 
 
 
-  affTexte(#09'Vous voici devant les portes de Blancherive, décontenancé par ce qui vient de vous arriver. Votre seul but aujourd''hui : parvenir à transmettre les informations communiquées par le Jarl d''Helgen, Gorna Tyradon. Paraît-il qu''un dragon aurait détruit plusieurs villes aux alentours de Blancherive. Vous ne l''avez pas encore aperçu mais une promesse se doit d''être tenue pour un aventurier de votre envergure.', 13);
-  affTexte(#09'Aussitôt dans Blancherive, vous vous apercevez de l''étendue de la ville. Une taverne gigantesque ainsi que des marchés tenus par des marchands d''équipement et des marchands de potions vous entoure. Vous marchez en direction du Fort-Dragon, malgré les gardes vous observant. Vous n''avez plus le temps, il vous faut retrouver le Jarl de Blancherive le plus vite possible.', 16);
+  affTexte(#09 + recupTUJeu(14), 13);
+  affTexte(#09 + recupTUJeu(15), 16);
 
   dessinerTexte('blancherive_AA.txt', 25);
 
@@ -339,13 +348,13 @@ end;
 (*Affiche le scénario de l'évènement 2*)
 procedure scenario2MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Sortir du Fort', 47, 50);
-  centrerTexte('2/ Parler au Chambellan', 47, 100);
-  centrerTexte('3/ Parler au Jarl', 47, 150);
+  centrerTexte(recupTUJeu(18), 47, 50);
+  centrerTexte(recupTUJeu(19), 47, 100);
+  centrerTexte(recupTUJeu(20), 47, 150);
 
-  affTexte('A peine rentré dans le Fort-Dragon, deux gardes viennent à votre rencontre, l''un de vous demande de vous présenter.', 13);
-  affTexte(p.nom+ ', aventurier, je viens de la part de Gorna Tyradon transmettre au Jarl qu''un dragon à détruit de nombreuses villes et se rapproche de Blancherive.', 14);
-  affTexte('Le garde stupéfait vous fait une brève description du Fort et vous remercia pour votre bravoure.', 15);
+  affTexte(recupTUJeu(21), 13);
+  affTexte(p.nom+ recupTUJeu(22), 14);  // Texte à colorier
+  affTexte(recupTUJeu(23), 15);
 
   dessinerTexte('fortDragon_AA.txt', 25);
 
@@ -361,11 +370,11 @@ end;
 (*Affiche le scénario de l'évènement 3*)
 procedure scenario3MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Pénétrer dans le Fort Dragon', 47, 50);
-  centrerTexte('2/ Marché', 47, 100);
-  centrerTexte('3/ Rejoindre la porte principale de Blancherive', 47, 150);
+  centrerTexte(recupTUJeu(10), 47, 50);
+  centrerTexte(recupTUJeu(26), 47, 100);
+  centrerTexte(recupTUJeu(27), 47, 150);
 
-  affTexte(#09'Vous vous approchez d''un garde pour vous présenter et expliquer la raison de votre venue. Le garde n''a pas l''air si effrayé, ont-ils l''habitude ?', 13);
+  affTexte(#09 + recupTUJeu(28), 13);
 
   dessinerTexte('blancherive_AA.txt', 25);
 
@@ -398,11 +407,11 @@ end;
 (*Affiche le scénario de l'évènement 5*)
 procedure scenario5MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Sortir', 47, 100);
+  centrerTexte(recupTUJeu(31), 47, 100);
 
-  affTexte('Devant vous se dresse le Chambellan du Jarl de Blancherive : Cavovius Dargogne. Il lève les yeux de son livre et vous impose de déclarer votre identité et la raison de votre venue.', 13);
-  affTexte(p.nom + ' aventurier, je suis à la recherche du Jarl pour lui transmettre un message de la part du Jarl d''Helgen.', 14);
-  affTexte('Le Chambellan dépose son livre et vous montre l''emplacement du bureau du Jarl.', 15);
+  affTexte(recupTUJeu(32), 13);
+  affTexte(p.nom + recupTUJeu(33), 14);  // Texte
+  affTexte(recupTUJeu(34), 15);
 
   dessinerTexte('bibliotheque_AA.txt', 25);
 
@@ -418,9 +427,9 @@ end;
 (*Affiche le scénario de l'évènement 6*)
 procedure scenario6MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Sortir', 47, 100);
+  centrerTexte(recupTUJeu(31), 47, 100);
 
-  affTexte(#09'Faites vite et allez voir le Jarl, le temps nous est compté ', 13);
+  affTexte(#09 + recupTUJeu(37), 13);
 
   dessinerTexte('bibliotheque_AA.txt', 25);
 
@@ -436,12 +445,12 @@ end;
 (*Affiche le scénario de l'évènement 7*)
 procedure scenario7MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Sortir', 47, 100);
+  centrerTexte(recupTUJeu(31), 47, 100);
 
-  affTexte(#09'Vous vous approchez du Jarl de Blancherive. Après une brève présentation, vous lui transmettez les informations du Jarl d''Helgen. ', 13);
-  affTexte('Le Jarl estomaqué vous dit : ', 14);
-  affTexte('Je ne sais comment vous remerciez '+p.nom+', je vais prévenir de ce pas mes gardes pour défendre notre ville.', 15);
-  affTexte(#09'Le message est transmis mais ce n''est pas assez pour vous, vous demandez comment vous pourriez aider les gardes au Jarl. Allez voir le Chambellan il vous dira quoi faire, je ne peux m''occuper de ça pour l''instant, ne vous inquiétez pas, la récompense sera au rendez-vous.', 16);
+  affTexte(#09 + recupTUJeu(40), 13);
+  affTexte(recupTUJeu(41), 14);
+  affTexte(recupTUJeu(42) + p.nom + recupTUJeu(43), 15);  // Dialogue
+  affTexte(#09 + recupTUJeu(44), 16);
 
   dessinerTexte('salleDuTrone_AA.txt', 25);
 
@@ -458,9 +467,9 @@ end;
 (*Affiche le scénario de l'évènement 8*)
 procedure scenario8MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Sortir', 47, 100);
+  centrerTexte(recupTUJeu(31), 47, 100);
 
-  affTexte(#09'Je n''ai vraiment pas le temps, allez voir le Chambellan', 13);
+  affTexte(#09 + recupTUJeu(47), 13);
 
   dessinerTexte('salleDuTrone_AA.txt', 25);
 
@@ -476,10 +485,10 @@ end;
 (*Affiche le scénario de l'évènement 9*)
 procedure scenario9MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Sortir', 47, 100);
+  centrerTexte(recupTUJeu(31), 47, 100);
 
-  affTexte(#09'Le Jarl à transmis les instructions au Chambellan, vous êtes déterminé à aider les gardes et pouvoir sauver ce qu''il reste du pays mais c''est une tout autre mission qui vous attend.', 13);
-  affTexte('Merci pour tout ' + p.nom + ', le Jarl a une entière confiance en vous et vous demande de rejoindre la tour de Guet au sud, une équipe de garde est déjà en route. Le Jarl a surement du vous le dire mais une très grosse récompense vous attend si le dragon est vaincu ', 14);
+  affTexte(#09 + recupTUJeu(50), 13);
+  affTexte(recupTUJeu(51) + p.nom + recupTUJeu(52), 14);
 
   dessinerTexte('bibliotheque_AA.txt', 25);
 
@@ -495,9 +504,9 @@ end;
 (*Affiche le scénario de l'évènement 10*)
 procedure scenario10MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Rejoindre le centre de Blancherive', 47, 100);
+  centrerTexte(recupTUJeu(55), 47, 100);
 
-  affTexte(#09'Pourquoi vous, simple aventurier ? Est-ce le hasard ou le destin ? Peu importe vous avez une promesse à tenir.', 13);
+  affTexte(#09 + recupTUJeu(56), 13);
 
   dessinerTexte('porte_AA.txt', 25);
 
@@ -513,10 +522,10 @@ end;
 (*Affiche le scénario de l'évènement 11*)
 procedure scenario11MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Aller direction la Tour de Guet', 47, 66);
-  centrerTexte('2/ Rejoindre le centre de Blancherive', 47, 133);
+  centrerTexte(recupTUJeu(59), 47, 66);
+  centrerTexte(recupTUJeu(60), 47, 133);
 
-  affTexte(#09'Le Jarl de Blancherive compte sur vous, un simple vagabond comme vous devient soldat du jour au lendemain, vous ne pouvez le décevoir.', 13);
+  affTexte(#09 + recupTUJeu(61), 13);
 
   dessinerTexte('porte_AA.txt', 25);
 
@@ -532,13 +541,13 @@ end;
 (*Affiche le scénario de l'évènement 12*)
 procedure scenario12MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Monter avec le Jarl d''Helgen', 47, 66);
-  centrerTexte('2/ Décliner l''invitation', 47, 133);
+  centrerTexte(recupTUJeu(64), 47, 66);
+  centrerTexte(recupTUJeu(65), 47, 133);
 
-  affTexte(#09'Vous marchez jusqu''à la tour, soudain une calèche s''arrêta devant vous, c''est Gorna Tyradon.', 13);
-  affTexte(#09'Vous avez réussi à transmettre le message au Jarl de Blancherive ? Vous demande le Jarl d’Helgen.', 14);
-  affTexte(#09'Vous lui répondis que oui et que vous étiez en route pour aider les gardes à la Tour de Guet au Sud.', 15);
-  affTexte(#09'Venez donc dans ma calèche je vous y emmène, je vous dois bien ça', 16);
+  affTexte(#09 + recupTUJeu(66), 13);
+  affTexte(#09 + recupTUJeu(67), 14);
+  affTexte(#09 + recupTUJeu(68), 15);
+  affTexte(#09 + recupTUJeu(69), 16);
 
   dessinerTexte('bordeciel_AA.txt', 25);
 
@@ -554,12 +563,12 @@ end;
 (*Affiche le scénario de l'évènement 13*)
 procedure scenario13MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Fuir', 47, 66);
-  centrerTexte('2/ Combattre', 47, 133);
+  centrerTexte(recupTUJeu(72), 47, 66);
+  centrerTexte(recupTUJeu(73), 47, 133);
 
-  affTexte(#09'Vous vous approchez de la Tour de Guet quand soudainement des soldats sombrages vous attaque.', 13);
-  affTexte(#09'Vous regardez autour de vous les possibilités de fuite, c''est la première fois que vous vous faites attaquer.', 14);
-  affTexte(#09'La vie du Jarl d''Helgen est entre vos mains, que faire ?', 15);
+  affTexte(#09 + recupTUJeu(74), 13);
+  affTexte(#09 + recupTUJeu(75), 14);
+  affTexte(#09 + recupTUJeu(76), 15);
 
   dessinerTexte('caleche_AA.txt', 25);
 
@@ -575,10 +584,10 @@ end;
 (*Affiche le scénario de l'évènement 14*)
 procedure scenario14MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Rejoindre la porte de la Tour de Guet', 47, 100);
+  centrerTexte(recupTUJeu(79), 47, 100);
 
-  affTexte(#09'Je ne sais quoi vous dire, vous venez de me sauver la vie et je vous en serai éternellement reconnaissant. Tenez c''est pour vous ! Je n''ai rien de plus sur moi.', 13);
-  affTexte('La calèche est totalement détruite mais il vous reste encore de la route avant la Tour de Guet, vous devez faire vite : nous n''avons pas d''informations sur l''état des gardes présent sur place.', 14);
+  affTexte(#09 + recupTUJeu(80), 13);
+  affTexte(recupTUJeu(81), 14);
 
   dessinerTexte('bordeciel_AA.txt', 25);
 
@@ -594,9 +603,9 @@ end;
 (*Affiche le scénario de l'évènement 15*)
 procedure scenario15MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Rejoindre la porte de la Tour de Guet', 47, 100);
+  centrerTexte(recupTUJeu(79), 47, 100);
 
-  affTexte(#09'Le Jarl a disparut et vous vous êtes endormi ... Un soldat de devrait pas faire ça ... Vous voyez la tour de garde au loin.', 13);
+  affTexte(#09 + recupTUJeu(84), 13);
 
   changerLigneCurseur(56);
   changerColonneCurseur(10);
@@ -608,10 +617,10 @@ end;
 (*Affiche le scénario de l'évènement 16*)
 procedure scenario16MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Fuir', 47, 66);
-  centrerTexte('2/ Combattre', 47, 133);
+  centrerTexte(recupTUJeu(72), 47, 66);
+  centrerTexte(recupTUJeu(73), 47, 133);
 
-  affTexte(#09'Vous approchez de la porte principale de Blancherive mais un barrage vous bloque le passage. Fuir et prendre le risque de se faire tirer dessus ou combattre ?', 13);
+  affTexte(#09 + recupTUJeu(87), 13);
 
   dessinerTexte('bordeciel_AA.txt', 25);
 
@@ -627,9 +636,9 @@ end;
 (*Affiche le scénario de l'évènement 17*)
 procedure scenario17MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Rejoindre Blancherive', 47, 100);
+  centrerTexte(recupTUJeu(90), 47, 100);
 
-  affTexte(#09'Vous venez de vaincre les soldats Sombrages mais le dragon est toujours à la Tour de Guet, il vous faut trouver la Masse d''Ebonite au Marché de Blancherive au plus vite.', 13);
+  affTexte(#09 + recupTUJeu(91), 13);
 
   dessinerTexte('bordeciel_AA.txt', 25);
 
@@ -645,9 +654,9 @@ end;
 (*Affiche le scénario de l'évènement 18*)
 procedure scenario18MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Rejoindre Blancherive', 47, 100);
+  centrerTexte(recupTUJeu(90), 47, 100);
 
-  affTexte(#09'Vous venez de fuir les soldats Sombrages en vous cachant dans des fougères mais le dragon est toujours à la Tour de Guet, il vous faut trouver la Masse d''Ebonite au Marché de Blancherive au plus vite.', 13);
+  affTexte(#09 + recupTUJeu(94), 13);
 
   dessinerTexte('bordeciel_AA.txt', 25);
 
@@ -661,11 +670,11 @@ end;
 (*Affiche le scénario de l'évènement 19*)
 procedure scenario19MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Marché', 47, 50);
-  centrerTexte('2/ Porte de Blancherive', 47, 100);
-  centrerTexte('3/ Pénétrer dans le fort dragon', 47, 150);
+  centrerTexte(recupTUJeu(97), 47, 50);
+  centrerTexte(recupTUJeu(98), 47, 100);
+  centrerTexte(recupTUJeu(99), 47, 150);
 
-  affTexte(#09'Vous n''oubliez pas votre mission, tuer le dragon avant qu''il n''arrive à Blancherive. Vous êtes essoufflé mais un soldat ne se plaint jamais. Avec la Masse d''Ebonite, le dragon ne devrait pas pouvoir résister. Vous apercevez le marché d''armement au loin et le temps presse, il ne faut pas perdre de temps.', 13);
+  affTexte(#09 + recupTUJeu(100), 13);
 
   dessinerTexte('blancherive_AA.txt', 25);
 
@@ -681,9 +690,10 @@ end;
 (*Affiche le scénario de l'évènement 20*)
 procedure scenario20MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Portes de Blancherive', 47, 100);
-  affTexte(#09'Un garde vous arrête et vous dit :', 13);
-  affTexte(#09'Vous n''êtes pas équiper de la Masse d''Ebonite, sans elle vous ne pourrez vaincre le dragon', 14);
+  centrerTexte(recupTUJeu(103), 47, 100);
+
+  affTexte(#09 + recupTUJeu(104), 13);
+  affTexte(#09 + recupTUJeu(105), 14);
 
   dessinerTexte('tourDeGuet_AA.txt', 25);
 
@@ -696,9 +706,10 @@ end;
 (*Affiche le scénario de l'évènement 21*)
 procedure scenario21MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Rentrer dans la Tour de Guet', 47, 100);
-  affTexte(#09'Vous êtes prêt à partir combattre, un  enfant sans genre disctinct du nom de Thorn vous arrête et vous dit : ', 13);
-  affTexte('La sécurité de Blancherive est en danger mais nous avons tous confiance en vous, faites attention.', 14);
+  centrerTexte(recupTUJeu(108), 47, 100);
+
+  affTexte(#09 + recupTUJeu(109), 13);
+  affTexte(recupTUJeu(110), 14);
 
   dessinerTexte('tourDeGuet_AA.txt', 25);
 
@@ -713,8 +724,9 @@ end;
 (*Affiche le scénario de l'évènement 23*)
 procedure scenario23MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Affronter le Dragon', 47, 100);
-  affTexte(#09'Vous êtes arrivé à la Tour de Guet, la moitié des soldats du Jarl de Blancherive sont déjà bien amochés. Le dragon ne vous voit pas. Vous, équipé de votre Masse d''Ebonite, êtes le seul à pouvoir vaincre le dragon avant qu''il ne fasse encore plus de dégâts.', 13);
+  centrerTexte(recupTUJeu(113), 47, 100);
+
+  affTexte(#09 + recupTUJeu(114), 13);
 
   dessinerTexte('tourDeGuet_AA.txt', 25);
 
@@ -729,8 +741,8 @@ end;
 (*Affiche le scénario de l'évènement 24*)
 procedure scenario24MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Sortir de la Tour de Guet', 47, 100);
-  affTexte(#09'Vous venez de sauver Blancherive et ses habitants d''une attaque de dragon. Les quelques survivants de la Tour de Guet vous remercient pendant que les blessés se font soigner. Parait-il qu''un autre dragon serait en route vers Bordeciel. Est-ce des rumeurs ? Peu importe il vous faut rejoindre le Jarl de Blancherive pour le prévenir de la mort du dragon et qu''un autre dragon se rapproche.', 13);
+  centrerTexte(recupTUJeu(117), 47, 100);
+  affTexte(#09 + recupTUJeu(118), 13);
 
   dessinerTexte('tourDeGuet_AA.txt', 25);
 
@@ -745,11 +757,11 @@ end;
 (*Affiche le scénario de l'évènement 25*)
 procedure scenario25MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Sortir du Fort', 47, 50);
-  centrerTexte('2/ Parler au Chambellan', 47, 100);
-  centrerTexte('3/ Parler au Jarl', 47, 150);
+  centrerTexte(recupTUJeu(18), 47, 50);
+  centrerTexte(recupTUJeu(19), 47, 100);
+  centrerTexte(recupTUJeu(20), 47, 150);
 
-  affTexte(#09'Description fort', 13);
+  affTexte(#09 + recupTUJeu(121), 13);
 
   dessinerTexte('fortDragon_AA.txt', 25);
 
@@ -765,12 +777,12 @@ end;
 (*Affiche le scénario de l'évènement 26*)
 procedure scenario26MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Pénétrer dans le Fort Dragon', 47, 40);
-  centrerTexte('2/ Parler aux gardes', 47, 80);
-  centrerTexte('3/ Marché', 47, 120);
-  centrerTexte('4/ Rejoindre la porte principale de Blancherive', 47, 160);
+  centrerTexte(recupTUJeu(10), 47, 40);
+  centrerTexte(recupTUJeu(11), 47, 80);
+  centrerTexte(recupTUJeu(12), 47, 120);
+  centrerTexte(recupTUJeu(13), 47, 160);
 
-  affTexte(#09'Description de blancherive', 13);
+  affTexte(#09 + recupTUJeu(124), 13);
 
   dessinerTexte('blancherive_AA.txt', 25);
 
@@ -786,9 +798,9 @@ end;
 (*Affiche le scénario de l'évènement 27*)
 procedure scenario27MJ(var p : Personnage; var rep : String);
 begin
-  centrerTexte('1/ Sortir', 47, 100);
+  centrerTexte(recupTUJeu(31), 47, 100);
 
-  affTexte(#09'Don lingot du Jarl', 13);
+  affTexte(#09 + recupTUJeu(127), 13);
 
   dessinerTexte('salleDuTrone_AA.txt', 25);
 

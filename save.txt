@@ -1,26 +1,26 @@
-Pseudo : deadLocks21
-Race : Altmer
+Pseudo : deadLocks
+Race : Rougegarde
 Vie : 000/000
-Gold : 150
-Quete : 5
+Gold : 500
+Quete : 3
 Lieu : a
-Date : 12:30 24/05/201
+Date : 05:40 24/05/201
 
 Inventaire
-#1 Epee du turfu 
-#2 Tu sais meme pas que cest cool
-#3 Epee en fer
-#4 Epee a deux mains en fer
-#5 Potion 
-#6 Potion
-#7 Potion
-#8 Potion
-#9 Potion
-#10 Potion
-#11 Potion
-#12 Potion
+#1 
+#2 
+#3 
+#4 
+#5 
+#6 
+#7 
+#8 
+#9 
+#10 
+#11 
+#12 
 
 Equipement
-Arme : Epee a deux mains en fer
+Arme : 
 Casque : 
 Plastron : 

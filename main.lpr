@@ -35,8 +35,8 @@ begin
   //creerPersonnage(joueur, 'deadLocks21', 1);
   //initDate(joueur);
 
-  //joueur.quete:=4;
-  //joueur.lieu:='g';
+  // joueur.quete:=1;
+  // joueur.lieu:='a';
   //joueur.inv[1] := 'Masse d''ebonite';
   //joueur.dateAjh.heure:=19;
 

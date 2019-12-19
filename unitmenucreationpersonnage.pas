@@ -13,7 +13,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses unitEcran, sysutils, typesDuJeu, unitDate;
+uses unitEcran, sysutils, typesDuJeu, unitDate, unitSauvegardeTools;
 
 
 
@@ -86,6 +86,10 @@ var
 begin
   ReadLn(rep);
   jeVeuxUneReponse:=rep;
+
+  if rep = 'var lang fr' then modifLang('fr');
+  if rep = 'var lang en' then modifLang('en');
+  if rep = 'var lang la' then modifLang('la');
 end;
 
 

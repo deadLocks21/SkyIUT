@@ -1,0 +1,25 @@
+What do you want us to call you?
+1/ Altmer
+2/ Argonian
+3/ Bosmer
+4/ Breton
+5/ Dunmer
+6/ Imperial
+7/ Khajit
+8/ Nordic
+9/ Orsimer
+10/ Redgarde
+What race are you from?
+Are you ready to start the game? (yes/no)
+yes
+no
+Altmer
+Argonian
+Bosmer
+Breton
+Dunmer
+Imperial
+Khajit
+Nordic
+Orsimer
+Redgarde

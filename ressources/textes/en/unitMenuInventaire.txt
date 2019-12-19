@@ -1,0 +1,51 @@
+race : 
+PV : 
+Gold : 
+Choose what to do. To equip yourself, use the e-x or e-xx command to choose the number of your equipment.
+a/ Use potion 
+b/ Exit
+Weapon: null
+Weapon: 
+Headset: null
+Headset: 
+Faceplate: null
+Chest strap:
+           You don't have a potion in your inventory... Did you try to do it backwards?!           
+                               What do you want with this potion you have your whole life!                               
+Potion
+                               GG, you just used a potion!                               
+ is teamed up.                    
+Iron sword
+Two-handed iron sword
+Iron mass
+Iron axe
+Elven sword
+Two-handed elven sword
+Elven mass
+Elf axe
+Ebonite sword
+Two-handed sword of ebonite
+Ebonite mass
+Ebonite axe
+Iron helmet
+Iron breastplate
+Elven helmet
+Elven breastplate
+Ebonite helmet
+Ebonite plastron
+ Hero Inventory 
+ Inventory list 
+ Equipment equipped with
+                    You just got your gear, well done.                    
+                    Equipping a potion is not crazy...                    
+                                         Are you serious? Do you really want to equip yourself with the vacuum?                                         
+ Price of a potion 
+19/ Potion (50)
+Enter an order in the form x-99 or x-9 with x being a to buy and v to sell. The 9 corresponds to the item number.
+a/ Exit
+Marketplace
+ Buying weapons 
+ Buying armor 
+ Equipment list 
+Enter an order.
+The store opens from 8am to 6pm, please come back in this time slot!

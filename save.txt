@@ -1,10 +1,10 @@
 Pseudo : deadLocks
 Race : Rougegarde
-Vie : 000/000
+Vie : 100/000
 Gold : 500
 Quete : 3
-Lieu : a
-Date : 05:40 24/05/201
+Lieu : b
+Date : 13:00 24/05/201
 
 Inventaire
 #1 

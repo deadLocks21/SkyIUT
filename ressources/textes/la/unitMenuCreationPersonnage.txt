@@ -1,0 +1,25 @@
+Quam operor vos volo ut vos vocant?
+I / Altmer
+II / Argonian
+III / Bosmer
+IV / Le Breton
+V / Dunmer
+VI / Imperium
+VII / Khajit
+VIII / Consilium
+IX / Orsimer
+X / Redguard
+Gentis es
+Satus es paratus ludus? (Ita / no)
+Ita
+no
+Altmer
+Argonian
+Bosmer
+breton
+Dunmer
+imperium
+Khajit
+Consilium
+Orsimer
+Redguard

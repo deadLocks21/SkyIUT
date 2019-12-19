@@ -31,6 +31,12 @@ procedure saveJ(p : Personnage);
 (*Prend le fichier de sauvegarde et créer un personnage avec.*)
 procedure lireSaveJ(var p : Personnage);
 
+(*Récupère la langue du jeu.*)
+function recupLang() : String;
+
+(*Modifie la langue du jeu.*)
+procedure modifLang(l : String);
+
 
 
 implementation
@@ -131,15 +137,12 @@ var
   fC : text;
   path, ligne, res : String;
   i : Integer;
-  test : text;
 
 begin
   path := 'save.txt';
   Assign(fC, path);
-  assign(test, 'unF.txt');
 
   Reset(fC);
-  Rewrite(test);
 
   // Récupération du pseudo.
   ReadLn(fC, ligne);
@@ -291,10 +294,40 @@ begin
   p.equip[plastron] := res;
 
 
+  Close(fC);
+end;
 
-  Write(test, res);
+(*Récupère la langue du jeu.*)
+function recupLang() : String;
+var
+  fC : text;
+  path, res : String;
 
-  Close(test);
+begin
+  path := 'lang.txt';
+  Assign(fC, path);
+  Reset(fC);
+
+  ReadLn(fC, res);
+
+  Close(fC);
+
+  recupLang := res;
+end;
+
+(*Modifie la langue du jeu.*)
+procedure modifLang(l : String);
+var
+  fC : text;
+  path : String;
+
+begin
+  path := 'lang.txt';
+  Assign(fC, path);
+  Rewrite(fC);
+
+  Write(fC, l);
+
   Close(fC);
 end;
 

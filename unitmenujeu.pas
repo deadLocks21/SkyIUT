@@ -298,6 +298,10 @@ var
 begin
   ReadLn(rep);
   jeVeuxUneReponse:=rep;
+
+  if rep = 'var lang fr' then modifLang('fr');
+  if rep = 'var lang en' then modifLang('en');
+  if rep = 'var lang la' then modifLang('la');
 end;
 
 (*Vérifie si la masse d'ébonite est dans l'inventaire. Retourne TRUE si oui.*)
@@ -1375,7 +1379,7 @@ begin
 
   if ( P AND A AND E ) then
      case rep of
-       '1' : r := 'Mourrir';
+       '1' : r := 'MourrirFleche';
        '2' : pe.lieu:='o';
      end;
 
@@ -1483,7 +1487,7 @@ begin
 
   if ( P AND A AND E ) then
      case rep of
-       '1' : r := 'Mourrir';
+       '1' : r := 'MourrirFleche';
        '2' : pe.lieu:='p';
      end;
 
@@ -1753,9 +1757,12 @@ var
   rep : String;
   A, B, C, D, E, P, X, Y, Z : Boolean;
 begin
+  ReadLn;
   effacerEcran;
-  centrerTexte('Cinématique du turfu achète le DLC', 30, 100);
-  ReadLn();
+
+  dessinerImageMenuDem('DLC_AA.txt', 20);
+  centrerTexte(recupTUJeu(129), 40, 100);
+  ReadLn;
   r := 'exit';
 end;
 

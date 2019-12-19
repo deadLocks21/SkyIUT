@@ -19,11 +19,7 @@ begin
   effacerEcran;
   //Write(Ord('é') , ' ' , Ord('è') , ' ' , Ord('ê') , ' ' , Ord('à') , ' ' , Ord('ô') , ' ' , Ord('ï') , ' ' , Ord('î') , ' ' , Ord('ç') , ' ' , Ord('ù') , ' ');
 
-  dessinerImageMenuDem('logo_EDT.txt', 6);
-  dessinerImageMenuDem('dessin_EDT.txt', 28);
-
-
-  ReadLn;
+  affEcranDem();
 
   ctn := True;
   affMenuInitiale(qF);
@@ -36,7 +32,7 @@ begin
   //initDate(joueur);
 
   // joueur.quete:=1;
-  // joueur.lieu:='a';
+  joueur.lieu:='m';
   //joueur.inv[1] := 'Masse d''ebonite';
   //joueur.dateAjh.heure:=19;
 
@@ -57,7 +53,7 @@ begin
         'Inventaire' : affMenuInv(joueur, qF);
         'Quete' : affMenuQuete(joueur, qF);
         'Magasin' : affMenuMag(joueur, qF);
-        'Mourrir' : ctn := False;
+        'MourrirFleche' : affMortFuite(ctn);
       end;
 
       if qF = 'exit' then ctn := False;

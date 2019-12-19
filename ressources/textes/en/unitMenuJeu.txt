@@ -1,0 +1,129 @@
+Race : 
+PV : 
+Gold : 
+Choose what to do
+a/ Inventory
+b/ Quest
+Ebonite mass
+
+Scenario 1
+1/ Entering Fort Dragon
+2/ Talk to the guards
+3/ Market
+4/ Reach the main gate of Blancherive
+Here you are in front of Blancherive's doorstep, disconcerted by what has just happened to you. Your only goal today is to succeed in transmitting the information provided by Helgen's Jarl, Gorna Tyradon. It seems that a dragon destroyed several cities around Blancherive. You haven't seen him yet, but a promise must be kept for an adventurer of your stature.
+Immediately in Blancherive, you notice the extent of the city. A gigantic tavern and markets run by equipment dealers and potion dealers surround you. You walk towards Fort Dragon, despite the guards watching you. You don't have any more time, you have to find the Jarl de Blancherive as soon as possible.
+
+Scenario 2
+1/ Exit the Fort
+2/ Speak to the Chamberlain
+3/ Talking to the Jarl
+As soon as you enter Fort Dragon, two guards come to meet you, one of them asks you to introduce yourself.
+adventurer, I have just come from Gorna Tyradon to transmit to Jarl that a dragon has destroyed many cities and is approaching Blancherive.
+The stunned guard gave you a brief description of the Fort and thanked you for your bravery.
+
+Scenario 3
+2/ Market
+3/ Reach the main gate of Blancherive
+You approach a guard to introduce yourself and explain why you are here. The guard doesn't look so scared, are they used to it?
+
+Scenario 5
+1/ Exit
+In front of you stands the Chamberlain of the Jarl of Blancherive: Cavovius Dargogne. He looks up from his book and requires you to declare your identity and the reason for your coming.
+ adventurer, I am looking for the Jarl to send him a message from the Helgen Jarl.
+The Chamberlain drops off his book and shows you the location of the Jarl's office.
+
+Scenario 6
+Hurry and go see the Jarl, time is running out.
+
+Scenario 7
+You approach the Jarl de Blancherive. After a brief presentation, you give him the information from Helgen's Jarl.
+The stunned Jarl tells you: 
+I don't know how you thank me. 
+I'm going to warn my guards immediately to defend our city.
+The message is being sent but it's not enough for you, you're wondering how you could help the guards at Jarl. Go to the Chamberlain and he will tell you what to do, I can't take care of that right now, don't worry, the reward will be there.
+
+Scenario 8
+I really don't have time, go to the Chamberlain
+
+Scenario 9
+The Jarl has given the instructions to the Chamberlain, you are determined to help the guards and save what is left of the country but it is a completely different mission that awaits you.
+Thank you for everything. 
+the Jarl has complete confidence in you and asks you to join Watchtower in the south, a guard team is already on its way. The Jarl must have told you, but a very big reward awaits you if the dragon is defeated 
+
+Scenario 10
+1/ Reach the Blancherive centre
+Why you, mere adventurer? Is it chance or fate? Whatever you have a promise to keep.
+
+Scenario 11
+1/ Go towards Watchtower
+2/ Reach the Blancherive centre
+Le Jarl de Blancherive is counting on you, a simple vagrant like you becomes a soldier overnight, you can't disappoint him.
+
+Scenario 12
+1/ Climbing with Helgen's Jarl
+2/ Decline the invitation
+You walk to the tower, suddenly a carriage stopped in front of you, it's Gorna Tyradon.
+Did you manage to get the message across to Jarl de Blancherive? Helgen's Jarl asks you.
+You told him yes and that you were on your way to help the guards at Watchtower in the south.
+Come on in my carriage and I'll take you there, I owe you that much.
+
+Scenario 13
+1/ Running away
+2/ Fighting
+You approach Watchtower when suddenly sunk soldiers attack you.
+You look around you at the possibilities of escape, this is the first time you have been attacked.
+The life of Helgen's Jarl is in your hands, what can you do?
+
+Scenario 14
+1/ Reaching the gate of Watchtower
+I don't know what to tell you, you just saved my life and I would be eternally grateful. Here it is for you! I have nothing more on me.
+The carriage is totally destroyed but you still have some road ahead of Watchtower, you have to hurry: we don't have any information on the condition of the guards on site.
+
+Scenario 15
+The Jarl disappeared and you fell asleep... A soldier shouldn't do that... You see the guard tower in the distance.
+
+Scenario 16
+You approach the main gate of Blancherive but a roadblock blocks your way. Running away and taking the risk of being shot at or fighting?
+
+Scenario 17
+1/ Join Blancherive
+You have just defeated the Sombrages soldiers but the dragon is still at Watchtower, you must find the Ebonite Mass at the Blancherive Market as soon as possible.
+
+Scenario 18
+You have just fled the Shades soldiers by hiding in ferns but the dragon is still at Watchtower, you must find the Ebonite Mass at the Blancherive Market as soon as possible.
+
+Scenario 19
+1/ Market
+2/ Blancherive Gate
+3/ Entering the fort dragon
+You don't forget your mission, to kill the dragon before he gets to Blancherive. You're out of breath, but a soldier never complains. With the Ebonite Mass, the dragon should not be able to resist. You see the arms market in the distance and time is running out, so don't waste any time.
+
+Scenario 20
+1/ Blancherive doors
+A guard stops you and tells you:
+You are not equipped with the Ebonite Mass, without it you will not be able to defeat the dragon
+
+Scenario 21
+1/ Entering Watchtower
+You are ready to go and fight, a child without a distinct gender named Thorn stops you and says: 
+Blancherive's safety is in danger but we all trust you, be careful.
+
+Scenario 23
+1/ Facing the Dragon
+You arrived at Watchtower, half the soldiers of Jarl de Blancherive are already badly wounded. The dragon can't see you. You, equipped with your Ebonite Mass, are the only one who can defeat the dragon before it does any more damage.
+
+Scenario 24
+1/ Exit Watchtower
+You have just saved Blancherive and his inhabitants from a dragon attack. The few survivors of Watchtower thank you while the wounded are being treated. It seems that another dragon is on its way to Bordeciel. Are these rumours? Anyway, you have to join the Jarl de Blancherive to warn him of the dragon's death and that another dragon is approaching.
+
+Scenario 25
+Strong description
+
+Scenario 26
+Description of blancherive
+
+Scenario 27
+Don ingot of the Jarl
+
+To purchase the DLC, go to the following address: timothe.hofmann.fr/dlc_skyIUT.html

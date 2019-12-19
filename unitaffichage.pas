@@ -61,6 +61,12 @@ procedure affMenuInv(var pe : Personnage; var rep : String);
 (*Procedure qui affiche le magasin du jeu.*)
 procedure affMenuMag(var p : Personnage; var rep : String);
 
+(*Affichage lorsque le joueur meurt en ayant fuit ...*)
+procedure affMortFuite(var c : Boolean);
+
+(*Affiche l'écran de démarage.*)
+procedure affEcranDem();
+
 
 
 
@@ -97,6 +103,10 @@ var
 begin
   ReadLn(rep);
   jeVeuxUneReponse:=rep;
+
+  if rep = 'var lang fr' then modifLang('fr');
+  if rep = 'var lang en' then modifLang('en');
+  if rep = 'var lang la' then modifLang('la');
 end;
 
 (*Vérifie si la masse d'ébonite est dans l'inventaire. Retourne TRUE si oui.*)
@@ -400,6 +410,28 @@ begin
     until (rep='a') OR (rep='exit');
 
   if rep = 'a' then rep := 'OK';
+end;
+
+(*Affichage lorsque le joueur meurt en ayant fuit ...*)
+procedure affMortFuite(var c : Boolean);
+begin
+  effacerEcran;
+  dessinerTexte('gameOver_AA.txt', 20);
+  centrerTexte(recupTUAff(13), 38, 100);
+  c := False;
+
+  ReadLn;
+end;
+
+(*Affiche l'écran de démarage.*)
+procedure affEcranDem();
+begin
+  effacerEcran;
+  dessinerImageMenuDem('logo_EDT.txt', 6);
+  dessinerImageMenuDem('dessin_EDT.txt', 28);
+  centrerTexte(recupTUAff(14), 59, 100);
+
+  ReadLn;
 end;
 
 end.

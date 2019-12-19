@@ -1,0 +1,16 @@
+DDDDDDDDDDDDD      LLLLLLLLLLL                    CCCCCCCCCCCCC
+D::::::::::::DDD   L:::::::::L                 CCC::::::::::::C
+D:::::::::::::::DD L:::::::::L               CC:::::::::::::::C
+DDD:::::DDDDD:::::DLL:::::::LL              C:::::CCCCCCCC::::C
+  D:::::D    D:::::D L:::::L               C:::::C       CCCCCC
+  D:::::D     D:::::DL:::::L              C:::::C              
+  D:::::D     D:::::DL:::::L              C:::::C              
+  D:::::D     D:::::DL:::::L              C:::::C              
+  D:::::D     D:::::DL:::::L              C:::::C              
+  D:::::D     D:::::DL:::::L              C:::::C              
+  D:::::D     D:::::DL:::::L              C:::::C              
+  D:::::D    D:::::D L:::::L         LLLLLLC:::::C       CCCCCC
+DDD:::::DDDDD:::::DLL:::::::LLLLLLLLL:::::L C:::::CCCCCCCC::::C
+D:::::::::::::::DD L::::::::::::::::::::::L  CC:::::::::::::::C
+D::::::::::::DDD   L::::::::::::::::::::::L    CCC::::::::::::C
+DDDDDDDDDDDDD      LLLLLLLLLLLLLLLLLLLLLLLL       CCCCCCCCCCCCC

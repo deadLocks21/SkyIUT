@@ -44,6 +44,13 @@ type
     lieu : String;
   end;
 
+  (*Record contenant les infos d'un ennemie*)
+  Enemy = record
+    nom : String;
+    vie : TypeVie;
+    degat : Integer;
+  end;
+
 
 implementation
 

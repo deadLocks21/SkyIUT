@@ -3,7 +3,7 @@ program main;
 {$codepage utf8}
 
 uses unitEcran, unitAffichage, typesDuJeu, unitMenuCreationPersonnage,
-  unitMenuQuete, unitMenuInventaire;
+  unitMenuQuete, unitMenuInventaire, unitMenuJeu;
 
 
 var
@@ -36,7 +36,7 @@ begin
         'Quete' : affMenuQuete(joueur, qF);
         'Magasin' : affMenuMag(joueur, qF);
         'Mourrir' : hamadi := False;
-        //'LancerCombat !!' : leCombat ;
+        'LancerCombat !!' :  combattreLoup(joueur, qF);
       end;
 
       if qF = 'exit' then hamadi := False;

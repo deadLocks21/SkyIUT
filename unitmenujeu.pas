@@ -13,7 +13,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses sysutils,unitEcran, typesDuJeu;
+uses sysutils,unitEcran, typesDuJeu, unitCombat;
 
 (*Affiche l'en-tête du menu.*)
 procedure initCadreHautMJ(p : Personnage);
@@ -23,6 +23,9 @@ procedure initCadreBasMJ();
 
 (*Attend une réponse de la part de l'utilisateur.*)
 function jeVeuxUneReponse() : String;
+
+(*Permet de combattre un loup*)
+procedure combattreLoup(var p : Personnage; var r : String);
 
 
 
@@ -88,6 +91,20 @@ var
 begin
   ReadLn(rep);
   jeVeuxUneReponse:=rep;
+end;
+
+(*Permet de combattre un loup*)
+procedure combattreLoup(var p : Personnage; var r : String);
+var
+  en : Enemy;
+
+begin
+  en.nom:='un loup';
+  en.degat:=4;
+  en.vie.max := 24;
+  en.vie.actuelle := 24;
+
+  r := combat(p, en);
 end;
 
 

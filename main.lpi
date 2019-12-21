@@ -27,11 +27,16 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <Units Count="1">
+    <Units Count="2">
       <Unit0>
         <Filename Value="main.lpr"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
+      <Unit1>
+        <Filename Value="unitcombat.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unitCombat"/>
+      </Unit1>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

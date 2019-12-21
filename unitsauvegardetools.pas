@@ -12,7 +12,6 @@ interface
 (*   ###  #  #    #    ####  #  #  #     #  #   ##   ####  *)
 (*                                                         *)
 (*#########################################################*)
-
 uses typesDuJeu, sysutils;
 
     (*#################################################################*)
@@ -30,12 +29,6 @@ procedure saveJ(p : Personnage);
 
 (*Prend le fichier de sauvegarde et créer un personnage avec.*)
 procedure lireSaveJ(var p : Personnage);
-
-(*Récupère la langue du jeu.*)
-function recupLang() : String;
-
-(*Modifie la langue du jeu.*)
-procedure modifLang(l : String);
 
 
 
@@ -163,7 +156,7 @@ begin
   p.vie.actuelle:=StrToInt(res);
 
   res := ligne[11..13];
-  p.vie.actuelle:=StrToInt(res);
+  p.vie.max:=StrToInt(res);
 
   // Récupération des golds
   ReadLn(fC, ligne);
@@ -293,40 +286,6 @@ begin
   for i := 12 to Length(ligne) do res := res + ligne[i];
   p.equip[plastron] := res;
 
-
-  Close(fC);
-end;
-
-(*Récupère la langue du jeu.*)
-function recupLang() : String;
-var
-  fC : text;
-  path, res : String;
-
-begin
-  path := 'lang.txt';
-  Assign(fC, path);
-  Reset(fC);
-
-  ReadLn(fC, res);
-
-  Close(fC);
-
-  recupLang := res;
-end;
-
-(*Modifie la langue du jeu.*)
-procedure modifLang(l : String);
-var
-  fC : text;
-  path : String;
-
-begin
-  path := 'lang.txt';
-  Assign(fC, path);
-  Rewrite(fC);
-
-  Write(fC, l);
 
   Close(fC);
 end;

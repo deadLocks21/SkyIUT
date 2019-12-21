@@ -14,7 +14,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses SysUtils, Windows, unitSauvegardeTools;
+uses SysUtils, Windows;
 
 
 
@@ -119,8 +119,7 @@ procedure dessinerTexte(nF : String; yB : Integer);
 // Comme dessinner texte, mais rajoute un timer pour faire un petit effet.
 procedure dessinerImageMenuDem(nF : String; yB : Integer);
 
-// Retourne une ligne d'un fichier texte.
-function ligneDUnFichierTexte(fichier : String; l : Integer) : String;
+
 
 const
   // Codes des couleurs
@@ -453,7 +452,7 @@ begin
 
       for e := i to c do
         begin
-          Sleep(10);
+          Sleep(5);
           
           affUnCarAcc(t, e);
 
@@ -538,23 +537,6 @@ begin
 
   close(fC);
 
-end;
-
-function ligneDUnFichierTexte(fichier : String; l : Integer) : String;
-var
-  path : String;
-  t : text;
-  i : Integer;
-
-begin
-  path := 'ressources/textes/' + recupLang() + '/' + fichier;
-
-  Assign(t, path);
-  Reset(t);
-
-  for i := 1 to l-1 do ReadLn(t);
-
-  ReadLn(t, ligneDUnFichierTexte)
 end;
 
 end.

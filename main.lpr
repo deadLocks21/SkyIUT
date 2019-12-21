@@ -3,7 +3,8 @@ program main;
 {$codepage utf8}
 
 uses unitEcran, unitAffichage, typesDuJeu, unitMenuCreationPersonnage,
-  unitMenuQuete, unitMenuInventaire, unitDate, sysutils, unitSauvegardeTools;
+  unitMenuQuete, unitMenuInventaire, unitDate, sysutils, unitSauvegardeTools,
+  unitCombat, unitLang;
 
 
 var
@@ -11,6 +12,7 @@ var
   qF : String;  // Variable qui permet de récupérer ce que veut faire l'utilisateur.
   ctn : Boolean;  // Variable booléene qui fait tourner la boule principale de jeu.
   joueur : Personnage;
+  en : Enemy;
 
 
 
@@ -18,6 +20,17 @@ begin
   changerTailleConsole(200, 60);
   effacerEcran;
   //Write(Ord('é') , ' ' , Ord('è') , ' ' , Ord('ê') , ' ' , Ord('à') , ' ' , Ord('ô') , ' ' , Ord('ï') , ' ' , Ord('î') , ' ' , Ord('ç') , ' ' , Ord('ù') , ' ');
+
+  ///////
+  //en.nom:='Tux';
+  //en.degat:=50;
+  //en.vie.max := 100;
+  //en.vie.actuelle := 100;
+  //
+  //lireSaveJ(joueur);
+  //combat(joueur, en);
+  /////
+
 
   affEcranDem();
 
@@ -32,7 +45,7 @@ begin
   //initDate(joueur);
 
   // joueur.quete:=1;
-  joueur.lieu:='m';
+  joueur.lieu:='a';
   //joueur.inv[1] := 'Masse d''ebonite';
   //joueur.dateAjh.heure:=19;
 
@@ -54,6 +67,7 @@ begin
         'Quete' : affMenuQuete(joueur, qF);
         'Magasin' : affMenuMag(joueur, qF);
         'MourrirFleche' : affMortFuite(ctn);
+        'MourrirCombat' : affMort(ctn);
       end;
 
       if qF = 'exit' then ctn := False;

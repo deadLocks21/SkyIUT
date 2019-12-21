@@ -14,7 +14,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses unitEcran, unitMenuInitiale, unitMenuCreationPersonnage, unitMenuJeu, unitMenuQuete, unitMenuInventaire, typesDuJeu, sysutils, unitSauvegardeTools;
+uses unitEcran, unitMenuInitiale, unitMenuCreationPersonnage, unitMenuJeu, unitMenuQuete, unitMenuInventaire, typesDuJeu, sysutils, unitSauvegardeTools, unitLang;
 
 
 
@@ -63,6 +63,9 @@ procedure affMenuMag(var p : Personnage; var rep : String);
 
 (*Affichage lorsque le joueur meurt en ayant fuit ...*)
 procedure affMortFuite(var c : Boolean);
+
+(*Affichage lorsque le joueur meurt en combat.*)
+procedure affMort(var c : Boolean);
 
 (*Affiche l'écran de démarage.*)
 procedure affEcranDem();
@@ -225,9 +228,13 @@ begin
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'm') then scenario24MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'n') then scenario23MJ(p, rep);
 
-  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'o')) then p.lieu:='i';
-  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'p') ) then p.lieu:='l';
-  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'q') ) then p.lieu:='m';
+  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'o')) then p.lieu:='i';
+  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'p') ) then p.lieu:='l';
+  //if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'q') ) then p.lieu:='m';
+
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'o')) then combattreSombrage(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'p') ) then combattreSombrage(p, rep);
+  if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND ( (p.lieu = 'q') ) then combattreDragon(p, rep);
 
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 'r') then scenario15MJ(p, rep);
   if ((rep <> 'OK') AND (rep<>'exit') AND (rep<>'Mourrir') AND (rep<>'Magasin') AND (rep<>'Quete') AND (rep<>'Inventaire')) AND (p.lieu = 's') then scenario18MJ(p, rep);
@@ -418,6 +425,16 @@ begin
   effacerEcran;
   dessinerTexte('gameOver_AA.txt', 20);
   centrerTexte(recupTUAff(13), 38, 100);
+  c := False;
+
+  ReadLn;
+end;
+
+(*Affichage lorsque le joueur meurt en combat.*)
+procedure affMort(var c : Boolean);
+begin
+  effacerEcran;
+  dessinerTexte('gameOver_AA.txt', 21);
   c := False;
 
   ReadLn;

@@ -13,7 +13,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses unitEcran, sysutils, typesDuJeu, unitDate, unitSauvegardeTools;
+uses unitEcran, sysutils, typesDuJeu, unitDate, unitSauvegardeTools, unitLang;
 
 
 

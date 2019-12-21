@@ -14,7 +14,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses unitEcran;
+uses unitEcran, typesDuJeu;
 
 
 

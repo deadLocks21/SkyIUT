@@ -49,3 +49,21 @@ Marché
  Liste de l'equipements 
 Saisissez une commande.
 Le magasin ouvre de 08h à 18h, merci de repasser dans ce créneau horaire !!
+Le combat entre 
+ et 
+ commence !!
+L'ennemie vous a fait perdre 
+ PV.
+Votre armure vous a protégé !!
+L'ennemie a perdu 
+Tu viens de gagner 
+ PV avec cette potion !!
+Tu n'as pas de potion tu viens de perdre un tour ...
+Tu viens de passer ton tour.
+Tu as gagné !!
+Tu as perdu ...
+Cliquer sur une touche pour passer à votre tour.
+Choississez quoi faire.
+1/ Attaquer
+2/ Utiliser une potion
+3/ Ne rien faire

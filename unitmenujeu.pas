@@ -13,7 +13,7 @@ interface
 (*                                                         *)
 (*#########################################################*)
 
-uses sysutils,unitEcran, unitDate, typesDuJeu, unitSauvegardeTools;
+uses sysutils,unitEcran, unitDate, typesDuJeu, unitSauvegardeTools, unitLang, unitCombat;
 
 (*Récupère le texte pour ce fichier.*)
 function recupTUJeu(l : Integer) : String;
@@ -194,6 +194,12 @@ procedure reponseScenario26(var pe : Personnage; var r : String);
 
 (*Permet d'analyser la réponse du joueur et de changer le lieu et la quête pour la scene 27.*)
 procedure reponseScenario27(var pe : Personnage; var r : String);
+
+(*Permet de combattre des sombrages*)
+procedure combattreSombrage(var p : Personnage; var r : String);
+
+(*Permet de combattre le dragon*)
+procedure combattreDragon(var p : Personnage; var r : String);
 
 
 
@@ -1383,7 +1389,7 @@ begin
        '2' : pe.lieu:='o';
      end;
 
-  if (pe.dateAjh.heure > 17) then
+  if (pe.dateAjh.heure > 17) AND (r = 'MourrirFleche') then
      begin
        for i:=1 to (34 - pe.dateAjh.heure) do
          begin
@@ -1394,7 +1400,7 @@ begin
        r := 'OK';
      end;
 
-  if (pe.dateAjh.heure < 6) then
+  if (pe.dateAjh.heure < 6) AND (r = 'MourrirFleche') then
      begin
        for i:=1 to (11 - pe.dateAjh.heure) do
          begin
@@ -1896,4 +1902,39 @@ begin
 
   pe.gold:=pe.gold + (1100-pe.gold);
 end;
+
+(*Permet de combattre des sombrages*)
+procedure combattreSombrage(var p : Personnage; var r : String);
+var
+  en : Enemy;
+
+begin
+  en.nom:='un groupe de Sombrage';
+  en.degat:=11;
+  en.vie.max := 111;
+  en.vie.actuelle := 111;
+
+  r := combat(p, en);
+
+  if (r = 'OK') AND (p.lieu='o') then p.lieu:='i';
+  if (r = 'OK') AND (p.lieu='p') then p.lieu:='l';
+end;
+
+(*Permet de combattre le dragon*)
+procedure combattreDragon(var p : Personnage; var r : String);
+var
+  en : Enemy;
+
+begin
+  en.nom:='le DRAGON';
+  en.degat:=25;
+  en.vie.max := 200;
+  en.vie.actuelle := 200;
+
+  r := combat(p, en);
+
+  if (r = 'OK') then p.lieu:='m';
+end;
+
+
 end.

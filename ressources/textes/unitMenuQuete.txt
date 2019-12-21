@@ -1,5 +1,0 @@
-Race : 
-PV : 
-Gold : 
-Choississez quoi faire
-a/ Quitter

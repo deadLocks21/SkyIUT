@@ -27,7 +27,7 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <Units Count="2">
+    <Units Count="4">
       <Unit0>
         <Filename Value="main.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -37,6 +37,16 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="unitDate"/>
       </Unit1>
+      <Unit2>
+        <Filename Value="unitcombat.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unitCombat"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="unitlang.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="unitLang"/>
+      </Unit3>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

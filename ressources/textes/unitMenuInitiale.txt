@@ -1,4 +1,0 @@
-1/ Nouvelle partie
-2/ Reprendre
-3/ Quitter
-Que voulez-vous faire 

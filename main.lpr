@@ -12,20 +12,10 @@ var
   qF : String;  // Variable qui permet de récupérer ce que veut faire l'utilisateur.
   ctn : Boolean;  // Variable booléene qui fait tourner la boule principale de jeu.
   joueur : Personnage;
-  en : Enemy;
-
-
 
 begin
   changerTailleConsole(200, 60);
   effacerEcran;
-
-	while 1=1 do
-    begin
-      avancerMinutes(joueur, 60);
-      WriteLn(IntToStr(joueur.dateAjh.heure) + ':' + IntToStr(joueur.dateAjh.minute) + ' ' + IntToStr(joueur.dateAjh.jour) + '/' + IntToStr(joueur.dateAjh.mois) + '/' + IntToStr(joueur.dateAjh.annee));
-      attendre(10);
-    end;
 
   affEcranDem();
 
@@ -35,23 +25,6 @@ begin
   if qF = 'exit' then ctn := False;
   if qF = 'n' then affMenuCreationPersonnage(joueur);
   if qF = 'r' then lireSaveJ(joueur);
-
-  //creerPersonnage(joueur, 'deadLocks21', 1);
-  //initDate(joueur);
-
-  // joueur.quete:=1;
-  joueur.lieu:='a';
-  //joueur.inv[1] := 'Masse d''ebonite';
-  //joueur.dateAjh.heure:=19;
-
-  // Test du temps !!
-  //while 1=1 do
-  //  begin
-  //    avancerMinutes(joueur, 10);
-  //    WriteLn(IntToStr(joueur.dateAjh.heure) + ':' + IntToStr(joueur.dateAjh.minute) + ' ' + IntToStr(joueur.dateAjh.jour) + '/' + IntToStr(joueur.dateAjh.mois) + '/' + IntToStr(joueur.dateAjh.annee));
-  //  end;
-
-  //saveJ(joueur);
 
   while ctn do
     begin

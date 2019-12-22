@@ -114,13 +114,6 @@ begin
 
           tour := False;
           att := 'p';
-
-          changerLigneCurseur(56);
-          changerColonneCurseur(10);
-          Write('>>>                                             ');
-          changerColonneCurseur(14);
-
-          ReadLn();
         end;
 
 

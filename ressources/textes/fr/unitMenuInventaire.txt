@@ -67,3 +67,21 @@ Choississez quoi faire.
 1/ Attaquer
 2/ Utiliser une potion
 3/ Ne rien faire
+The fight between 
+ and 
+ start!!!
+The enemy has made you lose 
+ PV.
+Your armor protected you !
+The enemy has lost 
+You just won 
+ PV with this potion !
+You don't have a potion you just lost a turn...
+You just missed your turn.
+You win!
+You lost...
+Click a button to pass your turn.
+Choose what to do.
+1/ Attack
+2/ Use a potion
+3/ Do nothing

@@ -114,16 +114,18 @@ Scenario 23
 You arrived at Watchtower, half the soldiers of Jarl de Blancherive are already badly wounded. The dragon can't see you. You, equipped with your Ebonite Mass, are the only one who can defeat the dragon before it does any more damage.
 
 Scenario 24
-1/ Exit Watchtower
-You have just saved Blancherive and his inhabitants from a dragon attack. The few survivors of Watchtower thank you while the wounded are being treated. It seems that another dragon is on its way to Bordeciel. Are these rumours? Anyway, you have to join the Jarl de Blancherive to warn him of the dragon's death and that another dragon is approaching.
+1/ Leave the Watchtower
+You just saved Snow White and its people from a dragon attack. The few survivors in Watchtower thank you while the wounded are being treated. Word is that another dragon is on its way to Bordeciel. Is that a rumor? No matter what, you must reach the Jarl of Blancherive to warn him of the dragon's death and that another dragon is approaching.
 
 Scenario 25
-Strong description
+You're in the Dragonfort. You can go to the Chamberlain or the Jarl.
 
 Scenario 26
-Description of blancherive
+Blancherive stands in front of you, merchants with their stalls, the famous Dragon Fort that you have heard so much about and dozens of guards to protect the town. The inhabitants are beginning to be aware that something is happening. You can even see the inhabitants preparing their business to flee Blancherive. We'll have to hurry before the Dragon gets here and destroys the town and its inhabitants.
 
 Scenario 27
-Don ingot of the Jarl
+You approach the Jarl of Blancherive out of breath, you don't have much time left, you explain the situation to the Jarl. The Jarl goes through his bag and tells you:
+Here, take these gold bars, go to the market and equip yourself with the Mass of Ebonite!
+The soldiers of the Jarl have no strength left, you have to reach the Watchtower as soon as possible, with this money the Ebonite Mass can be bought. 
 
-To purchase the DLC, go to the following address: timothe.hofmann.fr/dlc_skyIUT.html
+To buy the DLC, make a PayPal donation at the following address: maqopcgaming@gmail.com

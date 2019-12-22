@@ -118,12 +118,14 @@ Scénario 24
 Vous venez de sauver Blancherive et ses habitants d'une attaque de dragon. Les quelques survivants de la Tour de Guet vous remercient pendant que les blessés se font soigner. Parait-il qu'un autre dragon serait en route vers Bordeciel. Est-ce des rumeurs ? Peu importe il vous faut rejoindre le Jarl de Blancherive pour le prévenir de la mort du dragon et qu'un autre dragon se rapproche.
 
 Scénario 25
-Description fort
+Vous êtes dans le Fort-Dragon. Vous pouvez aller voir le chambellan ou le Jarl.
 
 Scénario 26
-Description de blancherive
+Blancherive se dresse devant vous, des marchands avec leur stand, le fameux Fort Dragon dont vous avez tant entendu parler et des dizaines de gardes pour protéger la ville. Les habitants commencent à être au courant que quelque chose est en train de se passer. Vous pouvez même apercevoir des habitants qui prépare leur affaire pour fuir Blancherive. Il va falloir faire vite avant que le Dragon arrive jusqu'ici et détruise la ville ainsi que ses habitants.
 
 Scénario 27
-Don lingot du Jarl
+Vous vous approchez du Jarl de Blancherive essoufflé, il ne vous reste plus beaucoup de temps, vous expliquez la situation au Jarl. Le Jarl fouille dans son sac et vous dit :
+Tenez, prenez ces lingots d'or, rejoignez le marché et équiper vous de la Masse d'Ebonite !
+Les soldats du Jarl n'ont plus de force, il vous faut rejoindre la Tour de Guet le plus rapidement possible, avec cet argent la Masse d'Ebonite peut être achetée. 
 
 Pour acheter le DLC, faire un don PayPal à l'adresse suivante : maqopcgaming@gmail.com

@@ -811,6 +811,8 @@ begin
   centrerTexte(recupTUJeu(31), 47, 100);
 
   affTexte(#09 + recupTUJeu(127), 13);
+  affTexte(recupTUJeu(128), 14);
+  affTexte(#09 + recupTUJeu(129), 15);
 
   dessinerTexte('salleDuTrone_AA.txt', 25);
 
@@ -1767,7 +1769,7 @@ begin
   effacerEcran;
 
   dessinerImageMenuDem('DLC_AA.txt', 20);
-  centrerTexte(recupTUJeu(129), 40, 100);
+  centrerTexte(recupTUJeu(131), 40, 100);
   ReadLn;
   r := 'exit';
 end;

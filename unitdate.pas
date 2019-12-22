@@ -120,7 +120,7 @@ procedure avancerMinutes(var p : Personnage; nbrMin : Integer);
 begin
   p.dateAjh.minute := p.dateAjh.minute + nbrMin;
 
-  if p.dateAjh.minute > 59 then
+  while p.dateAjh.minute > 59 do
     begin
       p.dateAjh.minute := p.dateAjh.minute - 60;
       avancerHeure(p);

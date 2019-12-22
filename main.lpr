@@ -19,18 +19,13 @@ var
 begin
   changerTailleConsole(200, 60);
   effacerEcran;
-  //Write(Ord('é') , ' ' , Ord('è') , ' ' , Ord('ê') , ' ' , Ord('à') , ' ' , Ord('ô') , ' ' , Ord('ï') , ' ' , Ord('î') , ' ' , Ord('ç') , ' ' , Ord('ù') , ' ');
 
-  ///////
-  //en.nom:='Tux';
-  //en.degat:=50;
-  //en.vie.max := 100;
-  //en.vie.actuelle := 100;
-  //
-  //lireSaveJ(joueur);
-  //combat(joueur, en);
-  /////
-
+	while 1=1 do
+    begin
+      avancerMinutes(joueur, 60);
+      WriteLn(IntToStr(joueur.dateAjh.heure) + ':' + IntToStr(joueur.dateAjh.minute) + ' ' + IntToStr(joueur.dateAjh.jour) + '/' + IntToStr(joueur.dateAjh.mois) + '/' + IntToStr(joueur.dateAjh.annee));
+      attendre(10);
+    end;
 
   affEcranDem();
 

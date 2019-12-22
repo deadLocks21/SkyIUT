@@ -16,16 +16,11 @@ var
 
 begin
   hamadi := True;
-  {affMenuInitiale(qF);
+  affMenuInitiale(qF);
 
   if qF = 'exit' then ctn := False;
-  if qF = 'n' then affMenuCreationPersonnage(joueur);}
+  if qF = 'n' then affMenuCreationPersonnage(joueur);
 
-  creerPersonnage(joueur, 'deadLocks21', 1);
-
-  // joueur.quete:=4;
-  // joueur.lieu:='g';
-  // joueur.inv[1] := 'Masse d''ebonite';
 
   while hamadi do
     begin
